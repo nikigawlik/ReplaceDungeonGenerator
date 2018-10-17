@@ -13,6 +13,7 @@ namespace ReplaceDungeonGenerator
 		public static Color roomBoxColor = Color.gray;
 		public static Color roomLabelColor = Color.white;
 
+#if UNITY_EDITOR
 		[PreferenceItem("ReDuGe")]
 
 		public static void PreferencesGUI()
@@ -38,6 +39,7 @@ namespace ReplaceDungeonGenerator
 				EditorPrefs.SetInt("roomLabelColor", ColorToInt(roomLabelColor));
 			}
 		}
+#endif
 
 		private static int ColorToInt(Color c) {
 			int r = (int)(c.r * 255);
