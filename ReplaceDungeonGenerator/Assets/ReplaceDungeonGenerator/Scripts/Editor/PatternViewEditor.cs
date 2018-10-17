@@ -17,7 +17,7 @@ namespace ReplaceDungeonGenerator
 
 			DrawDefaultInspector();
 
-			Rect hor = EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.BeginHorizontal();
 				float previousLabelWidth = EditorGUIUtility.labelWidth;
 				float previousFieldWidth = EditorGUIUtility.fieldWidth;
 

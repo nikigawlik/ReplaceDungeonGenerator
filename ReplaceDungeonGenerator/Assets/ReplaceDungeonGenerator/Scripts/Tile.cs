@@ -7,7 +7,7 @@ namespace ReplaceDungeonGenerator
 	[System.Serializable]
 	public struct Tile {
 		// if the numbers change here, serialisation will break!
-		public enum Type {
+		public enum TileType {
 			Empty = 0,
 			OutOfBounds = 1,
 			Wildcard = 2,
@@ -17,16 +17,32 @@ namespace ReplaceDungeonGenerator
 			UndirectedEdge = 6,
 		}
 
-		public readonly Type type;
-		[Tooltip("Unique label identifying the Tile. Usually left empty for non-symbols.")]
-		public readonly string label;
+        [SerializeField] private TileType type;
+        [Tooltip("Unique label identifying the Tile. Usually left empty for non-symbols.")]
+        [SerializeField] private string label;
 
-		public Tile(Type type, string label) {
+        public TileType Type
+        {
+            get
+            {
+                return type;
+            }
+        }
+
+        public string Label
+        {
+            get
+            {
+                return label;
+            }
+        }
+
+        public Tile(TileType type, string label) {
 			this.type = type;
 			this.label = label;
 		}
 
-		public Tile(Type type) {
+		public Tile(TileType type) {
 			this.type = type;
 			this.label = "";
 		}

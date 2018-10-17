@@ -5,8 +5,12 @@ using UnityEngine;
 namespace ReplaceDungeonGenerator
 {
 	[System.Serializable]
-	public class Pattern {
+	public class Pattern : ISerializationCallbackReceiver{
         public Tile[,,] tiles = new Tile[1, 1, 1];
+		
+		// For serialization
+		[SerializeField] [HideInInspector] private Tile[] serializedTiles;
+		[SerializeField] [HideInInspector] private Vector3Int serializedSize;
 
 		public Pattern(Tile[,,] tiles) {
 			this.tiles = tiles;
@@ -40,7 +44,7 @@ namespace ReplaceDungeonGenerator
             }
 			set {
 				// TODO preserve stuff
-				if(value.x != tiles.GetLength(0) || value.y != tiles.GetLength(1) || value.z != tiles.GetLength(2)) {
+				if(tiles == null || value.x != tiles.GetLength(0) || value.y != tiles.GetLength(1) || value.z != tiles.GetLength(2)) {
 					tiles = new Tile[value.x, value.y, value.z];
 				}
 			}
@@ -48,10 +52,29 @@ namespace ReplaceDungeonGenerator
 
 		public Tile TileAt(Vector3Int position) {
 			if(!Utils.InBounds(position, Size)) {
-				return new Tile(Tile.Type.OutOfBounds);
+				return new Tile(Tile.TileType.OutOfBounds);
 			}
 
 			return tiles[position.x, position.y, position.z];
+		}
+
+		public void OnBeforeSerialize() {
+			serializedSize = Size;
+			serializedTiles = new Tile[serializedSize.x * serializedSize.y * serializedSize.z];
+
+			foreach (Vector3Int p in Utils.IterateGrid3D(serializedSize))
+			{
+				serializedTiles[p.x * serializedSize.y * serializedSize.z + p.y * serializedSize.z + p.z] = tiles[p.x, p.y, p.z];
+			}
+		}
+
+		public void OnAfterDeserialize() {
+			Size = serializedSize;
+
+			foreach (Vector3Int p in Utils.IterateGrid3D(serializedSize))
+			{
+				tiles[p.x, p.y, p.z] = serializedTiles[p.x * serializedSize.y * serializedSize.z + p.y * serializedSize.z + p.z];
+			}
 		}
     }
 }

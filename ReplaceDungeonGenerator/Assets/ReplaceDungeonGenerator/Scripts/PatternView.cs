@@ -7,14 +7,14 @@ namespace ReplaceDungeonGenerator
 {
     public class PatternView : MonoBehaviour
     {
-        [HideInInspector] public Pattern pattern;
+        public Pattern pattern;
 		
         public void GenerateTestPattern()
         {
             foreach (Vector3Int pos in Utils.IterateGrid3D(pattern.Size))
             {
                 pattern.tiles[pos.x, pos.y, pos.z] = new Tile(
-                    Tile.Type.NonterminalSymbol,
+                    Tile.TileType.NonterminalSymbol,
                     "(" + pos.x.ToString() + ", " +
                     pos.y.ToString() + ", " +
                     pos.z.ToString() + ")"
@@ -35,10 +35,10 @@ namespace ReplaceDungeonGenerator
 					Gizmos.color = ReplaceDungeonGenerator.Preferences.roomBoxColor;
                     Gizmos.DrawWireCube(GetPositionInWorldSpace(pos), Vector3.one * Preferences.roomBoxSize);
 
-                    if (t.label != "")
+                    if (t.Label != "")
                     {
 						GUI.color = ReplaceDungeonGenerator.Preferences.roomLabelColor;
-                        DrawLabel(t.label, pos);
+                        DrawLabel(t.Label, pos);
                     }
                 }
             }
