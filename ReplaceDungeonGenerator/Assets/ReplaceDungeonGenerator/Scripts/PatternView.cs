@@ -33,7 +33,7 @@ namespace ReplaceDungeonGenerator
                     Tile t = pattern.TileAt(pos);
 
 					Gizmos.color = ReplaceDungeonGenerator.Preferences.roomBoxColor;
-                    Gizmos.DrawWireCube(GetPositionInWorldSpace(pos), Vector3.one * 0.1f);
+                    Gizmos.DrawWireCube(GetPositionInWorldSpace(pos), Vector3.one * Preferences.roomBoxSize);
 
                     if (t.label != "")
                     {
@@ -81,7 +81,7 @@ namespace ReplaceDungeonGenerator
 
         private Vector3 GetPositionInWorldSpace(Vector3Int position)
         {
-            return transform.position + position - (pattern.Size - Vector3.one) * 0.5f;
+            return transform.TransformPoint(position - (pattern.Size - Vector3.one) * 0.5f);
         }
     }
 }

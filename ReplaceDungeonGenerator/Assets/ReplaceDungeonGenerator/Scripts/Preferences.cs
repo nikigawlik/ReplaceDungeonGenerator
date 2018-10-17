@@ -9,6 +9,7 @@ namespace ReplaceDungeonGenerator
 		private static bool prefsLoaded = false;
 
 		// Actual preferences 
+		public static float roomBoxSize = .1f;
 		public static Color roomBoxColor = Color.gray;
 		public static Color roomLabelColor = Color.white;
 
@@ -21,15 +22,18 @@ namespace ReplaceDungeonGenerator
 			{
 				roomBoxColor = IntToColor(EditorPrefs.GetInt("roomBoxColor", ColorToInt(roomBoxColor)));
 				roomLabelColor = IntToColor(EditorPrefs.GetInt("roomLabelColor", ColorToInt(roomLabelColor)));
+				roomBoxSize = EditorPrefs.GetFloat("roomBoxSize", roomBoxSize);
 				prefsLoaded = true;
 			}
 
 			// Preferences GUI
+			roomBoxSize = EditorGUILayout.FloatField("Room box size", roomBoxSize);
 			roomBoxColor = EditorGUILayout.ColorField("Room box color", roomBoxColor);
 			roomLabelColor = EditorGUILayout.ColorField("Room label color", roomLabelColor);
 
 			// Save the preferences
 			if (GUI.changed) {
+				EditorPrefs.SetFloat("roomBoxSize", roomBoxSize);
 				EditorPrefs.SetInt("roomBoxColor", ColorToInt(roomBoxColor));
 				EditorPrefs.SetInt("roomLabelColor", ColorToInt(roomLabelColor));
 			}
