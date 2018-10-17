@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ReplaceDungeonGenerator
 {
 	[System.Serializable]
-	public class Tile {
+	public struct Tile {
 		// if the numbers change here, serialisation will break!
 		public enum Type {
 			Empty = 0,
@@ -17,12 +17,18 @@ namespace ReplaceDungeonGenerator
 			UndirectedEdge = 6,
 		}
 
-		public Type type = Type.Empty;
+		public readonly Type type;
 		[Tooltip("Unique label identifying the Tile. Usually left empty for non-symbols.")]
-		public string label = "";
+		public readonly string label;
+
+		public Tile(Type type, string label) {
+			this.type = type;
+			this.label = label;
+		}
 
 		public Tile(Type type) {
 			this.type = type;
+			this.label = "";
 		}
 	}
 }

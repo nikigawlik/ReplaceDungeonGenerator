@@ -5,72 +5,79 @@ using UnityEditor;
 
 namespace ReplaceDungeonGenerator
 {
-	public class PatternView : MonoBehaviour {
-		public Pattern pattern;
+    public class PatternView : MonoBehaviour
+    {
+        [HideInInspector] public Pattern pattern;
+		
+        public void GenerateTestPattern()
+        {
+            foreach (Vector3Int pos in Utils.IterateGrid3D(pattern.Size))
+            {
+                pattern.tiles[pos.x, pos.y, pos.z] = new Tile(
+                    Tile.Type.NonterminalSymbol,
+                    "(" + pos.x.ToString() + ", " +
+                    pos.y.ToString() + ", " +
+                    pos.z.ToString() + ")"
+                );
+            }
 
-		private void Awake() {
-			if(pattern == null) {
-				Tile[,,] tiles = new Tile[3, 3, 3];
+        }
 
-				foreach (Vector3Int pos in Utils.IterateGrid3D(new Vector3Int(3, 3, 3)))
-				{
-					tiles[pos.x, pos.y, pos.z] = new Tile(Tile.Type.NonterminalSymbol);
-					tiles[pos.x, pos.y, pos.z].label = "(" +
-						pos.x.ToString() + ", " + 
-						pos.y.ToString() + ", " + 
-						pos.z.ToString() + ")"
-					;
-				}
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            if (pattern != null)
+            {
+                foreach (Vector3Int pos in Utils.IterateGrid3D(pattern.Size))
+                {
+                    Tile t = pattern.TileAt(pos);
 
-				pattern = new Pattern(tiles);
-			}
-		}
+					Gizmos.color = ReplaceDungeonGenerator.Preferences.roomBoxColor;
+                    Gizmos.DrawWireCube(GetPositionInWorldSpace(pos), Vector3.one * 0.1f);
 
-		private void OnDrawGizmos() {
-			if(pattern != null) {
-				foreach (Vector3Int pos in Utils.IterateGrid3D(pattern.Size))
-				{
-					Tile t = pattern.TileAt(pos);
+                    if (t.label != "")
+                    {
+						GUI.color = ReplaceDungeonGenerator.Preferences.roomLabelColor;
+                        DrawLabel(t.label, pos);
+                    }
+                }
+            }
+        }
 
-					Gizmos.DrawCube(GetPositionInWorldSpace(pos), Vector3.one * 0.1f);
-
-					if(t != null && t.label != "") {
-						DrawLabel(t.label, pos);
-					}
-				}
-			}
-		}
-
-		private void DrawLabel(string str, Vector3Int position)
+        private void DrawLabel(string str, Vector3Int position)
         {
             UnityEditor.Handles.BeginGUI();
-            Vector3 worldPosition = GetPositionInWorldSpace(position);
+            Vector3 worldPosition = GetPositionInWorldSpace(position) + Vector3.up * 0.1f;
 
-			// cpu behind camera check
-			Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(SceneView.currentDrawingSceneView.camera);
-			if(!GeometryUtility.TestPlanesAABB(frustumPlanes, new Bounds(worldPosition, Vector3.one))) {
-				return;
-			}
-			
-			
-            Vector3 screenPosition = HandleUtility.WorldToGUIPoint(worldPosition); //view.camera.WorldToScreenPoint(worldPosition);
+            // cpu behind camera check
+            Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(SceneView.currentDrawingSceneView.camera);
+            if (!GeometryUtility.TestPlanesAABB(frustumPlanes, new Bounds(worldPosition, Vector3.one)))
+            {
+                return;
+            }
+
+            Vector3 screenPosition = HandleUtility.WorldToGUIPoint(worldPosition);
             Vector2 size = GUI.skin.label.CalcSize(new GUIContent(str));
-
-            Material mat = AssetDatabase.LoadAssetAtPath<Material>("Assets/ReplaceDungeonGenerator/Materials/LineMaterial.mat");
-            mat.SetPass(0);
-			float d = 10f;
-
-			GL.Begin(GL.LINES);
-			GL.Vertex3(screenPosition.x - d, screenPosition.y - d, 0);
-			GL.Vertex3(screenPosition.x + d, screenPosition.y + d, 0);
-			GL.Vertex3(screenPosition.x - d, screenPosition.y + d, 0);
-			GL.Vertex3(screenPosition.x + d, screenPosition.y - d, 0);
-			GL.End();
 
             GUI.Label(new Rect(screenPosition.x - (size.x / 2f), screenPosition.y - (size.y / 2f), size.x, size.y), str);
 
             UnityEditor.Handles.EndGUI();
         }
+
+        private static void DrawCross(Vector3 screenPosition)
+        {
+            Material mat = AssetDatabase.LoadAssetAtPath<Material>("Assets/ReplaceDungeonGenerator/Materials/LineMaterial.mat");
+            mat.SetPass(0);
+            float d = 10f;
+
+            GL.Begin(GL.LINES);
+            GL.Vertex3(screenPosition.x - d, screenPosition.y - d, 0);
+            GL.Vertex3(screenPosition.x + d, screenPosition.y + d, 0);
+            GL.Vertex3(screenPosition.x - d, screenPosition.y + d, 0);
+            GL.Vertex3(screenPosition.x + d, screenPosition.y - d, 0);
+            GL.End();
+        }
+#endif
 
         private Vector3 GetPositionInWorldSpace(Vector3Int position)
         {
