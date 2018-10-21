@@ -50,12 +50,36 @@ namespace ReplaceDungeonGenerator
 			}
         }
 
-		public Tile TileAt(Vector3Int position) {
+		// TODO replace by better system
+		public static Pattern Rotate90Y(Pattern pattern) {
+			Vector3Int pSize = pattern.Size;
+
+			Vector3Int newSize = new Vector3Int(pSize.z, pSize.y, pSize.x);
+			Pattern newPattern = new Pattern(newSize);
+
+			for (int x = 0; x < newSize.x; x++)
+				for (int y = 0; y < newSize.y; y++)
+					for (int z = 0; z < newSize.z; z++) {
+						newPattern.tiles[x, y, z] = pattern.tiles[newSize.z - 1 - z, y, x];
+					}
+
+			return newPattern;
+		}
+
+		public Tile GetTile(Vector3Int position) {
 			if(!Utils.InBounds(position, Size)) {
-				return new Tile(Tile.TileType.OutOfBounds);
+				return Tile.OutOfBounds;
 			}
 
 			return tiles[position.x, position.y, position.z];
+		}
+
+		public void SetTile(Vector3Int position, Tile tile) {
+			if(!Utils.InBounds(position, Size)) {
+				return;
+			}
+
+			tiles[position.x, position.y, position.z] = tile;
 		}
 
 		public void OnBeforeSerialize() {

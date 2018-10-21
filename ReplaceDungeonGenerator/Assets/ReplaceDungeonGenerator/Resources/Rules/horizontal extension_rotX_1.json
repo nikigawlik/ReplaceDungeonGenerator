@@ -1,0 +1,1 @@
+{"match":". . A;. . -;. . A","replacement":"A - A;- . .;A - A","weight":1.0,"shortDescription":"horizontal extension_rotX_1"}

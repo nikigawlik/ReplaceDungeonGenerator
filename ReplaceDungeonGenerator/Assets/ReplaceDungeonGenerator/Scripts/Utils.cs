@@ -21,5 +21,31 @@ namespace ReplaceDungeonGenerator
                 && position.y >= 0 && position.y < size.y
                 && position.z >= 0 && position.z < size.z;
         }
+        
+        /// Chooses a thing from an array using weighted randomness
+        public delegate float WeightFunction<T>(T obj); 
+
+        public static T Choose<T>(T[] spawnOptions, WeightFunction<T> WeightOf) {
+            float weightSum = 0;
+            foreach (T t in spawnOptions)
+            {
+                weightSum += WeightOf(t);
+            }
+
+            if(weightSum == 0) {
+                return default(T);
+            }
+
+            float choice = UnityEngine.Random.Range(0f, weightSum);
+            for (int i = 0; i < spawnOptions.Length; i++)
+            {
+                choice -= WeightOf(spawnOptions[i]);
+                if (choice <= 0)
+                {
+                    return spawnOptions[i];
+                }
+            }
+            return spawnOptions[spawnOptions.Length - 1];
+        }
     }
 }
