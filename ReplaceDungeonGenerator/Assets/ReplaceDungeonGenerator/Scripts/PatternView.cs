@@ -93,7 +93,8 @@ namespace ReplaceDungeonGenerator
         }
 
         private bool IsRoom(Tile tile) {
-            return tile.Label != "." && tile.Label != "" && tile.Label != "#";
+            // simple shortcut
+            return tile.IsStructure();
         }
 
         private void DrawLine(Vector3 from, Vector3 to) {
@@ -145,7 +146,7 @@ namespace ReplaceDungeonGenerator
         // }
 #endif
 
-        private Vector3 GetPositionInWorldSpace(Vector3Int position)
+        public Vector3 GetPositionInWorldSpace(Vector3Int position)
         {
             return transform.TransformPoint(position - (pattern.Size - Vector3.one) * 0.5f);
         }

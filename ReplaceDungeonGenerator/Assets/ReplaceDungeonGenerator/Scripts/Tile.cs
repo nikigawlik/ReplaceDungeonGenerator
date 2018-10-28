@@ -25,5 +25,17 @@ namespace ReplaceDungeonGenerator
         public Tile(string label) {
 			this.label = label;
 		}
+
+        public bool IsRoom() {
+            return IsStructure() && !IsDoor();
+        }
+
+        public bool IsStructure() {
+            return Label != "." && Label != "" && Label != "#" && Label != "*";
+        }
+
+        public bool IsDoor() {
+            return Label == "-" || Label == ">" || Label == "<" || Label == ":";
+        }
 	}
 }

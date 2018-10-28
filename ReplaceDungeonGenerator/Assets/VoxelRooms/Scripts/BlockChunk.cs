@@ -38,7 +38,10 @@ namespace VoxelRooms
         {
             //TODO safety checks
 
-            Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
+            Mesh mesh = GetComponent<MeshFilter>().mesh;
+            if(mesh == null) {
+                GetComponent<MeshFilter>().sharedMesh = new Mesh();
+            }
 
             List<CombineInstance> meshes = new List<CombineInstance>();
             Vector3 offset = new Vector3(-Size.x / 2f + .5f, .5f, -Size.z / 2f + .5f);
