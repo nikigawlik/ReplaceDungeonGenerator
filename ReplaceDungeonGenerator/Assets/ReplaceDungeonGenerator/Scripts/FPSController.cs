@@ -16,6 +16,7 @@ public class FPSController : MonoBehaviour {
 	private Vector3 previousMousePos;
 	private Vector3 eulerLookRotation;
 	private Rigidbody rb;
+	private bool jumpTrigger = false;
 
 	private void Start() {
 		previousMousePos = Input.mousePosition;
@@ -39,6 +40,11 @@ public class FPSController : MonoBehaviour {
 			
 			Cursor.lockState = CursorLockMode.Locked;
 		}
+	
+		// jumping
+		if(Input.GetButtonDown("Jump")) {
+			jumpTrigger = true;
+		}
 	}
 
 	private void FixedUpdate() {
@@ -52,6 +58,7 @@ public class FPSController : MonoBehaviour {
 		rb.velocity += dragAcceleration * Time.fixedDeltaTime;
 
 		// get walking inputs
+		// TODO Use look rotation instead of transform
 		Vector3 right = head.right;
         right.Scale(removeY);
 		right.Normalize();
@@ -75,33 +82,9 @@ public class FPSController : MonoBehaviour {
 		vel.y = rb.velocity.y;
 		rb.velocity = vel;
 
-		// jumping
-		if(Input.GetButtonDown("Jump")) {
+		if(jumpTrigger) {
+			jumpTrigger = false;
 			rb.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange);
 		}
-
-		// // Handle walking
-		// Vector2 right = new Vector2(head.right.x, head.right.z);
-		// right.Normalize();
-		// Vector2 forward = new Vector2(head.forward.x, head.forward.z);
-		// forward.Normalize();
-
-		// Vector2 force = right * Input.GetAxis("Horizontal")
-		// 	+ forward * Input.GetAxis("Vertical");
-
-		// Vector2 v = new Vector2(rb.velocity.x, rb.velocity.z);
-		// Vector2 dragAcceleration = new Vector2(
-		// 	-hDrag * rb.velocity.x, 
-		// 	-hDrag * rb.velocity.z
-		// );
-		// v += dragAcceleration * Time.fixedDeltaTime;
-		// v += force * acceleration * Time.fixedDeltaTime;
-        // float velMag = Mathf.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y);
-        // v = Vector2.ClampMagnitude(v, Mathf.Max(maxSpeed, velMag));
-		// rb.velocity = new Vector3(v.x, rb.velocity.y, v.y);
-
-
-		// // rb.AddForce(force * acceleration, ForceMode.Acceleration);
-		// // rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 	}
 }

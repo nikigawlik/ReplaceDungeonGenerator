@@ -94,7 +94,10 @@ namespace ReplaceDungeonGenerator
                 }
             }
 
-            Vector2Int decoPos = new Vector2Int(Random.Range(1, size.x-1), Random.Range(1, size.z-1));
+            Vector2Int[] decoPositions = new Vector2Int[3];
+            for(int i = 0; i < decoPositions.Length; i++) {
+                decoPositions[i] = new Vector2Int(Random.Range(1, size.x-1), Random.Range(1, size.z-1));
+            }
 
             foreach(Vector3Int chunkPos in Utils.IterateGrid3D(chunk.Size)) {
                 Block block = airBlock;
@@ -104,11 +107,13 @@ namespace ReplaceDungeonGenerator
                         block = wallBlock;
                     break; 
                     case "e": 
-                        if(room.GetTile(chunkPos + Vector3Int.down).Label == "w" 
-                        && decoPos.x == chunkPos.x && decoPos.y == chunkPos.z) {
-                            block = decoBlock;
-                        } else {
-                            block = airBlock;
+                        block = airBlock;
+                        if(room.GetTile(chunkPos + Vector3Int.down).Label == "w") {
+                            foreach(Vector2Int p in decoPositions) {
+                                if(p.x == chunkPos.x && p.y == chunkPos.z) {
+                                    block = decoBlock;
+                                }
+                            }
                         }
                     break;
                     case "p": 

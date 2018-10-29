@@ -9,10 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 982e8bb404c2d6c40b66a895bed8a7bf, type: 3}
-  m_Name: BlockStone
+  m_Name: LightPedestal
   m_EditorClassIdentifier: 
-  side: {fileID: 100002, guid: 2082d5ab4175db246aa2f3183dc71927, type: 3}
-  top: {fileID: 100006, guid: 2082d5ab4175db246aa2f3183dc71927, type: 3}
-  bottom: {fileID: 100000, guid: 2082d5ab4175db246aa2f3183dc71927, type: 3}
+  side: {fileID: 0}
+  top: {fileID: 0}
+  bottom: {fileID: 0}
   always: {fileID: 0}
-  solid: 1
+  spawnPrefab: {fileID: 1223652492793048, guid: 00f032cd3a099034db47f66125ae4dc4,
+    type: 2}
+  solid: 0

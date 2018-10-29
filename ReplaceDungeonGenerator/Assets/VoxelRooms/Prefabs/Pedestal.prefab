@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4537002299502254}
   - component: {fileID: 33769568810824538}
   - component: {fileID: 23883279951890384}
+  - component: {fileID: 65401932341397364}
   m_Layer: 0
   m_Name: Pedestal
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223652492793048}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 155.41348, y: 32.333023, z: -34.46803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4688952586800264}
@@ -115,6 +116,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223652492793048}
   m_Mesh: {fileID: 4300000, guid: 1ce7c0c6bfddc7c42974fee357aca9dc, type: 3}
+--- !u!65 &65401932341397364
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1223652492793048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.462336, y: 0.46233612, z: 0.5000001}
+  m_Center: {x: 0, y: 0, z: -0.7500002}
 --- !u!108 &108706544737973792
 Light:
   m_ObjectHideFlags: 1
@@ -126,11 +139,11 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 4
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
