@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2082d5ab4175db246aa2f3183dc71927
+guid: cc3fa95fb4bdc47488d17639972a537b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -7,26 +7,20 @@ ModelImporter:
     100002: side
     100004: //RootNode
     100006: top
-    100008: Cube
     400000: bottom
     400002: side
     400004: //RootNode
     400006: top
-    400008: Cube
     2100000: Material
-    2100002: Material.001
     2300000: bottom
     2300002: side
     2300004: top
-    2300006: Cube
     3300000: bottom
     3300002: side
     3300004: top
-    3300006: Cube
     4300000: bottom
     4300002: top
     4300004: side
-    4300006: Cube
   externalObjects: {}
   materials:
     importMaterials: 1

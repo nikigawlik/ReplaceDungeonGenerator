@@ -12,6 +12,8 @@ public class FPSController : MonoBehaviour {
 	public float jumpSpeed = 5f;
 
 	public Transform head;
+	public GameObject bulletPrefabOrPool;
+	public float bulletSpeed = 5f;
 	
 	private Vector3 previousMousePos;
 	private Vector3 eulerLookRotation;
@@ -21,9 +23,6 @@ public class FPSController : MonoBehaviour {
 	private void Start() {
 		previousMousePos = Input.mousePosition;
 		rb = GetComponent<Rigidbody>();
-	}
-
-	private void OnMouseDown() {
 	}
 
 	private void Update() {
@@ -44,6 +43,20 @@ public class FPSController : MonoBehaviour {
 		// jumping
 		if(Input.GetButtonDown("Jump")) {
 			jumpTrigger = true;
+		}
+
+		// shooty
+		if(Input.GetButtonDown("Fire1")) {
+			ObjectPool pool = bulletPrefabOrPool.GetComponent<ObjectPool>();
+			GameObject obj;
+			if(pool == null) {
+				obj = Instantiate(bulletPrefabOrPool);
+			} else {
+				obj = pool.GetObject();
+			}
+			obj.transform.position = head.position;
+			obj.transform.rotation = head.rotation;
+			obj.GetComponent<Rigidbody>().AddForce(head.forward * bulletSpeed, ForceMode.VelocityChange);
 		}
 	}
 
