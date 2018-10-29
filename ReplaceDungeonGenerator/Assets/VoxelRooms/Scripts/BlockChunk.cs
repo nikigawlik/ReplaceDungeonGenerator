@@ -38,13 +38,39 @@ namespace VoxelRooms
         {
             //TODO safety checks
 
+
+            Vector3 offset = new Vector3(-Size.x / 2f + .5f, .5f, -Size.z / 2f + .5f);
+
+            // prefabs
+            Transform existingContainer = transform.Find("[GeneratedObjects]");
+            if(existingContainer != null) {
+                GameObject.DestroyImmediate(existingContainer.gameObject);
+            }
+
+            GameObject container = new GameObject("[GeneratedObjects]");
+            container.transform.SetParent(transform);
+            existingContainer = container.transform;
+            
+            for (int x = 0; x < Size.x; x++)
+                for (int y = 0; y < Size.y; y++)
+                    for (int z = 0; z < Size.z; z++) {
+                        Block block = blocks[x, y, z];
+                        Vector3Int position = new Vector3Int(x, y, z);
+
+                        if(block.spawnPrefab != null) {
+                            GameObject obj = Instantiate(block.spawnPrefab, container.transform);
+                            obj.transform.position = transform.position + Vector3.Scale(position + offset, transform.localScale);
+                        }
+                    }
+
+
+            // mesh
             Mesh mesh = GetComponent<MeshFilter>().mesh;
             if(mesh == null) {
                 GetComponent<MeshFilter>().sharedMesh = new Mesh();
             }
 
             List<CombineInstance> meshes = new List<CombineInstance>();
-            Vector3 offset = new Vector3(-Size.x / 2f + .5f, .5f, -Size.z / 2f + .5f);
 
             for (int x = 0; x < Size.x; x++)
                 for (int y = 0; y < Size.y; y++)

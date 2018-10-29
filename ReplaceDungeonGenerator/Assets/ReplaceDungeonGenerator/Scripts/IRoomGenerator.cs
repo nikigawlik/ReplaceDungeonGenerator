@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace ReplaceDungeonGenerator
 {
-	public interface IRoomGenerator {
-        void Generate(bool posXOpen, bool posYOpen, bool posZOpen, bool negXOpen, bool negYOpen, bool negZOpen);
-	}
+    public interface IRoomGenerator
+    {
+        void Generate(bool posXOpen, bool posYOpen, bool posZOpen, bool negXOpen, bool negYOpen, bool negZOpen, string label);
+    }
 }

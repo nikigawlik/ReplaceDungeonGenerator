@@ -11,6 +11,7 @@ namespace VoxelRooms
         public GameObject top = null;
         public GameObject bottom = null;
         public GameObject always = null;
+        public GameObject spawnPrefab = null;
         public bool solid = true;
     }
 }

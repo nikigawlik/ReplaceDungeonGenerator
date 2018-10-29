@@ -29,7 +29,7 @@ namespace ReplaceDungeonGenerator
 
 					GameObject obj = Instantiate(roomPrefab, Vector3.Scale(pv.GetPositionInWorldSpace(pos), gridDelta), Quaternion.identity);
 					obj.transform.SetParent(this.transform, true);
-					obj.GetComponent<IRoomGenerator>().Generate(posXOpen, posYOpen, posZOpen, negXOpen, negYOpen, negZOpen);
+					obj.GetComponent<IRoomGenerator>().Generate(posXOpen, posYOpen, posZOpen, negXOpen, negYOpen, negZOpen, t.Label);
 				}
 			}
 		}

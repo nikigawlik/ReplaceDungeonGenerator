@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888452252099498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.86, z: 0}
+  m_LocalPosition: {x: -10.24, y: 5.59, z: -43.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4804840038114068}
@@ -93,8 +93,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.15
+  far clip plane: 500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -121,12 +121,12 @@ Rigidbody:
   m_GameObject: {fileID: 1888452252099498}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 33
-  m_AngularDrag: 1.01
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!81 &81728727417242474
 AudioListener:
@@ -146,20 +146,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab96be9bcf13f4f46b00270c6bda7029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSpeed: 1
+  lookSpeed: 4
   hLimit: 90
-  acceleration: 1
-  maxSpeed: 1
+  acceleration: 250
+  maxSpeed: 5
+  hDrag: 12
+  jumpSpeed: 5
+  head: {fileID: 4804840038114068}
 --- !u!136 &136468005378872668
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888452252099498}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b0a3bed50b66ced438adf94b3f55b298, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.64
+  m_Radius: 0.33
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.3232143, z: 0}

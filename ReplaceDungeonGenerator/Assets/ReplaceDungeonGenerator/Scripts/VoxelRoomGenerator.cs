@@ -9,12 +9,16 @@ namespace ReplaceDungeonGenerator
     [RequireComponent(typeof(BlockChunk))]
     public class VoxelRoomGenerator : MonoBehaviour, IRoomGenerator
     {
-        public Block block1;
-        public Block block2;
-        public Vector3Int size = new Vector3Int(5, 5, 5);
-        public int wallThicknessMin = 1;
-        public int wallThicknessMax = 1;
-        public int ceilingThickness = 1;
+        public Block airBlock;
+        public Block wallBlock;
+        public Block decoBlock;
+        public Vector3Int size = new Vector3Int(11, 6, 11);
+        
+        public int baseLayerHeight = 2;
+        public int upperLayerHeight = 2;
+        public int minRoomWidth = 4;
+        [Range(0f, 1f)] public float chanceOfUpperLevel = 0.5f;
+
         public bool posXOpen = false;
         public bool posYOpen = false;
         public bool posZOpen = false;
@@ -31,41 +35,107 @@ namespace ReplaceDungeonGenerator
         private void GenRoom()
         {
             BlockChunk chunk = GetComponent<BlockChunk>();
-
             chunk.Size = size;
-            int wallThickness = Random.Range(wallThicknessMin, wallThicknessMax+1);
 
-            foreach(Vector3Int pos in Utils.IterateGrid3D(size))
-            {
-                bool free = !(pos.x < wallThickness || pos.y < 1 || pos.z < wallThickness
-                    || pos.x >= size.x - wallThickness || pos.y >= size.y - ceilingThickness || pos.z >= size.z - wallThickness);
+            // get pattern
+            Tile wall = new Tile("w");
+            Tile path = new Tile("p");
+            Tile ladder = new Tile("l");
+            Tile empty = new Tile("e");
 
-                float doorHalfHeight = 0.5f;
-                float doorPos = 1f;
+            Pattern room = new Pattern(size, wall);
+
+            // get random rectangle for base layer
+            float f1 = Random.Range(0f, 0.99f) * Random.Range(0f, 0.99f);
+            float f2 = Random.Range(0f, 0.99f) * Random.Range(0f, 0.99f);
+            Vector2Int dim = new Vector2Int(
+                minRoomWidth + Mathf.FloorToInt(f1 * (size.x - minRoomWidth - 1)),
+                minRoomWidth + Mathf.FloorToInt(f2 * (size.z - minRoomWidth - 1))
+            );
+            Vector2Int pos = new Vector2Int(
+                Random.Range(1, size.x - dim.x),
+                Random.Range(1, size.z - dim.y)
+            );
+            RectInt baseRect = new RectInt(pos, dim);
+
+            // fill bottom layer
+            Vector3Int offset = new Vector3Int(baseRect.x, 1, baseRect.y);
+            foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(baseRect.width, baseLayerHeight, baseRect.height))) {
+                room.SetTile(offset + p, empty);
+            }
+
+            // clear paths
+            if(posXOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(1, 0, 0));
+            if(posYOpen) BuildRay(room, ladder, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, 1, 0));
+            if(posZOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, 0, 1));
+            if(negXOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(-1, 0, 0));
+            if(negYOpen) BuildRay(room, ladder, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, -1, 0));
+            if(negZOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, 0, -1));
+
+            // if upper floor
+            bool hasUpperLevel = Random.Range(0f, 1f) <= chanceOfUpperLevel;
+            if(hasUpperLevel) {
+                // get upper rectangle for top layer, that is never smaller than bottom layer
+                Vector2Int p1 = new Vector2Int(
+                    Random.Range(1, baseRect.x + 1),
+                    Random.Range(1, baseRect.y + 1)
+                );
+                Vector2Int p2 = new Vector2Int(
+                    Random.Range(baseRect.x + baseRect.width, size.x - 1),
+                    Random.Range(baseRect.y + baseRect.height, size.z - 1)
+                );
+                RectInt upperRect = new RectInt(p1, p2 - p1);
 
                 
-
-                free = free || (Mathf.Abs(pos.y - doorPos) <= doorHalfHeight && Mathf.Abs(pos.z - ((size.z - 1) / 2f)) <= 0.5f && posXOpen && pos.x >= size.x - wallThickness);
-                free = free || Mathf.Abs(pos.y - doorPos) <= doorHalfHeight && Mathf.Abs(pos.z - ((size.z - 1) / 2f)) <= 0.5f && negXOpen && pos.x < wallThickness;
-                free = free || Mathf.Abs(pos.x - ((size.x - 1) / 2f)) <= 0.5f && Mathf.Abs(pos.z - ((size.z - 1) / 2f)) <= 0.5f && posYOpen && pos.y >= size.y - ceilingThickness;
-                free = free || Mathf.Abs(pos.x - ((size.x - 1) / 2f)) <= 0.5f && Mathf.Abs(pos.z - ((size.z - 1) / 2f)) <= 0.5f && negYOpen && pos.y < 1;
-                free = free || Mathf.Abs(pos.x - ((size.x - 1) / 2f)) <= 0.5f && Mathf.Abs(pos.y - doorPos) <= doorHalfHeight && posZOpen && pos.z >= size.z - wallThickness;
-                free = free || Mathf.Abs(pos.x - ((size.x - 1) / 2f)) <= 0.5f && Mathf.Abs(pos.y - doorPos) <= doorHalfHeight && negZOpen && pos.z < wallThickness;
-
-                if(!free)
-                {
-                    chunk.SetBlock(pos, block1, false);
+                // fill upper layer
+                Vector3Int offset2 = new Vector3Int(upperRect.x, 1 + baseLayerHeight, upperRect.y);
+                foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(upperRect.width, upperLayerHeight, upperRect.height))) {
+                    room.SetTile(offset2 + p, empty);
                 }
-                else
-                {
-                    chunk.SetBlock(pos, block2, false);
+            }
+
+            Vector2Int decoPos = new Vector2Int(Random.Range(1, size.x-1), Random.Range(1, size.z-1));
+
+            foreach(Vector3Int chunkPos in Utils.IterateGrid3D(chunk.Size)) {
+                Block block = airBlock;
+
+                switch(room.GetTile(chunkPos).Label) {
+                    case "w":
+                        block = wallBlock;
+                    break; 
+                    case "e": 
+                        if(room.GetTile(chunkPos + Vector3Int.down).Label == "w" 
+                        && decoPos.x == chunkPos.x && decoPos.y == chunkPos.z) {
+                            block = decoBlock;
+                        } else {
+                            block = airBlock;
+                        }
+                    break;
+                    case "p": 
+                    case "l": 
+                    default: 
+                        block = airBlock;
+                    break;
                 }
+                chunk.SetBlock(chunkPos, block, false);
             }
 
             chunk.RecalculateMesh();
         }
 
-        public void Generate(bool posXOpen, bool posYOpen, bool posZOpen, bool negXOpen, bool negYOpen, bool negZOpen)
+        private Vector3Int BuildRay(Pattern room, Tile tile, Vector3Int position, Vector3Int direction)
+        {
+            while (Utils.InBounds(position, size))
+            {
+                room.SetTile(position, tile);
+
+                position = position + direction;
+            }
+
+            return position;
+        }
+
+        public void Generate(bool posXOpen, bool posYOpen, bool posZOpen, bool negXOpen, bool negYOpen, bool negZOpen, string label)
         {
             this.posXOpen = posXOpen;
             this.posYOpen = posYOpen;
