@@ -153,6 +153,8 @@ MonoBehaviour:
   hDrag: 12
   jumpSpeed: 5
   head: {fileID: 4804840038114068}
+  bulletPrefabOrPool: {fileID: 0}
+  bulletSpeed: 5
 --- !u!136 &136468005378872668
 CapsuleCollider:
   m_ObjectHideFlags: 1
