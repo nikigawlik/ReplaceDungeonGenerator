@@ -1,27 +1,21 @@
 fileFormatVersion: 2
-guid: cc3fa95fb4bdc47488d17639972a537b
+guid: 2ab0f670e5626654489b649af7f7a1af
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: bottom
-    100002: side
-    100004: //RootNode
-    100006: top
-    400000: bottom
-    400002: side
-    400004: //RootNode
-    400006: top
-    2100000: Material
-    2300000: bottom
-    2300002: side
-    2300004: top
-    3300000: bottom
-    3300002: side
-    3300004: top
-    4300000: bottom
-    4300002: top
-    4300004: side
-  externalObjects: {}
+    100000: //RootNode
+    400000: //RootNode
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
+    4300002: Pedestal
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: a0e12da79e6b93a468a031d5a1d6035f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -79,7 +73,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
