@@ -66,10 +66,10 @@ namespace ReplaceDungeonGenerator
 
             // clear paths
             if(posXOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(1, 0, 0));
-            if(posYOpen) BuildRay(room, ladder, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, 1, 0));
+            // if(posYOpen) BuildRay(room, ladder, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, 1, 0));
             if(posZOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, 0, 1));
             if(negXOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(-1, 0, 0));
-            if(negYOpen) BuildRay(room, ladder, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, -1, 0));
+            // if(negYOpen) BuildRay(room, ladder, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, -1, 0));
             if(negZOpen) BuildRay(room, path, new Vector3Int(size.x / 2, 1, size.z / 2), new Vector3Int(0, 0, -1));
 
             // if upper floor
@@ -91,6 +91,28 @@ namespace ReplaceDungeonGenerator
                 Vector3Int offset2 = new Vector3Int(upperRect.x, 1 + baseLayerHeight, upperRect.y);
                 foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(upperRect.width, upperLayerHeight, upperRect.height))) {
                     room.SetTile(offset2 + p, empty);
+                }
+            }
+
+            // up down overrides
+            if(negYOpen) {
+                Vector3Int offset3 = new Vector3Int(1, 1, 1);
+                foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(size.x - 2, baseLayerHeight, size.z - 2))) {
+                    room.SetTile(offset3 + p, empty);
+                }
+                offset3 = new Vector3Int(2, 0, 2);
+                foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(size.x - 4, 1, size.z - 4))) {
+                    room.SetTile(offset3 + p, empty);
+                }
+            }
+            if(posYOpen) {
+                Vector3Int offset3 = new Vector3Int(1, 1, 1);
+                foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(size.x - 2, size.y - 2, size.z - 2))) {
+                    room.SetTile(offset3 + p, empty);
+                }
+                offset3 = new Vector3Int(2, size.y - 1, 2);
+                foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(size.x - 4, 1, size.z - 4))) {
+                    room.SetTile(offset3 + p, empty);
                 }
             }
 
