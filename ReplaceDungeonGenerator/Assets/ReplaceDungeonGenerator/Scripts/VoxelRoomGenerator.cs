@@ -6,6 +6,7 @@ using VoxelRooms;
 
 namespace ReplaceDungeonGenerator
 {
+    /// class that generates a room using the VoxelRooms package 
     [RequireComponent(typeof(BlockChunk))]
     public class VoxelRoomGenerator : MonoBehaviour, IRoomGenerator
     {
@@ -94,7 +95,7 @@ namespace ReplaceDungeonGenerator
                 }
             }
 
-            // up down overrides
+            // up down overrides, generate big openings for going up and down
             if(negYOpen) {
                 Vector3Int offset3 = new Vector3Int(1, 1, 1);
                 foreach (Vector3Int p in Utils.IterateGrid3D(new Vector3Int(size.x - 2, baseLayerHeight, size.z - 2))) {
@@ -116,11 +117,13 @@ namespace ReplaceDungeonGenerator
                 }
             }
 
+            // choose three random deco positions
             Vector2Int[] decoPositions = new Vector2Int[3];
             for(int i = 0; i < decoPositions.Length; i++) {
                 decoPositions[i] = new Vector2Int(Random.Range(1, size.x-1), Random.Range(1, size.z-1));
             }
 
+            // set the blocks according to out room pattern
             foreach(Vector3Int chunkPos in Utils.IterateGrid3D(chunk.Size)) {
                 Block block = airBlock;
 
@@ -130,6 +133,7 @@ namespace ReplaceDungeonGenerator
                     break; 
                     case "e": 
                         block = airBlock;
+                        // if there is floor below us we can spawn deco
                         if(room.GetTile(chunkPos + Vector3Int.down).Label == "w") {
                             foreach(Vector2Int p in decoPositions) {
                                 if(p.x == chunkPos.x && p.y == chunkPos.z) {
@@ -150,6 +154,7 @@ namespace ReplaceDungeonGenerator
             chunk.RecalculateMesh();
         }
 
+        /// fills a ray with a certain tile, starting at position going in direction
         private Vector3Int BuildRay(Pattern room, Tile tile, Vector3Int position, Vector3Int direction)
         {
             while (Utils.InBounds(position, size))
@@ -162,6 +167,7 @@ namespace ReplaceDungeonGenerator
             return position;
         }
 
+        /// wrapper on the GenRoom function for the interface
         public void Generate(bool posXOpen, bool posYOpen, bool posZOpen, bool negXOpen, bool negYOpen, bool negZOpen, string label)
         {
             this.posXOpen = posXOpen;

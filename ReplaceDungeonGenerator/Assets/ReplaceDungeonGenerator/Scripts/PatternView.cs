@@ -8,6 +8,7 @@ namespace ReplaceDungeonGenerator
     public class PatternView : MonoBehaviour
     {
         public Pattern pattern;
+        public Vector3 displayDelta = Vector3.one;
         public bool alwaysShowLabel = false;
         public bool showCubes = false;
 		
@@ -35,7 +36,7 @@ namespace ReplaceDungeonGenerator
 
                     if(showCubes) {
                         Gizmos.color = ReplaceDungeonGenerator.Preferences.RoomBoxColor;
-                        Gizmos.DrawWireCube(GetPositionInWorldSpace(pos), Vector3.one * Preferences.RoomBoxSize);
+                        Gizmos.DrawWireCube(GetPositionInWorldSpace(pos, displayDelta), Vector3.one * Preferences.RoomBoxSize);
                     }
 
                     if (t.Label != "")
@@ -49,25 +50,25 @@ namespace ReplaceDungeonGenerator
         }
 
         private void DrawTile(Tile t, Vector3Int pos) {
-            Vector3 worldPosition = GetPositionInWorldSpace(pos);
-            Vector3Int dir;
+            Vector3 worldPosition = GetPositionInWorldSpace(pos, displayDelta);
+            Vector3 dir;
             switch(t.Label) {
                 case ".": 
                 break;
                 case ">":
                 case "<":
-                    dir = CalculateDirection(pattern, pos);
+                    dir = Vector3.Scale(CalculateDirection(pattern, pos), displayDelta);
                     if(t.Label == ">") 
                         DrawArrow(worldPosition - dir, worldPosition + dir);
                     else
                         DrawArrow(worldPosition + dir, worldPosition - dir);
                 break;
                 case "-":
-                    dir = CalculateDirection(pattern, pos);
+                    dir = Vector3.Scale(CalculateDirection(pattern, pos), displayDelta);
                     DrawLine(worldPosition - dir, worldPosition + dir);
                 break;
                 case ":":
-                    dir = CalculateDirection(pattern, pos);
+                    dir = Vector3.Scale(CalculateDirection(pattern, pos), displayDelta);
                     DrawDotted(worldPosition - dir, worldPosition + dir);
                 break;
                 default:
@@ -146,9 +147,9 @@ namespace ReplaceDungeonGenerator
         // }
 #endif
 
-        public Vector3 GetPositionInWorldSpace(Vector3Int position)
+        public Vector3 GetPositionInWorldSpace(Vector3Int position, Vector3 delta)
         {
-            return transform.TransformPoint(position - (pattern.Size - Vector3.one) * 0.5f);
+            return transform.TransformPoint(Vector3.Scale(position - (pattern.Size - Vector3.one) * 0.5f, delta));
         }
 
         public static void UpdateView() {

@@ -6,12 +6,12 @@ namespace ReplaceDungeonGenerator
 {
 	[System.Serializable]
 	public struct Tile {
-		// if the numbers change here, serialisation will break!
+		// Don't change these symbols.
         public static Tile Empty       {get {return new Tile(".");}}
         public static Tile OutOfBounds {get {return new Tile("#");}}
         public static Tile Wildcard    {get {return new Tile("*");}}
 
-        [Tooltip("Unique label identifying the Tile. Usually left empty for non-symbols.")]
+        [Tooltip("Unique label identifying the Tile.")]
         [SerializeField] private string label;
 
         public string Label

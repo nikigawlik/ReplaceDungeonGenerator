@@ -22,10 +22,10 @@ namespace ReplaceDungeonGenerator
                 && position.z >= 0 && position.z < size.z;
         }
         
-        /// Chooses a thing from an array using weighted randomness
         public delegate float WeightFunction<T>(T obj); 
 
-        public static T Choose<T>(T[] spawnOptions, WeightFunction<T> WeightOf) {
+        /// Chooses a thing from an IEnumerable (Array, List) using weighted randomness
+        public static T Choose<T>(IEnumerable<T> spawnOptions, WeightFunction<T> WeightOf) {
             float weightSum = 0;
             foreach (T t in spawnOptions)
             {
@@ -37,15 +37,32 @@ namespace ReplaceDungeonGenerator
             }
 
             float choice = UnityEngine.Random.Range(0f, weightSum);
-            for (int i = 0; i < spawnOptions.Length; i++)
+            foreach (T t in spawnOptions)
             {
-                choice -= WeightOf(spawnOptions[i]);
+                choice -= WeightOf(t);
                 if (choice <= 0)
                 {
-                    return spawnOptions[i];
+                    return t;
                 }
             }
-            return spawnOptions[spawnOptions.Length - 1];
+
+            // Safety fallback, just return first element
+            IEnumerator<T> enumerator = spawnOptions.GetEnumerator();
+            enumerator.MoveNext();
+            return enumerator.Current;
+        }
+
+        /// get a child object of specific name, destroys existing object with that name
+        public static GameObject CreateChildWithName(Transform transform, string name) { 
+            Transform existingTransform = transform.Find(name);
+            if(existingTransform != null) {
+                GameObject.DestroyImmediate(existingTransform.gameObject);
+            }
+
+            GameObject obj = new GameObject(name);
+            obj.transform.SetParent(transform);
+
+            return obj;
         }
     }
 }

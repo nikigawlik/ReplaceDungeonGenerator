@@ -6,40 +6,40 @@ using UnityEditorInternal;
 
 namespace ReplaceDungeonGenerator
 {
-	[CustomEditor(typeof(PatternView))]
-	public class PatternViewEditor : Editor {
-		private void OnEnable() {
+    [CustomEditor(typeof(PatternView))]
+    public class PatternViewEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            PatternView patternView = (PatternView)target;
 
-		}
-	
-		public override void OnInspectorGUI() {
-			PatternView patternView = (PatternView) target;
+            DrawDefaultInspector();
 
-			DrawDefaultInspector();
+			// draw a custom int vector UI
+            EditorGUILayout.BeginHorizontal();
+            float previousLabelWidth = EditorGUIUtility.labelWidth;
+            float previousFieldWidth = EditorGUIUtility.fieldWidth;
 
-			EditorGUILayout.BeginHorizontal();
-				float previousLabelWidth = EditorGUIUtility.labelWidth;
-				float previousFieldWidth = EditorGUIUtility.fieldWidth;
+            EditorGUIUtility.labelWidth = 1f;
+            EditorGUIUtility.fieldWidth = 1f;
+            EditorGUILayout.LabelField("Size:");
+            EditorGUIUtility.labelWidth = 12f;
 
-				EditorGUIUtility.labelWidth = 1f;
-				EditorGUIUtility.fieldWidth = 1f;
-				EditorGUILayout.LabelField("Size:");
-				EditorGUIUtility.labelWidth = 12f;
+            int x = EditorGUILayout.IntField("X", patternView.pattern.Size.x);
+            int y = EditorGUILayout.IntField("Y", patternView.pattern.Size.y);
+            int z = EditorGUILayout.IntField("Z", patternView.pattern.Size.z);
 
-				int x = EditorGUILayout.IntField("X", patternView.pattern.Size.x);
-				int y = EditorGUILayout.IntField("Y", patternView.pattern.Size.y);
-				int z = EditorGUILayout.IntField("Z", patternView.pattern.Size.z);
+            patternView.pattern.Size = new Vector3Int(x, y, z);
 
-				patternView.pattern.Size = new Vector3Int(x, y, z);
+            EditorGUIUtility.labelWidth = previousLabelWidth;
+            EditorGUIUtility.fieldWidth = previousFieldWidth;
+            EditorGUILayout.EndHorizontal();
 
-				EditorGUIUtility.labelWidth = previousLabelWidth;
-				EditorGUIUtility.fieldWidth = previousFieldWidth;
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.LabelField("Generator controls");
-			if(GUI.Button(EditorGUILayout.GetControlRect(), "Test pattern")) {
-				patternView.GenerateTestPattern();
-			}
-		}
-	}
+			// Button for test pattern generation
+            if (GUI.Button(EditorGUILayout.GetControlRect(), "Set test pattern"))
+            {
+                patternView.GenerateTestPattern();
+            }
+        }
+    }
 }

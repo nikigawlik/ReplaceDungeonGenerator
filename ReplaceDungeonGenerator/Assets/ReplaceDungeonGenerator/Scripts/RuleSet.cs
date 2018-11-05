@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace ReplaceDungeonGenerator
 {
+    /// Wrapper for a list of rules, can load the rules from files
     public class RuleSet : MonoBehaviour
     {
         public string pathToRules;
@@ -15,20 +16,16 @@ namespace ReplaceDungeonGenerator
         public List<Rule> rules;
         public Pattern startPattern;
 
-        private void Awake()
-        {
-
-        }
-
         [EasyButtons.Button]
         public void LoadRules()
         {
+            // Use the Unity search to find text assets at the path
             string[] guids = AssetDatabase.FindAssets("t:TextAsset", new string[1] { pathToRules });
             rules = new List<Rule>();
+            // Load and deserialize the text assets
             foreach (string str in guids)
             {
                 TextAsset ta = AssetDatabase.LoadAssetAtPath<TextAsset>(AssetDatabase.GUIDToAssetPath(str));
-                // Debug.Log(Regex.Replace(ta.text, @"(\n+\s+)", ""));
                 rules.Add(JsonUtility.FromJson<SerializedRule>(ta.text).Rule);
             }
         }
@@ -39,15 +36,16 @@ namespace ReplaceDungeonGenerator
 			if(pathToRules == "") {
 				return;
 			}
-            int runningNumber = 0;
 
             foreach (Rule rule in rules)
             {
+                // serialize as JSON
                 string json = JsonUtility.ToJson(new SerializedRule(rule));
                 string path;
 
                 path = pathToRules + "/" + rule.shortDescription + ".json";
 
+                // write to file
                 using (FileStream fs = new FileStream(path, FileMode.Create))
                 {
                     using (StreamWriter writer = new StreamWriter(fs))
@@ -55,8 +53,6 @@ namespace ReplaceDungeonGenerator
                         writer.Write(json);
                     }
                 }
-
-                runningNumber++;
             }
 
             UnityEditor.AssetDatabase.Refresh();
