@@ -34,9 +34,14 @@ namespace ReplaceDungeonGenerator
 			// detect if match pattern has changed
 			if(prevMatch != match) {
 				// update pattern view
-				matchPatternView.pattern = SerializedRule.StringToPattern(match);
-				// update left side of rule
-				ruleSet.rules[selectedRule].leftSide = matchPatternView.pattern;
+				try {
+					matchPatternView.pattern = SerializedRule.StringToPattern(match);
+					// update left side of rule
+					ruleSet.rules[selectedRule].leftSide = matchPatternView.pattern;
+				}
+				catch(System.ArgumentException) {
+					// parsing failed, we keep old pattern for now
+				}
 
 				prevMatch = match;
 			}
@@ -44,9 +49,14 @@ namespace ReplaceDungeonGenerator
 			// detect if replacement pattern has changed
 			if(prevReplacement != replacement) {
 				// update pattern view
-				replacementPatternView.pattern = SerializedRule.StringToPattern(replacement);
-				// update right side of rule
-				ruleSet.rules[selectedRule].rightSide = replacementPatternView.pattern;
+				try {
+					replacementPatternView.pattern = SerializedRule.StringToPattern(replacement);
+					// update right side of rule
+					ruleSet.rules[selectedRule].rightSide = replacementPatternView.pattern;
+				} 
+				catch(System.ArgumentException) {
+					// parsing failed, we keep old pattern for now
+				}
 
 				prevReplacement = replacement;
 			}
