@@ -54,7 +54,10 @@ namespace ReplaceDungeonGenerator
 
 			foreach (Vector3Int p in Utils.IterateGrid3D(pSize))
 			{
-				mainPattern.SetTile(position + p, pattern.tiles[p.x, p.y, p.z]);
+                Tile tile = pattern.tiles[p.x, p.y, p.z];
+                if (tile.Label != Tile.Wildcard.Label) {
+                    mainPattern.SetTile(position + p, tile);
+                }
 			}
         }
 

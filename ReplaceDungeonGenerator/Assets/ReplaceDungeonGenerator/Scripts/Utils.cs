@@ -5,6 +5,8 @@ using UnityEngine;
 namespace ReplaceDungeonGenerator
 {
     public class Utils {
+        /// a delegate to use for normal events
+        public delegate void StandardEventHandler();
 
         /// iterates over 3d space in x, y, z order
         public static IEnumerable<Vector3Int> IterateGrid3D(Vector3Int size) {

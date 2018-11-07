@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e5a76e62d2b994abf8458d6d7df8d0, type: 3}
+  m_Name: RoomDictionary
+  m_EditorClassIdentifier: 
+  prefabs:
+  - label: s
+    prefab: {fileID: 1364228674645984, guid: 709ee64935f67d5458154980f0e1bd20, type: 2}
+  - label: c
+    prefab: {fileID: 1312352535502268, guid: 6c43009a1a1e43746821196ce8ccffc4, type: 2}
+  - label: so
+    prefab: {fileID: 1013008057442620, guid: 2e44bd237e7a0d7449607b8cace74507, type: 2}
+  - label: bp
+    prefab: {fileID: 1024491073817176, guid: 699ef91780eb29b41b0f485849657910, type: 2}
+  - label: st
+    prefab: {fileID: 1140506770171516, guid: 52ee1ff0956bd214ea93696e47bf651b, type: 2}

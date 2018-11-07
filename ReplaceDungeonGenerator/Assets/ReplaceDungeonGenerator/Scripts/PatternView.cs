@@ -7,11 +7,39 @@ namespace ReplaceDungeonGenerator
 {
     public class PatternView : MonoBehaviour
     {
-        public Pattern pattern;
+        public interface IReactToPatternChange {
+            void OnPatternChange();
+        }
+
+        private Pattern _pattern;
         public Vector3 displayDelta = Vector3.one;
         public bool alwaysShowLabel = false;
         public bool showCubes = false;
-		
+
+        public Pattern pattern
+        {
+            get
+            {
+                if(_pattern == null) {
+                    _pattern = new Pattern(Vector3Int.one);
+                }
+                return _pattern;
+            }
+
+            set
+            {
+                _pattern = value;
+                _pattern.OnChange += OnPatternChanged;
+                OnPatternChanged();
+            }
+        }
+
+        private void OnPatternChanged() {
+            foreach(IReactToPatternChange component in GetComponents<IReactToPatternChange>()) {
+                component.OnPatternChange();
+            }
+        }
+
         public void GenerateTestPattern()
         {
             foreach (Vector3Int pos in Utils.IterateGrid3D(pattern.Size))

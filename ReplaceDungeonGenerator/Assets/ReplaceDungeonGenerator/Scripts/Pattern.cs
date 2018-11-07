@@ -7,6 +7,9 @@ namespace ReplaceDungeonGenerator
 	[System.Serializable]
 	public class Pattern : ISerializationCallbackReceiver{
         public Tile[,,] tiles = new Tile[1, 1, 1];
+
+		// events
+		public event Utils.StandardEventHandler OnChange;
 		
 		// For serialization
 		[SerializeField] [HideInInspector] private Tile[] serializedTiles;
@@ -74,12 +77,13 @@ namespace ReplaceDungeonGenerator
 			return tiles[position.x, position.y, position.z];
 		}
 
-		public void SetTile(Vector3Int position, Tile tile) {
+		public void SetTile(Vector3Int position, Tile tile, bool triggerEvent = true) {
 			if(!Utils.InBounds(position, Size)) {
 				return;
 			}
 
 			tiles[position.x, position.y, position.z] = tile;
+			if(triggerEvent && OnChange != null) OnChange();
 		}
 
 		public void OnBeforeSerialize() {
