@@ -14,7 +14,7 @@ namespace ReplaceDungeonGenerator
         [SerializeField][HideInInspector] private Pattern _pattern;
         public Vector3 displayDelta = Vector3.one;
         public bool alwaysShowLabel = false;
-        public bool showCubes = false;
+        public bool showBoundingBox = false;
 
         public Pattern pattern
         {
@@ -65,9 +65,13 @@ namespace ReplaceDungeonGenerator
                 {
                     Tile t = pattern.GetTile(pos);
 
-                    if(showCubes) {
+                    if(showBoundingBox) {
                         Gizmos.color = ReplaceDungeonGenerator.Preferences.RoomBoxColor;
-                        Gizmos.DrawWireCube(GetPositionInWorldSpace(pos, displayDelta), Vector3.one * Preferences.RoomBoxSize);
+
+                        Gizmos.DrawWireCube(
+                            transform.position,
+                            Vector3.Scale(pattern.Size, displayDelta)
+                        );
                     }
 
                     if (t.Label != "")
@@ -154,6 +158,7 @@ namespace ReplaceDungeonGenerator
             Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(SceneView.currentDrawingSceneView.camera);
             if (!GeometryUtility.TestPlanesAABB(frustumPlanes, new Bounds(position, Vector3.one)))
             {
+                UnityEditor.Handles.EndGUI();
                 return;
             }
 

@@ -17,6 +17,7 @@ namespace ReplaceDungeonGenerator
         [SerializeField] private string replacement;
         [SerializeField] private float weight;
         [SerializeField] private string shortDescription;
+        [SerializeField] private bool strictRotation;
 
         public Rule Rule
         {
@@ -130,11 +131,12 @@ namespace ReplaceDungeonGenerator
             replacement = PatternToString(Rule.rightSide);
             weight = Rule.weight;
             shortDescription = Rule.shortName;
+            strictRotation = Rule.strictRotation;
         }
 
         public void OnAfterDeserialize()
         {
-            Rule = new Rule(StringToPattern(match), StringToPattern(replacement), weight, shortDescription);
+            Rule = new Rule(StringToPattern(match), StringToPattern(replacement), weight, shortDescription, strictRotation);
         }
     }
 }

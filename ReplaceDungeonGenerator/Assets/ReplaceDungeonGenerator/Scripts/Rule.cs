@@ -15,12 +15,13 @@ namespace ReplaceDungeonGenerator
         public string shortName = "";
         public bool strictRotation = false;
 
-        public Rule(Pattern leftSide, Pattern rightSide, float weight, string shortName)
+        public Rule(Pattern leftSide, Pattern rightSide, float weight, string shortName, bool strictRotation)
         {
             this.leftSide = leftSide;
             this.rightSide = rightSide;
             this.weight = weight;
             this.shortName = shortName;
+            this.strictRotation = strictRotation;
         }
 
         // TODO cache this for better performance
@@ -33,7 +34,7 @@ namespace ReplaceDungeonGenerator
                 permutiations[0] = this;
                 Rule r = this;
                 for(int i = 1; i < 4; i++) {
-                    r = new Rule(Pattern.Rotate90Y(r.leftSide), Pattern.Rotate90Y(r.rightSide), r.weight, r.shortName);
+                    r = new Rule(Pattern.Rotate90Y(r.leftSide), Pattern.Rotate90Y(r.rightSide), r.weight, r.shortName, true);
                     permutiations[i] = r;
                 }
 
