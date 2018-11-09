@@ -12,9 +12,23 @@ namespace ReplaceDungeonGenerator
     public class RuleSet : MonoBehaviour
     {
         public string pathToRules;
-
         public List<Rule> rules;
         public Pattern startPattern;
+
+        private int _selectedRuleIndex = -1;
+
+        public int selectedRuleIndex
+        {
+            get
+            {
+                return _selectedRuleIndex;
+            }
+
+            set
+            {
+                _selectedRuleIndex = value;
+            }
+        }
 
         [EasyButtons.Button]
         public void LoadRules()
@@ -33,9 +47,10 @@ namespace ReplaceDungeonGenerator
         [EasyButtons.Button]
         public void SaveRules()
         {
-			if(pathToRules == "") {
-				return;
-			}
+            if (pathToRules == "")
+            {
+                return;
+            }
 
             foreach (Rule rule in rules)
             {
@@ -43,7 +58,7 @@ namespace ReplaceDungeonGenerator
                 string json = JsonUtility.ToJson(new SerializedRule(rule));
                 string path;
 
-                path = pathToRules + "/" + rule.shortDescription + ".json";
+                path = pathToRules + "/" + rule.shortName + ".json";
 
                 // write to file
                 using (FileStream fs = new FileStream(path, FileMode.Create))

@@ -12,14 +12,14 @@ namespace ReplaceDungeonGenerator
         // the replacement
         public Pattern rightSide;
         public float weight;
-        public string shortDescription = "";
+        public string shortName = "";
 
         public Rule(Pattern structure, Pattern replacement, float weight, string shortDescription)
         {
             this.leftSide = structure;
             this.rightSide = replacement;
             this.weight = weight;
-            this.shortDescription = shortDescription;
+            this.shortName = shortDescription;
         }
     }
 }

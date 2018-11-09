@@ -1,1 +1,1 @@
-{"match":"c_2 c_3,. .;* *,. .","replacement":"st_3 st_3,x x;* *,c_1 c_0","weight":0.20000000298023225,"shortDescription":"vert_ext"}
+{"match":"c_2 c_3,. .;* *,. .","replacement":"st_3 st_3,x x;* *,c_1 c_0","weight":2.0,"shortDescription":"vert_ext"}

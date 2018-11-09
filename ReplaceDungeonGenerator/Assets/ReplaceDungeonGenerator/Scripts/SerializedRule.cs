@@ -129,7 +129,7 @@ namespace ReplaceDungeonGenerator
             match = PatternToString(Rule.leftSide);
             replacement = PatternToString(Rule.rightSide);
             weight = Rule.weight;
-            shortDescription = Rule.shortDescription;
+            shortDescription = Rule.shortName;
         }
 
         public void OnAfterDeserialize()

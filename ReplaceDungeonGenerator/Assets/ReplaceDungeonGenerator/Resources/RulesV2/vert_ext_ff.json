@@ -1,0 +1,1 @@
+{"match":"* *,. .;c_1 c_0,. .","replacement":"* *,c_2 c_3;st_1 st_1,x x","weight":2.0,"shortDescription":"vert_ext_ff"}

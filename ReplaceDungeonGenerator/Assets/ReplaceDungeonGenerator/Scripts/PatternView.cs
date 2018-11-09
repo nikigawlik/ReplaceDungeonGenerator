@@ -28,13 +28,16 @@ namespace ReplaceDungeonGenerator
 
             set
             {
+                bool isDifferent = _pattern != value;
                 _pattern = value;
-                _pattern.OnChange += OnPatternChanged;
-                OnPatternChanged();
+                if(isDifferent) {
+                    _pattern.OnChange += BroadcastPatternChange;
+                    BroadcastPatternChange();
+                }
             }
         }
 
-        private void OnPatternChanged() {
+        private void BroadcastPatternChange() {
             foreach(IReactToPatternChange component in GetComponents<IReactToPatternChange>()) {
                 component.OnPatternChange();
             }
