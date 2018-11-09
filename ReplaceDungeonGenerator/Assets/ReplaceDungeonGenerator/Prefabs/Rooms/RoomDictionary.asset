@@ -24,3 +24,7 @@ MonoBehaviour:
     prefab: {fileID: 1140506770171516, guid: 52ee1ff0956bd214ea93696e47bf651b, type: 2}
   - label: cb
     prefab: {fileID: 1645898248208632, guid: 9baae72d80da0c24b839fbc3c85d7098, type: 2}
+  - label: vb
+    prefab: {fileID: 1766097266024222, guid: 60417916c35a7014eb68bbdde5b4321f, type: 2}
+  - label: vt
+    prefab: {fileID: 1342956452141260, guid: a6adc9d69a70fc34e903b7f89b0052ed, type: 2}
