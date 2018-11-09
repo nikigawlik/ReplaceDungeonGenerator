@@ -11,7 +11,7 @@ namespace ReplaceDungeonGenerator
             void OnPatternChange();
         }
 
-        private Pattern _pattern;
+        [SerializeField][HideInInspector] private Pattern _pattern;
         public Vector3 displayDelta = Vector3.one;
         public bool alwaysShowLabel = false;
         public bool showCubes = false;
