@@ -60,13 +60,36 @@ namespace ReplaceDungeonGenerator
 			Vector3Int newSize = new Vector3Int(pSize.z, pSize.y, pSize.x);
 			Pattern newPattern = new Pattern(newSize);
 
-			for (int x = 0; x < newSize.x; x++)
-				for (int y = 0; y < newSize.y; y++)
-					for (int z = 0; z < newSize.z; z++) {
-						newPattern.tiles[x, y, z] = pattern.tiles[newSize.z - 1 - z, y, x];
-					}
+			foreach(Vector3Int position in Utils.IterateGrid3D(newSize))
+			{
+				newPattern.tiles[position.x, position.y, position.z] = GetTileWithRotation(pattern, newSize, position);
+			}
 
-			return newPattern;
+            return newPattern;
+		}
+
+        public static Tile GetTileWithRotation(Pattern pattern, Vector3Int newSize, Vector3Int position)
+        {
+            Tile tile = pattern.tiles[newSize.z - 1 - position.z, position.y, position.x];
+			return new Tile(RotateTileLabel(tile.Label));
+        }
+
+        public static string RotateTileLabel(string label) {
+			string[] tags = label.Split('_');
+			if(tags.Length != 2) {
+				return label;
+			}
+			int rotation;
+			try
+			{
+				rotation = int.Parse(tags[1]);
+			}
+			catch (System.FormatException)
+			{
+				return label;
+			}
+			rotation = (rotation+1) % 4;
+			return tags[0] + "_" + rotation;
 		}
 
 		public Tile GetTile(Vector3Int position) {

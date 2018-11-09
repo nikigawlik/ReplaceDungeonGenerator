@@ -13,13 +13,32 @@ namespace ReplaceDungeonGenerator
         public Pattern rightSide;
         public float weight;
         public string shortName = "";
+        public bool strictRotation = false;
 
-        public Rule(Pattern structure, Pattern replacement, float weight, string shortDescription)
+        public Rule(Pattern leftSide, Pattern rightSide, float weight, string shortName)
         {
-            this.leftSide = structure;
-            this.rightSide = replacement;
+            this.leftSide = leftSide;
+            this.rightSide = rightSide;
             this.weight = weight;
-            this.shortName = shortDescription;
+            this.shortName = shortName;
+        }
+
+        // TODO cache this for better performance
+        public Rule[] GetPermutations() {
+            if(strictRotation) {
+                return new Rule[1] {this};
+            }
+            else {
+                Rule[] permutiations = new Rule[4];
+                permutiations[0] = this;
+                Rule r = this;
+                for(int i = 1; i < 4; i++) {
+                    r = new Rule(Pattern.Rotate90Y(r.leftSide), Pattern.Rotate90Y(r.rightSide), r.weight, r.shortName);
+                    permutiations[i] = r;
+                }
+
+                return permutiations;
+            }
         }
     }
 }

@@ -71,31 +71,34 @@ namespace ReplaceDungeonGenerator
             // iterate over grid, rules, left side pattern of rule
 			foreach (Vector3Int pos in Utils.IterateGrid3D(size))
 			{
-				foreach (Rule r in rules)
+				foreach (Rule ruleGroup in rules)
 				{
-					Pattern patternToMatch = r.leftSide;
-					Vector3Int pSize = patternToMatch.Size;
-					bool fail = false;
+                    foreach(Rule r in ruleGroup.GetPermutations()) {
+                        Pattern patternToMatch = r.leftSide;
+                        Vector3Int pSize = patternToMatch.Size;
+                        bool fail = false;
 
-					foreach (Vector3Int posLocal in Utils.IterateGrid3D(pSize))
-					{
-						Tile mainPatternTile = mainPattern.GetTile(pos + posLocal);
-						Tile patternToMatchTile = patternToMatch.tiles[posLocal.x, posLocal.y, posLocal.z];
-						// TODO make more elegant
-                        // compare tiles of potential match and the main pattern
-                        // we ignore wildcards
-						if (patternToMatchTile.Label != Tile.Wildcard.Label && patternToMatchTile.Label != mainPatternTile.Label)
-						{
-							fail = true;
-							break;
-						}
-					}
+                        foreach (Vector3Int posLocal in Utils.IterateGrid3D(pSize))
+                        {
+                            Tile mainPatternTile = mainPattern.GetTile(pos + posLocal);
+                            Tile patternToMatchTile = patternToMatch.tiles[posLocal.x, posLocal.y, posLocal.z];
+                            
+                            // TODO make more elegant
+                            // compare tiles of potential match and the main pattern
+                            // we ignore wildcards
+                            if (patternToMatchTile.Label != Tile.Wildcard.Label && patternToMatchTile.Label != mainPatternTile.Label)
+                            {
+                                fail = true;
+                                break;
+                            }
+                        }
 
-                    // if we matched, we remember the match for later
-					if (!fail)
-					{
-						matches.Add(new Match(pos, r));
-					}
+                        // if we matched, we remember the match for later
+                        if (!fail)
+                        {
+                            matches.Add(new Match(pos, r));
+                        }
+                    } 
 				}
 			}
 
