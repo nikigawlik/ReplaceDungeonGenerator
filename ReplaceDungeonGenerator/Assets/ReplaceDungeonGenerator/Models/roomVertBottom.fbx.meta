@@ -48,6 +48,7 @@ ModelImporter:
     4300010: Plane.002
     4300012: Plane.001
     4300014: Plane
+    4300016: Plane.008
   externalObjects:
   - first:
       type: UnityEngine:Material

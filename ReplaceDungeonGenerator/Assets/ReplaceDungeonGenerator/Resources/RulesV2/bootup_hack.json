@@ -1,1 +1,1 @@
-{"match":"e - A,. . .;< . -,. . .;b - A,. . .","replacement":"c_2 c_3 .,. . .;s_0 vb_0 st_3,c_2 vt_3 x;c_1 s_1 c_0,c_1 s_1 c_0","weight":0.6000000238418579,"shortDescription":"bootup_hack","strictRotation":false}
+{"match":"e - A,. . .;< . -,. . .;b - A,. . .","replacement":"c_2 c_3 .,. . .;s_0 vb_0 st_3,c_2 vt_3 x;c_1 s_1 c_0,c_1 s_1 c_0","weight":0.0,"shortDescription":"bootup_hack","strictRotation":false}

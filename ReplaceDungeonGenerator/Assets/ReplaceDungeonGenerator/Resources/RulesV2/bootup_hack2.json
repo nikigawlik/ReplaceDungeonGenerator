@@ -1,0 +1,1 @@
+{"match":"e - A;< . -;b - A","replacement":"c_2 c_3 .;c_1 c_0 .;. . .","weight":1.0,"shortDescription":"bootup_hack2","strictRotation":false}
