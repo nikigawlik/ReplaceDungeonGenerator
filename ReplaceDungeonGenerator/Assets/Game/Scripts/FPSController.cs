@@ -15,13 +15,11 @@ public class FPSController : MonoBehaviour {
 	public GameObject bulletPrefabOrPool;
 	public float bulletSpeed = 5f;
 	
-	private Vector3 previousMousePos;
 	private Vector3 eulerLookRotation;
 	private Rigidbody rb;
 	private bool jumpTrigger = false;
 
 	private void Start() {
-		previousMousePos = Input.mousePosition;
 		rb = GetComponent<Rigidbody>();
 	}
 
@@ -32,8 +30,6 @@ public class FPSController : MonoBehaviour {
 		eulerLookRotation = new Vector3(Mathf.Clamp(eulerLookRotation.x, -hLimit, hLimit), eulerLookRotation.y, eulerLookRotation.z);
 
 		head.rotation = Quaternion.Euler(eulerLookRotation);
-
-		previousMousePos = Input.mousePosition;
 
 		if(Input.GetMouseButtonDown(0)) {
 			
