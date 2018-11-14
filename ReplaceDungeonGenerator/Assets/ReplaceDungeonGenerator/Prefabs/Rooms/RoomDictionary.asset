@@ -32,3 +32,5 @@ MonoBehaviour:
     prefab: {fileID: 1943774152249918, guid: bfa8c3eedab145d4fb4fbe6fcaec2a07, type: 2}
   - label: vbd
     prefab: {fileID: 1102862655092716, guid: 94f7c8402c0662d488d1c49e26d26b4d, type: 2}
+  - label: sl
+    prefab: {fileID: 1692960610644858, guid: dce562aae6916e545a4f2507115be00d, type: 2}
