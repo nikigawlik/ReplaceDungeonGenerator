@@ -73,10 +73,6 @@ namespace ReplaceDungeonGenerator
             List<Match> matches = new List<Match>();
             List<Rule> rules = GetComponent<RuleSet>().rules;
 
-            foreach(string str in useCounts.Keys) {
-                Debug.Log(str + ": " + useCounts[str]);
-            }
-
             // iterate over grid, rules, left side pattern of rule
             foreach (Rule ruleGroup in rules)
 			{
