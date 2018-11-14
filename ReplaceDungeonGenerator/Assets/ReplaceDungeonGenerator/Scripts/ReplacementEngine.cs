@@ -20,9 +20,14 @@ namespace ReplaceDungeonGenerator
             }
         }
 
+        [SerializeField][HideInInspector] private Dictionary<string, int> useCounts = new Dictionary<string, int>();
+
         public void SetStartSymbol()
         {
             RuleSet ruleSet = GetComponent<RuleSet>();
+            foreach(Rule r in ruleSet.rules) {
+                useCounts[r.shortName] = 0;
+            }
             Vector3Int startPatternSize = ruleSet.startPattern.Size;
             Pattern mainPattern = GetComponent<PatternView>().pattern;
             Vector3Int mainPatternSize = mainPattern.Size;
@@ -68,11 +73,18 @@ namespace ReplaceDungeonGenerator
             List<Match> matches = new List<Match>();
             List<Rule> rules = GetComponent<RuleSet>().rules;
 
+            foreach(string str in useCounts.Keys) {
+                Debug.Log(str + ": " + useCounts[str]);
+            }
+
             // iterate over grid, rules, left side pattern of rule
-			foreach (Vector3Int pos in Utils.IterateGrid3D(size))
+            foreach (Rule ruleGroup in rules)
 			{
-				foreach (Rule ruleGroup in rules)
+                foreach (Vector3Int pos in Utils.IterateGrid3D(size))
 				{
+                    if(ruleGroup.maximumApplications >= 0 && useCounts[ruleGroup.shortName] >= ruleGroup.maximumApplications) {
+                        continue;
+                    }
                     foreach(Rule r in ruleGroup.GetPermutations()) {
                         Pattern patternToMatch = r.leftSide;
                         Vector3Int pSize = patternToMatch.Size;
@@ -109,7 +121,9 @@ namespace ReplaceDungeonGenerator
             }
 
             // pick a random match from results
-            return Utils.Choose<Match>(matches, WeightOfMatch);
+            Match result = Utils.Choose<Match>(matches, WeightOfMatch);
+            useCounts[result.rule.shortName]++;
+            return result;
         }
 
         /// Wrapper for rule weight, used by the choose utility function

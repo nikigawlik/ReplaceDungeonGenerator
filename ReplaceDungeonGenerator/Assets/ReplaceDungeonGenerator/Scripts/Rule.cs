@@ -14,6 +14,7 @@ namespace ReplaceDungeonGenerator
         public float weight;
         public string shortName = "";
         public bool strictRotation = false;
+        public int maximumApplications = -1;
 
         public Rule(Pattern leftSide, Pattern rightSide, float weight, string shortName, bool strictRotation)
         {

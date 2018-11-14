@@ -46,6 +46,7 @@ namespace ReplaceDungeonGenerator
                 // some extra fields
                 currentRule.shortName = EditorGUILayout.TextField("Rule name", currentRule.shortName);
                 currentRule.weight = EditorGUILayout.FloatField("Rule weight", currentRule.weight);
+                currentRule.maximumApplications = EditorGUILayout.IntField("Maximum applications", currentRule.maximumApplications);
                 
                 // rotation
                 currentRule.strictRotation = EditorGUILayout.BeginToggleGroup("Obey rule orientation", currentRule.strictRotation);
