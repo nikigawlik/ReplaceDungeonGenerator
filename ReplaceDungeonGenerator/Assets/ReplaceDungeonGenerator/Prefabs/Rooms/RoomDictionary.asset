@@ -34,3 +34,9 @@ MonoBehaviour:
     prefab: {fileID: 1102862655092716, guid: 94f7c8402c0662d488d1c49e26d26b4d, type: 2}
   - label: sl
     prefab: {fileID: 1692960610644858, guid: dce562aae6916e545a4f2507115be00d, type: 2}
+  - label: lcn
+    prefab: {fileID: 1903558266187796, guid: a8df8933c13079941bb60721277a866e, type: 2}
+  - label: ld
+    prefab: {fileID: 1408837237617506, guid: 50fe0e6e4cef9884392c452286e54b1a, type: 2}
+  - label: sd
+    prefab: {fileID: 1298659941776192, guid: 221a82eec8e11c64f9b1110be14e9d14, type: 2}
