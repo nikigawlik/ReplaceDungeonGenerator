@@ -76,12 +76,13 @@ namespace ReplaceDungeonGenerator
             // iterate over grid, rules, left side pattern of rule
             foreach (Rule ruleGroup in rules)
 			{
-                foreach (Vector3Int pos in Utils.IterateGrid3D(size))
-				{
-                    if(ruleGroup.maximumApplications >= 0 && useCounts[ruleGroup.shortName] >= ruleGroup.maximumApplications) {
-                        continue;
-                    }
-                    foreach(Rule r in ruleGroup.GetPermutations()) {
+                if(ruleGroup.maximumApplications >= 0 && useCounts[ruleGroup.shortName] >= ruleGroup.maximumApplications) {
+                    continue;
+                }
+                foreach(Rule r in ruleGroup.GetPermutations()) 
+                {
+                    foreach (Vector3Int pos in Utils.IterateGrid3D(size))
+                    {
                         Pattern patternToMatch = r.leftSide;
                         Vector3Int pSize = patternToMatch.Size;
                         bool fail = false;
