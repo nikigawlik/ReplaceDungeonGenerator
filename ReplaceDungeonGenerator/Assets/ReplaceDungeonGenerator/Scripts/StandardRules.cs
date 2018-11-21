@@ -185,14 +185,14 @@ namespace ReplaceDungeonGenerator
 
         private static void AddRule(List<Rule> ruleList, Pattern match, Pattern repl, float weight, bool rotateY, string shortDescription)
         {
-            ruleList.Add(new Rule(match, repl, weight, shortDescription, true));
+            ruleList.Add(new Rule(match, repl, weight, shortDescription, true, -1));
             if (rotateY)
             {
                 for (int i = 0; i < 3; i++)
                 {
                     match = Pattern.Rotate90Y(match);
                     repl = Pattern.Rotate90Y(repl);
-                    ruleList.Add(new Rule(match, repl, weight, shortDescription + "_rotX_" + i.ToString(), true));
+                    ruleList.Add(new Rule(match, repl, weight, shortDescription + "_rotX_" + i.ToString(), true, -1));
                 }
             }
         }

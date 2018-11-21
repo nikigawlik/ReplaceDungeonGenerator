@@ -22,6 +22,9 @@ namespace ReplaceDungeonGenerator
                     // Debug.LogWarning("Could not parse tile label: Label has to consist of two tags separated by an underscore.", gameObject);
                     continue;
                 }
+                if(tags[1] == "") {
+                    continue;
+                }
                 int rotation;
                 try
                 {

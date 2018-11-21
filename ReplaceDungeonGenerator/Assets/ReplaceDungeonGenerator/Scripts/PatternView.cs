@@ -107,10 +107,10 @@ namespace ReplaceDungeonGenerator
                     DrawDotted(worldPosition - dir, worldPosition + dir);
                 break;
                 default:
-                    if(!alwaysShowLabel) DrawLabel(t.Label, worldPosition);
+                    if(!alwaysShowLabel) Utils.DrawLabel(t.Label, worldPosition);
                 break;
             }
-            if(alwaysShowLabel) DrawLabel(t.Label, worldPosition);
+            if(alwaysShowLabel) Utils.DrawLabel(t.Label, worldPosition);
         }
 
         private Vector3Int CalculateDirection(Pattern p, Vector3Int pos) {
@@ -150,24 +150,6 @@ namespace ReplaceDungeonGenerator
             Handles.DrawDottedLine(from, to, 8);
         }
 
-        private void DrawLabel(string str, Vector3 position)
-        {
-            position = position + Vector3.up * 0.1f;
-            UnityEditor.Handles.BeginGUI();
-            // cpu behind camera check
-            Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(SceneView.currentDrawingSceneView.camera);
-            if (!GeometryUtility.TestPlanesAABB(frustumPlanes, new Bounds(position, Vector3.one)))
-            {
-                UnityEditor.Handles.EndGUI();
-                return;
-            }
-
-            Vector3 screenPosition = HandleUtility.WorldToGUIPoint(position);
-            Vector2 size = GUI.skin.label.CalcSize(new GUIContent(str));
-
-            GUI.Label(new Rect(screenPosition.x - (size.x / 2f), screenPosition.y - (size.y / 2f), size.x, size.y), str);
-            UnityEditor.Handles.EndGUI();
-        }
 
         // private void DrawCross(Vector3 screenPosition)
         // {

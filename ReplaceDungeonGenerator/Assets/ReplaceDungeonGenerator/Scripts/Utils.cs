@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace ReplaceDungeonGenerator
 {
@@ -22,6 +23,22 @@ namespace ReplaceDungeonGenerator
             return position.x >= 0 && position.x < size.x 
                 && position.y >= 0 && position.y < size.y
                 && position.z >= 0 && position.z < size.z;
+        }
+
+        /// checks if two boxes at specific positions intersect in 3d
+        public static bool BoundsIntersect(Vector3Int pos1, Vector3Int size1, Vector3Int pos2, Vector3Int size2) {
+            return pos2.x < pos1.x + size1.x && pos2.x + size2.x > pos1.x
+                && pos2.y < pos1.y + size1.y && pos2.y + size2.y > pos1.y
+                && pos2.z < pos1.z + size1.z && pos2.z + size2.z > pos1.z;
+        }
+
+        /// clamp a Vector3Int to bounds
+        public static Vector3Int ClampVector3Int(Vector3Int value, Vector3Int bounds) {
+            return new Vector3Int(
+                Mathf.Clamp(value.x, 0, bounds.x),
+                Mathf.Clamp(value.y, 0, bounds.y),
+                Mathf.Clamp(value.z, 0, bounds.z)
+            );
         }
         
         public delegate float WeightFunction<T>(T obj); 
@@ -65,6 +82,27 @@ namespace ReplaceDungeonGenerator
             obj.transform.SetParent(transform);
 
             return obj;
+        }
+
+        public static void DrawLabel(string str, Vector3 position)
+        {
+#if UNITY_EDITOR
+            position = position + Vector3.up * 0.1f;
+            UnityEditor.Handles.BeginGUI();
+            // cpu behind camera check
+            Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(SceneView.currentDrawingSceneView.camera);
+            if (!GeometryUtility.TestPlanesAABB(frustumPlanes, new Bounds(position, Vector3.one)))
+            {
+                UnityEditor.Handles.EndGUI();
+                return;
+            }
+
+            Vector3 screenPosition = HandleUtility.WorldToGUIPoint(position);
+            Vector2 size = GUI.skin.label.CalcSize(new GUIContent(str));
+
+            GUI.Label(new Rect(screenPosition.x - (size.x / 2f), screenPosition.y - (size.y / 2f), size.x, size.y), str);
+            UnityEditor.Handles.EndGUI();
+#endif
         }
     }
 }
