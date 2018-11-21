@@ -11,8 +11,8 @@ namespace ReplaceDungeonGenerator
     {
         public int maxGenerationSteps = 10;
 		public PatternView patternView;
-        [Tooltip("Use -1 for random seed")]
-        public int seed = -1;
+        public bool increaseSeed = true;
+        public int seed = 0;
 
         /// Do repeated replacement steps until no replacements are possible 
         /// or the maximum step number is reached
@@ -37,9 +37,9 @@ namespace ReplaceDungeonGenerator
 		[Button]
         public void InitializeGeneration()
         {
-            if(seed != -1) {
-                Random.InitState(seed);
-            }
+            if(increaseSeed) seed++;
+            Random.InitState(seed);
+
 			patternView.pattern = new Pattern(patternView.pattern.Size, Tile.Empty);
             ReplacementEngine re = GetComponent<ReplacementEngine>();
             re.SetStartSymbol();
