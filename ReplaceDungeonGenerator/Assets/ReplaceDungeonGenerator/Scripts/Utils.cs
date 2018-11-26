@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Text.RegularExpressions;
 
 namespace ReplaceDungeonGenerator
 {
@@ -103,6 +104,26 @@ namespace ReplaceDungeonGenerator
             GUI.Label(new Rect(screenPosition.x - (size.x / 2f), screenPosition.y - (size.y / 2f), size.x, size.y), str);
             UnityEditor.Handles.EndGUI();
 #endif
+        }
+
+        [MenuItem("GameObject/AssetForgeTools/Add Mesh Colliders by Name", false, 0)]
+        public static void AddMeshCollidersByName() {
+            Transform[] transforms = Selection.GetTransforms(SelectionMode.Deep);
+            string matchPattern = @"struct_*";
+            
+            foreach(Transform t in transforms) {
+                GameObject obj = t.gameObject;
+                if(Regex.IsMatch(obj.name, matchPattern)) {
+                    MeshFilter mf = obj.GetComponent<MeshFilter>();
+                    if(mf != null) {
+                        MeshCollider mc = obj.GetComponent<MeshCollider>();
+                        if(mc != null) {
+                            Undo.DestroyObjectImmediate(mc);
+                        }
+                        Undo.AddComponent<MeshCollider>(obj);
+                    }
+                }
+            }
         }
     }
 }
