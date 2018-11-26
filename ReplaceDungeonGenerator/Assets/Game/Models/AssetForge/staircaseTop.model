@@ -1,0 +1,25 @@
+# Made using Asset Forge (1.3)
+
+:models
+#Dng2Ext/struct_ceiling[(-0.5, 2, -0.5);(0.0, 0.0, 0.0);(4.0, 1.0, 4.0);struct_ceiling_10;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-2, -4.47E-08, -0.5);(0.0, 90.0, 0.0);(4.0, 2.0, 1.0);struct_wall_main_half_61;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-0.5, -4.47E-08, 1);(0.0, 180.0, 0.0);(4.0, 2.0, 1.0);struct_wall_main_half_62;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-0.5, -4.47E-08, -2);(0.0, 0.0, 0.0);(4.0, 2.0, 1.0);struct_wall_main_half_63;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, -4.47E-08, 1);(0.0, 270.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_64;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, -4.47E-08, -2);(0.0, 270.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_65;Dark_Grey]
+#Dng2Ext/struct_wall_big_door_lower[(1, -4.47E-08, -1);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_lower_66;Grey+Dark_Grey]
+#Dng2Ext/struct_wall_big_door_upper[(1, 1, -1);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_upper_67;Dark_Grey+Grey]
+#Dng2Ext/struct_wall_big_door_base_half[(1, -4.47E-08, -1);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_base_half_68;Grey]
+#Dng2Ext/struct_wall_base_half[(1, -4.47E-08, -2);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);struct_wall_base_half_69;Grey]
+#Dng2Ext/struct_wall_base_half[(1, -4.47E-08, 1);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);struct_wall_base_half_70;Grey]
+#Dng2Ext/struct_wall_base_half[(-0.5, -4.47E-08, -2);(0.0, 0.0, 0.0);(4.0, 1.0, 1.0);struct_wall_base_half_71;Grey]
+#Dng2Ext/struct_wall_base_half[(-0.5, -4.47E-08, 1);(0.0, 180.0, 0.0);(4.0, 1.0, 1.0);struct_wall_base_half_72;Grey]
+#Dng2Ext/struct_wall_base_half[(-2, -4.47E-08, -0.5);(0.0, 90.0, 0.0);(4.0, 1.0, 1.0);struct_wall_base_half_74;Grey]
+
+:materials
+Dark_Grey[RGBA(0.612, 0.612, 0.612, 1.000);]
+Grey[RGBA(0.737, 0.737, 0.737, 1.000);]
+
+:textures
+
+:extra

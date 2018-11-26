@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: c055ee33998bd9c4496c4144c7cb3a52
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: struct_ceiling_10
+    100004: struct_floor_main_half_0
+    100006: struct_wall_base_half_19
+    100008: struct_wall_base_half_20
+    100010: struct_wall_big_door_base_half_10
+    100012: struct_wall_big_door_base_half_11
+    100014: struct_wall_big_door_lower_12
+    100016: struct_wall_big_door_lower_4
+    100018: struct_wall_big_door_upper_11
+    100020: struct_wall_big_door_upper_13
+    100022: struct_wall_curved_base_21
+    100024: struct_wall_curved_main_15
+    100026: struct_wall_main_half_17
+    100028: struct_wall_main_half_18
+    100030: struct_wall_tapered_base_22
+    100032: struct_wall_tapered_main_16
+    400000: //RootNode
+    400002: struct_ceiling_10
+    400004: struct_floor_main_half_0
+    400006: struct_wall_base_half_19
+    400008: struct_wall_base_half_20
+    400010: struct_wall_big_door_base_half_10
+    400012: struct_wall_big_door_base_half_11
+    400014: struct_wall_big_door_lower_12
+    400016: struct_wall_big_door_lower_4
+    400018: struct_wall_big_door_upper_11
+    400020: struct_wall_big_door_upper_13
+    400022: struct_wall_curved_base_21
+    400024: struct_wall_curved_main_15
+    400026: struct_wall_main_half_17
+    400028: struct_wall_main_half_18
+    400030: struct_wall_tapered_base_22
+    400032: struct_wall_tapered_main_16
+    2100000: Dark_Grey
+    2100002: Grey
+    2300000: struct_ceiling_10
+    2300002: struct_floor_main_half_0
+    2300004: struct_wall_base_half_19
+    2300006: struct_wall_base_half_20
+    2300008: struct_wall_big_door_base_half_10
+    2300010: struct_wall_big_door_base_half_11
+    2300012: struct_wall_big_door_lower_12
+    2300014: struct_wall_big_door_lower_4
+    2300016: struct_wall_big_door_upper_11
+    2300018: struct_wall_big_door_upper_13
+    2300020: struct_wall_curved_base_21
+    2300022: struct_wall_curved_main_15
+    2300024: struct_wall_main_half_17
+    2300026: struct_wall_main_half_18
+    2300028: struct_wall_tapered_base_22
+    2300030: struct_wall_tapered_main_16
+    3300000: struct_ceiling_10
+    3300002: struct_floor_main_half_0
+    3300004: struct_wall_base_half_19
+    3300006: struct_wall_base_half_20
+    3300008: struct_wall_big_door_base_half_10
+    3300010: struct_wall_big_door_base_half_11
+    3300012: struct_wall_big_door_lower_12
+    3300014: struct_wall_big_door_lower_4
+    3300016: struct_wall_big_door_upper_11
+    3300018: struct_wall_big_door_upper_13
+    3300020: struct_wall_curved_base_21
+    3300022: struct_wall_curved_main_15
+    3300024: struct_wall_main_half_17
+    3300026: struct_wall_main_half_18
+    3300028: struct_wall_tapered_base_22
+    3300030: struct_wall_tapered_main_16
+    4300000: struct_ceiling_10
+    4300002: struct_floor_main_half_0
+    4300004: struct_wall_base_half_19
+    4300006: struct_wall_base_half_20
+    4300008: struct_wall_big_door_base_half_10
+    4300010: struct_wall_big_door_base_half_11
+    4300012: struct_wall_big_door_lower_12
+    4300014: struct_wall_big_door_lower_4
+    4300016: struct_wall_big_door_upper_11
+    4300018: struct_wall_big_door_upper_13
+    4300020: struct_wall_curved_base_21
+    4300022: struct_wall_curved_main_15
+    4300024: struct_wall_main_half_17
+    4300026: struct_wall_main_half_18
+    4300028: struct_wall_tapered_base_22
+    4300030: struct_wall_tapered_main_16
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
