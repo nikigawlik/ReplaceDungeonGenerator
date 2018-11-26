@@ -31,9 +31,9 @@ namespace ReplaceDungeonGenerator
             foreach(Rule r in ruleSet.rules) {
                 useCounts[r.shortName] = 0;
             }
-            Vector3Int startPatternSize = ruleSet.startPattern.Size;
             Pattern mainPattern = GetComponent<PatternView>().pattern;
             Vector3Int mainPatternSize = mainPattern.Size;
+            Vector3Int startPatternSize = ruleSet.startPattern.Size;
             Vector3Int position = new Vector3Int((mainPatternSize.x - startPatternSize.x) / 2, (mainPatternSize.y - startPatternSize.y) / 2, (mainPatternSize.z - startPatternSize.z) / 2);
             // Vector3Int position = Vector3Int.zero;
             SetPattern(position, ruleSet.startPattern);

@@ -11,9 +11,9 @@ namespace ReplaceDungeonGenerator
     /// Wrapper for a list of rules, can load the rules from files
     public class RuleSet : MonoBehaviour
     {
-        public string pathToRules;
-        public List<Rule> rules;
-        public Pattern startPattern;
+        public string startLabel = "start";
+        [HideInInspector] public string pathToRules; // hidden bec. of custom drawer
+        [HideInInspector] public List<Rule> rules; // hidden bec. of custom drawer
 
         private int _selectedRuleIndex = -1;
 
@@ -27,6 +27,14 @@ namespace ReplaceDungeonGenerator
             set
             {
                 _selectedRuleIndex = value;
+            }
+        }
+
+        public Pattern startPattern
+        {
+            get
+            {
+                return new Pattern(Vector3Int.one, new Tile(startLabel));
             }
         }
 

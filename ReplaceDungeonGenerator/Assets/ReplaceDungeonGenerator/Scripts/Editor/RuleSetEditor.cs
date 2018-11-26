@@ -32,6 +32,8 @@ namespace ReplaceDungeonGenerator
 		}
 	
 		public override void OnInspectorGUI() {
+			DrawDefaultInspector();
+
 			serializedObject.Update();
 			RuleSet ruleSet = (RuleSet) target;
 
