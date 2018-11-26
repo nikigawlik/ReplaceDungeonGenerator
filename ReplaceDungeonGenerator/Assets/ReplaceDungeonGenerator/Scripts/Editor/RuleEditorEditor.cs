@@ -53,6 +53,9 @@ namespace ReplaceDungeonGenerator
                 bool doRotation = GUILayout.Button("Rotate Rule");
                 EditorGUILayout.EndToggleGroup();
 
+                // reverse
+                currentRule.reverseApplication = EditorGUILayout.Toggle("Reversible", currentRule.reverseApplication);
+
                 // text areas for rule editing
                 try{
                     string leftSideText = SerializedRule.PatternToString(currentRule.leftSide);
