@@ -57,7 +57,7 @@ namespace ReplaceDungeonGenerator
                 try{
                     string leftSideText = SerializedRule.PatternToString(currentRule.leftSide);
                     EditorGUILayout.PrefixLabel(new GUIContent("Match: ", "String representation of left side (match). \";\", \",\", \" \" are separators for x, y, z dimension"));
-                    leftSideText = EditorGUILayout.TextArea(leftSideText, GUILayout.ExpandHeight(true));
+                    leftSideText = EditorGUILayout.TextField(leftSideText, GUILayout.ExpandHeight(true));
                     currentRule.leftSide = SerializedRule.StringToPattern(leftSideText);
                     if(doRotation) currentRule.leftSide = Pattern.Rotate90Y(currentRule.leftSide);
                     ((PatternView) matchPatternView.objectReferenceValue).pattern = currentRule.leftSide;
@@ -69,7 +69,7 @@ namespace ReplaceDungeonGenerator
                 try{
                     string rightSideText = SerializedRule.PatternToString(currentRule.rightSide);
                     EditorGUILayout.PrefixLabel(new GUIContent("Replacement: ", "String representation of right side (replacement). \";\", \",\", \" \" are separators for x, y, z dimension"));
-                    rightSideText = EditorGUILayout.TextArea(rightSideText, GUILayout.ExpandHeight(true));
+                    rightSideText = EditorGUILayout.TextField(rightSideText, GUILayout.ExpandHeight(true));
                     currentRule.rightSide = SerializedRule.StringToPattern(rightSideText);
                     if(doRotation) currentRule.rightSide = Pattern.Rotate90Y(currentRule.rightSide);
                     ((PatternView) replacementPatternView.objectReferenceValue).pattern = currentRule.rightSide;
