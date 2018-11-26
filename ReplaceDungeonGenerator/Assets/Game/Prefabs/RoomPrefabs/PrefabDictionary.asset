@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e5a76e62d2b994abf8458d6d7df8d0, type: 3}
+  m_Name: PrefabDictionary
+  m_EditorClassIdentifier: 
+  prefabs:
+  - label: c
+    prefab: {fileID: 1454151506575058, guid: e5fd69873ce02ac42b6860d468ca37fe, type: 2}
+  - label: re
+    prefab: {fileID: 1794607289459178, guid: ee001aab120724e4ab03a76290c8fc19, type: 2}
+  - label: rx
+    prefab: {fileID: 1001896892783298, guid: 8126f40e7f9d59c48a5e9c0ab661bee4, type: 2}
+  - label: t
+    prefab: {fileID: 1703882540817616, guid: bf437d086adaaa046be1be7cbc6adf63, type: 2}
+  - label: sb
+    prefab: {fileID: 1408659238902680, guid: 6260dc427a3729345a4de4ac9747ecdd, type: 2}
+  - label: st
+    prefab: {fileID: 1175697117698754, guid: cfb0105b58f58e048b0d9dd08371f870, type: 2}
