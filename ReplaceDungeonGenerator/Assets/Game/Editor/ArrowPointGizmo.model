@@ -1,0 +1,12 @@
+# Made using Asset Forge (1.3)
+
+:models
+Primitives/block_piramid[(1, 0.5, 0);(0.0, 0.0, 270.0);(0.8, 1.0, 1.4);block_piramid_1;_defaultMat]
+Primitives/block_default[(0.75, 0.3, 0);(0.0, 0.0, 0.0);(0.5, 0.4, 1.0);block_default_2;_defaultMat]
+
+:materials
+_defaultMat[RGBA(1.000, 1.000, 1.000, 1.000);]
+
+:textures
+
+:extra

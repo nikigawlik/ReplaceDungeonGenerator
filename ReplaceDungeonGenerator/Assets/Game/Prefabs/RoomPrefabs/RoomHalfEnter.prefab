@@ -215,6 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4183689285201018}
+  - component: {fileID: 114457519027037200}
   m_Layer: 0
   m_Name: RoomHalfEnter
   m_TagString: Untagged
@@ -335,7 +336,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1794607289459178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4010162906754654}
@@ -1229,3 +1230,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300020, guid: 2a367866da0282a4f91d2cea543479c6, type: 3}
+--- !u!114 &114457519027037200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1794607289459178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fb752567998e448835252785a69c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowShaftMesh: {fileID: 4300000, guid: 38e6bde0ad2f2f041939fb51868c73c2, type: 3}
+  arrowHeadMesh: {fileID: 4300000, guid: b28d66aaaeea2b24da1413acf4e3f41e, type: 3}
+  color: {r: 0.5660378, g: 0.754717, b: 0.5860728, a: 1}
+  shaftRot: 0
+  headRot: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - label: c
-    prefab: {fileID: 1454151506575058, guid: e5fd69873ce02ac42b6860d468ca37fe, type: 2}
+    prefab: {fileID: 1371029268186814, guid: d760a66d8466cfe43b303a5942054e85, type: 2}
   - label: re
     prefab: {fileID: 1794607289459178, guid: ee001aab120724e4ab03a76290c8fc19, type: 2}
   - label: rx
@@ -26,3 +26,9 @@ MonoBehaviour:
     prefab: {fileID: 1175697117698754, guid: cfb0105b58f58e048b0d9dd08371f870, type: 2}
   - label: s
     prefab: {fileID: 1311358715806664, guid: 30f20364eea88054181d7cb6009d17a1, type: 2}
+  - label: tl
+    prefab: {fileID: 1081496001437396, guid: 691967116bf85df468738f6189a0832a, type: 2}
+  - label: tr
+    prefab: {fileID: 1371029268186814, guid: ffe7a9183cd80b34ba776f74988058d5, type: 2}
+  - label: cr
+    prefab: {fileID: 1503876191281704, guid: 08f205669bf825a4a88d0e16181999a1, type: 2}
