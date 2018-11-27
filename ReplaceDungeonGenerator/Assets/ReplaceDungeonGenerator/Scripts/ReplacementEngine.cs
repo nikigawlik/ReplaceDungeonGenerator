@@ -21,12 +21,14 @@ namespace ReplaceDungeonGenerator
         }
 
         [SerializeField] private bool showDebugInformation = false;
+        [SerializeField] [HideInInspector] private int currentStep;
 
         private List<Match> matches;
         private Dictionary<string, int> useCounts = new Dictionary<string, int>();
 
         public void SetStartSymbol()
         {
+            currentStep = 0;
             RuleSet ruleSet = GetComponent<RuleSet>();
             foreach(Rule r in ruleSet.rules) {
                 useCounts[r.shortName] = 0;
@@ -77,6 +79,7 @@ namespace ReplaceDungeonGenerator
                 )
             );
 
+            currentStep++;
             return true;
         }
 
@@ -130,6 +133,11 @@ namespace ReplaceDungeonGenerator
                 {
                     continue;
                 }
+                if(ruleGroup.waitSteps > currentStep) 
+                {
+                    continue;
+                }
+
                 foreach (Rule r in ruleGroup.GetPermutations())
                 {
                     Vector3Int searchPosition = boundsPosition - r.leftSide.Size + Vector3Int.one;

@@ -15,6 +15,7 @@ namespace ReplaceDungeonGenerator
         public string shortName = "";
         public bool strictRotation = false;
         public int maximumApplications = -1;
+        public int waitSteps = 0;
         public bool reverseApplication = false;
 
         public Rule(Rule rule) {
