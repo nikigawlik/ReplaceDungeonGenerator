@@ -76,20 +76,25 @@ namespace ReplaceDungeonGenerator
 
         public static string RotateTileLabel(string label) {
 			string[] tags = label.Split('_');
-			if(tags.Length != 2) {
+			if(tags.Length < 2) {
 				return label;
 			}
 			int rotation;
+			string lastTag = tags[tags.Length-1];
 			try
 			{
-				rotation = int.Parse(tags[1]);
+				rotation = int.Parse(lastTag);
 			}
 			catch (System.FormatException)
 			{
 				return label;
 			}
 			rotation = (rotation+1) % 4;
-			return tags[0] + "_" + rotation;
+			string str = "";
+			for(int i = 0; i < tags.Length - 1; i++) {
+				str += tags[i] + "_";
+			}
+			return str + rotation;
 		}
 
 		public Tile GetTile(Vector3Int position) {

@@ -1290,8 +1290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fb752567998e448835252785a69c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowShaftMesh: {fileID: 4300000, guid: 38e6bde0ad2f2f041939fb51868c73c2, type: 3}
-  arrowHeadMesh: {fileID: 4300000, guid: b28d66aaaeea2b24da1413acf4e3f41e, type: 3}
-  color: {r: 0.5660378, g: 0.754717, b: 0.5860728, a: 1}
+  arrowShaftMesh: {fileID: 4300002, guid: ec8c707487aaa2746a38c7b533ca3c57, type: 3}
+  arrowHeadMesh: {fileID: 4300000, guid: ec8c707487aaa2746a38c7b533ca3c57, type: 3}
+  color: {r: 0.08539654, g: 0.3018868, b: 0.055535786, a: 1}
   shaftRot: 0
   headRot: 0

@@ -34,3 +34,7 @@ MonoBehaviour:
     prefab: {fileID: 1503876191281704, guid: 08f205669bf825a4a88d0e16181999a1, type: 2}
   - label: drop
     prefab: {fileID: 1746887632591302, guid: c2c7b6296d4a2124bab82d2e9333bf74, type: 2}
+  - label: key
+    prefab: {fileID: 1937728563871160, guid: 7c24bf49d432fdb459f8d50019e79a1c, type: 2}
+  - label: door
+    prefab: {fileID: 1861831516343210, guid: 5c3e9fc97d27ed44b846b4a397e49840, type: 2}

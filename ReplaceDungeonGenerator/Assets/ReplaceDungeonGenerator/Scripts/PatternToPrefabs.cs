@@ -8,6 +8,7 @@ namespace ReplaceDungeonGenerator
     public class PatternToPrefabs : MonoBehaviour, PatternView.IReactToPatternChange
     {
         public PrefabDictionary prefabDictionary;
+        public bool logWarnings = false;
         // method called from PatternView
         public void OnPatternChange()
         {
@@ -17,42 +18,49 @@ namespace ReplaceDungeonGenerator
             foreach (Vector3Int position in Utils.IterateGrid3D(pattern.Size))
             {
                 string[] tags = pattern.GetTile(position).Label.Split('_');
-                if (tags.Length != 2)
+                if (tags.Length < 2)
                 {
-                    // Debug.LogWarning("Could not parse tile label: Label has to consist of two tags separated by an underscore.", gameObject);
+                    if(logWarnings) Debug.LogWarning("Could not parse tile label: Label has to consist of at least two tags separated by an underscore.", gameObject);
                     continue;
                 }
-                if(tags[1] == "") {
+                string lastTag = tags[tags.Length-1];
+
+                if(lastTag == "") {
                     continue;
                 }
                 int rotation;
                 try
                 {
-                    rotation = int.Parse(tags[1]);
+                    rotation = int.Parse(lastTag);
                 }
                 catch (System.FormatException)
                 {
-                    Debug.LogWarning("Could not parse tile label: Second tag in label is not an integer.", gameObject);
+                    if(logWarnings) Debug.LogWarning("Could not parse tile label: Last tag in label is not an integer.", gameObject);
                     continue;
                 }
                 catch (System.OverflowException)
                 {
-                    Debug.LogWarning("Could not parse tile label: The rotation is fractional or out of the integer number range.", gameObject);
-                    continue;
-                }
-                GameObject prefab = prefabDictionary.FindPrefab(tags[0]);
-                if (prefab == null)
-                {
-                    Debug.LogWarning("Could not parse tile label: Specified tag \"" + tags[0] + "\"does not exist.");
+                    if(logWarnings) Debug.LogWarning("Could not parse tile label: The rotation is fractional or out of the integer number range.", gameObject);
                     continue;
                 }
 
-                GameObject instance = Instantiate(
-                    prefab,
-                    patternView.GetPositionInWorldSpace(position, patternView.displayDelta),
-                    Quaternion.Euler(0, rotation * 90, 0)
-                );
-                instance.transform.SetParent(container.transform, true);
+                GameObject[] prefabs = prefabDictionary.ToPrefabs(tags);
+                for(int i = 0; i < prefabs.Length - 1; i++) {
+                    GameObject prefab = prefabs[i];
+
+                    if (prefab == null)
+                    {
+                        if(logWarnings) Debug.LogWarning("Could not parse tile label: Specified tag \"" + tags[0] + "\"does not exist.");
+                        continue;
+                    }
+
+                    GameObject instance = Instantiate(
+                        prefab,
+                        patternView.GetPositionInWorldSpace(position, patternView.displayDelta),
+                        Quaternion.Euler(0, rotation * 90, 0)
+                    );
+                    instance.transform.SetParent(container.transform, true);
+                }
             }
         }
     }
