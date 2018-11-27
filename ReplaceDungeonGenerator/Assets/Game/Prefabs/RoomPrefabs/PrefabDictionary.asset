@@ -32,3 +32,5 @@ MonoBehaviour:
     prefab: {fileID: 1371029268186814, guid: ffe7a9183cd80b34ba776f74988058d5, type: 2}
   - label: cr
     prefab: {fileID: 1503876191281704, guid: 08f205669bf825a4a88d0e16181999a1, type: 2}
+  - label: drop
+    prefab: {fileID: 1746887632591302, guid: c2c7b6296d4a2124bab82d2e9333bf74, type: 2}
