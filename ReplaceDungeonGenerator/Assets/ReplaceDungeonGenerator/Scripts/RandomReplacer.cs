@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EasyButtons;
+using UnityEngine.Profiling;
 
 namespace ReplaceDungeonGenerator
 {
     /// This class is mostly a wrapper for the ReplacementEngine, doing repeated replacements
     [RequireComponent(typeof(PatternView))]
+    [RequireComponent(typeof(ReplacementEngine))]
     public class RandomReplacer : MonoBehaviour
     {
         public int maxGenerationSteps = 10;

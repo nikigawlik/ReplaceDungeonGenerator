@@ -111,7 +111,11 @@ namespace ReplaceDungeonGenerator
 			}
 
 			tiles[position.x, position.y, position.z] = tile;
-			if(triggerEvent && OnChange != null) OnChange();
+			if(triggerEvent && OnChange != null) TriggerChangeEvents();
+		}
+
+		public void TriggerChangeEvents() {
+			if(OnChange != null) OnChange();
 		}
 
 		public void OnBeforeSerialize() {

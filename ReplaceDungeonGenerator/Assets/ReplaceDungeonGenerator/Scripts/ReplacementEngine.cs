@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace ReplaceDungeonGenerator
 {
@@ -42,9 +43,9 @@ namespace ReplaceDungeonGenerator
             matches = null;
         }
 
-        public bool GenerationStep()
+        public bool GenerationStep(string filter = "", bool allowPartialMatch = true)
         {
-            Match match = FindRandomMatch();
+            Match match = FindRandomMatch(filter, allowPartialMatch);
             
             if (match == null)
             {
@@ -92,12 +93,13 @@ namespace ReplaceDungeonGenerator
 			{
                 Tile tile = pattern.tiles[p.x, p.y, p.z];
                 if (tile.Label != Tile.Wildcard.Label) {
-                    mainPattern.SetTile(position + p, tile);
+                    mainPattern.SetTile(position + p, tile, false);
                 }
 			}
+            mainPattern.TriggerChangeEvents();
         }
 
-        private Match FindRandomMatch()
+        private Match FindRandomMatch(string filter = "", bool allowPartialMatch = true)
         {
             Pattern mainPattern = GetComponent<PatternView>().pattern;
             Vector3Int size = mainPattern.Size;
@@ -113,8 +115,20 @@ namespace ReplaceDungeonGenerator
             }
 
             // pick a random match from results
-            Match result = Utils.Choose<Match>(matches, WeightOfMatch);
-            return result;
+            if(filter == "") {
+                // unfiltered
+                return Utils.Choose<Match>(matches, WeightOfMatch);
+            } else if(allowPartialMatch) {
+                // filter start
+                return Utils.Choose<Match>(matches.Where(m => MatchFilterFunction(filter, m)), WeightOfMatch);
+            } else {
+                // filter strict
+                return Utils.Choose<Match>(matches.Where(m => filter == m.rule.shortName), WeightOfMatch);
+            }
+        }
+
+        private bool MatchFilterFunction(string filter, Match match) {
+            return match.rule.shortName.StartsWith(filter);
         }
 
         private List<Match> FindAllMatches(Pattern mainPattern, List<Rule> rules) {

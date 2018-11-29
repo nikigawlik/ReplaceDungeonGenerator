@@ -1,0 +1,27 @@
+def do_stairs
+    add_stairs
+    move_stairs 10
+    freeze_stairs
+end
+
+def do_key_door
+    key_door
+    move_key 10
+    freeze_key
+end 
+
+def do_kds
+    do_key_door
+    do_stairs
+end
+
+def do_floor
+    do_kds
+    #extend_curve 3
+    extend_* 3
+end
+
+start_symbol
+extend_curve
+extend_* 4
+do_floor 2
