@@ -14,6 +14,7 @@ public class FPSController : MonoBehaviour {
 	public Transform head;
 	public GameObject bulletPrefabOrPool;
 	public float bulletSpeed = 5f;
+	public float interactionDistance = 2f;
 	
 	private Vector3 eulerLookRotation;
 	private Rigidbody rb;
@@ -54,6 +55,18 @@ public class FPSController : MonoBehaviour {
 			obj.transform.rotation = head.rotation;
 			obj.GetComponent<Rigidbody>().AddForce(head.forward * bulletSpeed, ForceMode.VelocityChange);
 		}
+
+		// interacty
+		RaycastHit hit;
+		if(Physics.Raycast(head.position, head.forward, out hit, interactionDistance, LayerMask.GetMask("Default"))) {
+			Interactible interactible = hit.collider.gameObject.GetComponentInParent<Interactible>();
+			if(interactible != null) {
+				interactible.showText = true;
+				if(Input.GetButtonDown("Fire2")) {
+					interactible.Interact();
+				}
+			}
+		}		
 	}
 
 	private void FixedUpdate() {

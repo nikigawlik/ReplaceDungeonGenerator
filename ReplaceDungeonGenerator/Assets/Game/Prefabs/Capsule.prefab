@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114683165651458046}
   m_Layer: 9
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,14 +53,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888452252099498}
-  m_LocalRotation: {x: 0, y: 0.70981663, z: 0, w: 0.70438653}
-  m_LocalPosition: {x: 0, y: 0.45, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.68, y: 1, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4804840038114068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 403.4, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4804840038114068
 Transform:
   m_ObjectHideFlags: 1
@@ -156,6 +156,7 @@ MonoBehaviour:
   head: {fileID: 4804840038114068}
   bulletPrefabOrPool: {fileID: 0}
   bulletSpeed: 15
+  interactionDistance: 2
 --- !u!114 &114683165651458046
 MonoBehaviour:
   m_ObjectHideFlags: 1
