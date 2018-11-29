@@ -38,3 +38,11 @@ MonoBehaviour:
     prefab: {fileID: 1937728563871160, guid: 7c24bf49d432fdb459f8d50019e79a1c, type: 2}
   - label: door
     prefab: {fileID: 1861831516343210, guid: 5c3e9fc97d27ed44b846b4a397e49840, type: 2}
+  - label: traps1
+    prefab: {fileID: 1856111886683576, guid: 088971e82905c5045bff02bddeab7117, type: 2}
+  - label: traps2
+    prefab: {fileID: 1343283886212324, guid: ebf0a0e5f7a8340428d8789b9887d4dc, type: 2}
+  - label: traps3
+    prefab: {fileID: 1957335766749384, guid: 1a21713bec46a1e44be088b6d6d7a83f, type: 2}
+  - label: traps4
+    prefab: {fileID: 1990904091518718, guid: 207b572bc1723f74197b0336b2b69fd7, type: 2}

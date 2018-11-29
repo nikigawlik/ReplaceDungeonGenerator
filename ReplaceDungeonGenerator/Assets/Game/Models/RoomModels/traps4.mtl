@@ -1,0 +1,17 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl Grey (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.7373 0.7373 0.7373 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Dark_Grey (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.6118 0.6118 0.6118 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Iron (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.4784 0.4784 0.4784 
+Ks 0.330000 0.330000 0.330000 
+
