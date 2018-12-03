@@ -43,7 +43,7 @@ namespace ReplaceDungeonGenerator
             matches = null;
         }
 
-        public bool GenerationStep(string filter = "", bool allowPartialMatch = true)
+        public bool ReplaceRandomMatch(string filter = "", bool allowPartialMatch = true)
         {
             Match match = FindRandomMatch(filter, allowPartialMatch);
             

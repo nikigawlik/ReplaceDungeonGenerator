@@ -163,7 +163,7 @@ namespace ReplaceDungeonGenerator
 				case InstructionType.ApplyRuleRange:
 					if(UseApplication()) {
 						// apply rule once and count down
-						visibleChange = re.GenerationStep(instr.filter, instr.type == InstructionType.ApplyRuleRange);
+						visibleChange = re.ReplaceRandomMatch(instr.filter, instr.type == InstructionType.ApplyRuleRange);
 
 					} else {
 						currentInstruction++;

@@ -16,9 +16,9 @@ def do_kds
 end
 
 def do_floor
-    do_kds
-    #extend_curve 3
-    extend_* 3
+    do_kds 0 1
+    extend_curve 1
+    extend_* 2
 end
 
 start_symbol
