@@ -1,0 +1,51 @@
+# Made using Asset Forge (1.3)
+
+:models
+#Dng2Ext/struct_floor_main_half[(1.5, 0, 1.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_80;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(1.5, 0, -2.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_81;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(1.5, 0, -2.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_82;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(1.5, 0, -6.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_83;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(-2.5, 0, -6.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_84;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(-2.5, 0, -2.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_85;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(-2.5, 0, 1.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_86;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(-6.5, 0, -6.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_87;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(-6.5, 0, -2.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_88;Dark_Grey]
+#Dng2Ext/struct_floor_main_half[(-6.5, 0, 1.5);(0.0, 270.0, 0.0);(4.0, 1.0, 4.0);struct_floor_main_half_89;Dark_Grey]
+#Dng2Ext/struct_wall_big_door_lower[(-2, 0, 3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_lower_90;Grey+Dark_Grey]
+#Dng2Ext/struct_wall_big_door_upper[(-2, 1, 3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_upper_91;Dark_Grey+Grey]
+#Dungeon2/struct_block_normal[(1, 0, 0.7);(0.0, 180.0, 0.0);(5.0, 2.0, 5.6);struct_block_normal_93;Dark_Grey]
+#Dungeon2/struct_floor_normal[(-2, 2, -2);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_floor_normal_94;Dark_Grey]
+#Dungeon2/struct_floor_normal[(-2.6, 2, -2.9);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_floor_normal_95;Dark_Grey]
+#Dungeon2/struct_floor_normal[(-3.5, 2, -3.6);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_floor_normal_96;Dark_Grey]
+#Dungeon2/struct_floor_normal[(-4.2, 2, -4.5);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_floor_normal_97;Dark_Grey]
+#Dungeon2/struct_block_normal[(-6, 0, -6.7);(0.0, 180.0, 0.0);(5.0, 2.0, 3.6);struct_block_normal_98;Dark_Grey]
+#Dungeon2/struct_pillar_mid_wall_main[(-2, 0, -3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_pillar_mid_wall_main_99;Grey]
+#Dungeon2/struct_pillar_mid_wall_main[(-2, 0.8, -3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_pillar_mid_wall_main_100;Grey]
+#Dungeon2/struct_pillar_mid_wall_main[(-3.8, 0.8, -4.5);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_pillar_mid_wall_main_101;Grey]
+#Dungeon2/struct_pillar_mid_wall_main[(-3.8, 0, -4.5);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_pillar_mid_wall_main_102;Grey]
+#Dng2Ext/struct_wall_big_door_lower[(2, 2, 3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_lower_103;Grey+Dark_Grey]
+#Dng2Ext/struct_wall_big_door_lower[(-7, 2, -8);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_lower_104;Grey+Dark_Grey]
+#Dng2Ext/struct_wall_big_door_upper[(-7, 3, -8);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_upper_105;Dark_Grey+Grey]
+#Dng2Ext/struct_wall_big_door_upper[(2, 3, 3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_upper_106;Dark_Grey+Grey]
+#Dng2Ext/struct_wall_big_door_lower[(-3, 0, -8);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_lower_107;Grey+Dark_Grey]
+#Dng2Ext/struct_wall_big_door_upper[(-3, 1, -8);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);struct_wall_big_door_upper_108;Dark_Grey+Grey]
+#Dng2Ext/struct_wall_main_half[(-6, 0, 3);(0.0, 180.0, 0.0);(5.0, 2.0, 1.0);struct_wall_main_half_109;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-4, 2, 3);(0.0, 180.0, 0.0);(9.0, 2.0, 1.0);struct_wall_main_half_110;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-8, 0, -1);(0.0, 90.0, 0.0);(9.0, 2.0, 1.0);struct_wall_main_half_111;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-8, 2, -2.5);(0.0, 90.0, 0.0);(12.0, 2.0, 1.0);struct_wall_main_half_112;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, 0, -8);(0.0, 0.0, 0.0);(5.0, 2.0, 1.0);struct_wall_main_half_113;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-1, 2, -8);(0.0, 0.0, 0.0);(9.0, 2.0, 1.0);struct_wall_main_half_114;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-8, 2, -8);(0.0, 0.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_115;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(3, 0, -2.5);(0.0, 270.0, 0.0);(12.0, 4.0, 1.0);struct_wall_main_half_116;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(3, 2, 3);(0.0, 180.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_117;Dark_Grey]
+#Dng2Ext/struct_ceiling[(-2.5, 4, -2.5);(0.0, 180.0, 0.0);(12.0, 1.0, 12.0);struct_ceiling_118;Dark_Grey.001]
+
+:materials
+Dark_Grey[RGBA(0.377, 0.377, 0.377, 1.000);]
+Grey[RGBA(0.737, 0.737, 0.737, 1.000);]
+Iron[RGBA(0.478, 0.478, 0.478, 1.000);]
+Dark_Grey.001[RGBA(0.612, 0.612, 0.612, 1.000);]
+
+:textures
+
+:extra
