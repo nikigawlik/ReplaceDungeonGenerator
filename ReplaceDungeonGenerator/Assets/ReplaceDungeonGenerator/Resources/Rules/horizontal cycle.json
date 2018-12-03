@@ -1,1 +1,0 @@
-{"match":"A . .;- . .;A . .","replacement":"A - A;- . -;A - A","weight":0.6000000238418579,"shortDescription":"horizontal cycle"}

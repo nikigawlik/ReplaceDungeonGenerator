@@ -9,12 +9,12 @@ namespace ReplaceDungeonGenerator
 	[CustomEditor(typeof(RuleSet))]
 	public class RuleSetEditor : Editor {
 		private SerializedProperty rules;
-		private SerializedProperty pathToRules;
+		private SerializedProperty jsonFile;
 		private ReorderableList rlRules;
 	
 		private void OnEnable() {
 			rules = serializedObject.FindProperty("rules");
-			pathToRules = serializedObject.FindProperty("pathToRules");
+			jsonFile = serializedObject.FindProperty("jsonFile");
 
 			rlRules = new ReorderableList(serializedObject, rules, true, false, true, true) {
 				drawHeaderCallback = DrawListHeader,
@@ -37,8 +37,7 @@ namespace ReplaceDungeonGenerator
 			serializedObject.Update();
 			RuleSet ruleSet = (RuleSet) target;
 
-			EditorGUILayout.LabelField("Path to rules:");
-			pathToRules.stringValue = EditorGUILayout.TextField(pathToRules.stringValue);
+			EditorGUILayout.PropertyField(jsonFile);
 			
 			EditorGUILayout.BeginHorizontal();
 
@@ -50,6 +49,7 @@ namespace ReplaceDungeonGenerator
 			}
 
 			EditorGUILayout.EndHorizontal();
+			serializedObject.ApplyModifiedProperties();
 
 			// update serialized object because of potential rule change
 			serializedObject.Update();

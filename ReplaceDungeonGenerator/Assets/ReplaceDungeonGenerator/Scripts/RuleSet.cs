@@ -11,8 +11,12 @@ namespace ReplaceDungeonGenerator
     /// Wrapper for a list of rules, can load the rules from files
     public class RuleSet : MonoBehaviour
     {
+        [System.Serializable] private class RuleSetJsonObject {
+            public SerializedRule[] serializedRules;
+        }
+
         public string startLabel = "start";
-        [HideInInspector] public string pathToRules; // hidden bec. of custom drawer
+        [HideInInspector] public TextAsset jsonFile; // hidden bec. of custom drawer
         [HideInInspector] public List<Rule> rules; // hidden bec. of custom drawer
 
         private int _selectedRuleIndex = -1;
@@ -41,44 +45,44 @@ namespace ReplaceDungeonGenerator
         [EasyButtons.Button]
         public void LoadRules()
         {
-            // Use the Unity search to find text assets at the path
-            string[] guids = AssetDatabase.FindAssets("t:TextAsset", new string[1] { pathToRules });
+            RuleSetJsonObject rsjo = JsonUtility.FromJson<RuleSetJsonObject>(jsonFile.text);            
+
             rules = new List<Rule>();
-            // Load and deserialize the text assets
-            foreach (string str in guids)
-            {
-                TextAsset ta = AssetDatabase.LoadAssetAtPath<TextAsset>(AssetDatabase.GUIDToAssetPath(str));
-                rules.Add(JsonUtility.FromJson<SerializedRule>(ta.text).Rule);
+            foreach(SerializedRule sr in rsjo.serializedRules) {
+                rules.Add(sr.Rule);
             }
         }
 
         [EasyButtons.Button]
         public void SaveRules()
         {
-            if (pathToRules == "")
+            if (jsonFile == null)
             {
                 return;
             }
 
+            // create a serializable object with list of rules
+            List<SerializedRule> serializedRules = new List<SerializedRule>();
+
             foreach (Rule rule in rules)
             {
-                // serialize as JSON
-                string json = JsonUtility.ToJson(new SerializedRule(rule));
-                string path;
-
-                path = pathToRules + "/" + rule.shortName + ".json";
-
-                // write to file
-                using (FileStream fs = new FileStream(path, FileMode.Create))
-                {
-                    using (StreamWriter writer = new StreamWriter(fs))
-                    {
-                        writer.Write(json);
-                    }
-                }
+                serializedRules.Add(new SerializedRule(rule));
             }
 
-            UnityEditor.AssetDatabase.Refresh();
+            RuleSetJsonObject rsjo = new RuleSetJsonObject();
+            rsjo.serializedRules = serializedRules.ToArray();
+
+            string json = JsonUtility.ToJson(rsjo, true);
+            string path = AssetDatabase.GetAssetPath(jsonFile);
+
+            // write to file
+            using (FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    writer.Write(json);
+                }
+            }
         }
     }
 }

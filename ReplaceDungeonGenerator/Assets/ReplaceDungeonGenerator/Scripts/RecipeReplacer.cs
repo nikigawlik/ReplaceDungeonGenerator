@@ -53,6 +53,7 @@ namespace ReplaceDungeonGenerator
 		public PatternView patternView;
         public bool increaseSeed = true;
         public int seed = 0;
+		public bool printDebugInfo = false;
 
 		private int currentInstruction = 0;
 		private Stack<ProgramState> gotoStack;
@@ -121,7 +122,7 @@ namespace ReplaceDungeonGenerator
 
 		private GenerationStepResult GenerationStepInternal() {
             ReplacementEngine re = GetComponent<ReplacementEngine>();
-			Debug.Log("Generation step, instruction " + currentInstruction + ", applications left: " + applicationCounter);
+			if (printDebugInfo) Debug.Log("Generation step, instruction " + currentInstruction + ", applications left: " + applicationCounter);
 
 			if(currentInstruction >= instructions.Length) {
 				return GenerationStepResult.EndOfFile;
@@ -264,18 +265,20 @@ namespace ReplaceDungeonGenerator
 
 			instructions = instructionList.ToArray();
 
-			string debugString = "Parsed intructions (line type gotoPosition filter minApplications maxApplications):";
-			for(int i = 0; i < instructions.Length; i++)
-			{
-				Instruction instr = instructions[i];
-				debugString += "\n" + i + " - " + 
-					" " + instr.type +
-					" " + instr.gotoPosition +
-					" " + instr.filter +
-					" " + instr.minRepeats +
-					" " + instr.maxRepeats;
+			if (printDebugInfo) {
+				string debugString = "Parsed intructions (line type gotoPosition filter minApplications maxApplications):";
+				for(int i = 0; i < instructions.Length; i++)
+				{
+					Instruction instr = instructions[i];
+					debugString += "\n" + i + " - " + 
+						" " + instr.type +
+						" " + instr.gotoPosition +
+						" " + instr.filter +
+						" " + instr.minRepeats +
+						" " + instr.maxRepeats;
+				}
+				Debug.Log(debugString);
 			}
-			Debug.Log(debugString);
 		}
 	}
 }
