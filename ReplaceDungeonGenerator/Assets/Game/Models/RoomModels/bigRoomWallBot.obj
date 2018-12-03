@@ -1,0 +1,73 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+mtllib bigRoomWallBot.mtl 
+
+g struct_floor_main_half_0
+
+v 1.5 0 -1.5
+v 1.5 0 2.5
+v -2.5 0 2.5
+v -2.5 0 -1.5
+vn 0 1 0
+vt -1.5 -1.5
+vt -1.5 2.5
+vt 2.5 2.5
+vt 2.5 -1.5
+
+usemtl Dark_Grey (Instance)
+usemap Dark_Grey (Instance)
+f 3/3/1 2/2/1 1/1/1
+f 4/4/1 3/3/1 1/1/1
+g struct_wall_base_half_4
+
+v 1.5 0.2 2.5
+v 1.35 0.2 2.5
+v 1.35 0.2 -1.5
+v 1.5 0.2 -1.5
+v 1.3 0.15 2.5
+v 1.3 0 2.5
+v 1.3 0 -1.5
+v 1.3 0.15 -1.5
+v 1.5 0 -1.5
+v 1.5 0 2.5
+vn -0.9999998 0 -1.192093E-07
+vn -0.7070998 0.7071 -5.960464E-08
+vn 0 -1 0
+vt -1.5 2.5
+vt -1.35 2.5
+vt -1.35 -1.5
+vt -1.5 -1.5
+vt 2.5 0.15
+vt 2.5 0
+vt -1.5 0
+vt -1.5 0.15
+vt 2.5 0.2
+vt -1.5 0.2
+vt -1.5 1.5
+vt -1.3 1.5
+vt -1.5 -2.5
+vt -1.3 -2.5
+
+usemtl Grey (Instance) (Instance)
+usemap Grey (Instance) (Instance)
+f 7/7/1 6/6/1 5/5/1
+f 8/8/1 7/7/1 5/5/1
+f 11/11/2 10/10/2 9/9/2
+f 12/12/2 11/11/2 9/9/2
+f 12/12/3 9/9/3 6/13/3
+f 7/14/3 12/12/3 6/13/3
+f 14/17/4 11/16/4 13/15/4
+f 14/17/4 10/18/4 11/16/4
+g struct_wall_main_half_6
+
+v 1.35 2 -1.5
+v 1.35 2 2.5
+v 1.35 0 -1.5
+v 1.35 0 2.5
+vt -1.5 2
+vt 2.5 2
+
+usemtl Dark_Grey (Instance) (Instance)
+usemap Dark_Grey (Instance) (Instance)
+f 17/11/2 16/20/2 15/19/2
+f 17/11/2 18/10/2 16/20/2
