@@ -36,3 +36,9 @@ MonoBehaviour:
     prefab: {fileID: 1141005102045162, guid: b34fa963038ee6b4495082ddb40905df, type: 2}
   - label: key
     prefab: {fileID: 1327096675067198, guid: ad132db725fce344d98d9e523c298de7, type: 2}
+  - label: bigC
+    prefab: {fileID: 1807528405504572, guid: f6e533d30d5902e4eb19a63d9cd2b80d, type: 2}
+  - label: bigB
+    prefab: {fileID: 1355575673657312, guid: eb85915ecf1e9554891d9eaab6cfcc74, type: 2}
+  - label: bigS
+    prefab: {fileID: 1182690535380810, guid: d55095e45b8a64c4c9f255f4cd6c8948, type: 2}

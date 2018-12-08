@@ -3,18 +3,10 @@
         {
             "name": "start_symbol",
             "match": "start",
-            "replacement": "dd_0 .;it_0 tr_1;tr_3 tr_2",
+            "replacement": "dd_0 .;it_obstacle_0 tr_1;tr_3 tr_2",
             "weight": 1.0,
             "strictRotation": true,
             "maximumApplications": 1
-        },
-        {
-            "name": "initial_extension",
-            "match": "tr_3 tr_2;. .",
-            "replacement": "st_0 st_2;tr_3 tr_2",
-            "weight": 1.0,
-            "strictRotation": true,
-            "maximumApplications": -1
         },
         {
             "name": "side_move",
@@ -50,9 +42,9 @@
         },
         {
             "name": "feature_alternative",
-            "match": ". . . .;st_1 st_1 st_1 st_1",
-            "replacement": "tr_0 st_1 st_1 tr_1;it_3 st_1 st_1 it_3",
-            "weight": 0.10000000149011612,
+            "match": ". . . .;st_1 st_1 st_1 st_1;. . . .",
+            "replacement": "tr_0 st_1 st_1 tr_1;it_2 . . it_0;tl_2 st_1 st_1 tl_1",
+            "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
@@ -60,7 +52,7 @@
             "name": "feature_shortcut",
             "match": ". .;st_1 st_1",
             "replacement": "tr_0 tr_1;secret_3 it_3",
-            "weight": 0.10000000149011612,
+            "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
@@ -68,15 +60,87 @@
             "name": "feature_door_return",
             "match": ". .,. .;. .,. .;. .,. .;. .,. .;st_1 st_1,. .",
             "replacement": "x slope_2,x x;. st_0,st_key_2 .;. st_0,st_2 .;. st_0,st_2 .;returnT_3 it_door_3,. .",
-            "weight": 0.10000000149011612,
+            "weight": 1.0,
             "strictRotation": false,
-            "maximumApplications": -1
+            "maximumApplications": 3
         },
         {
             "name": "extend_slope",
             "match": ". .,. .;x slope_2,x x",
             "replacement": "x slope_2,x x;. st_0,st_2 .",
-            "weight": 0.10000000149011612,
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "move_key",
+            "match": ". dd_key_3",
+            "replacement": "dd_key_3 st_3",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "move_key",
+            "match": ". st_key_2",
+            "replacement": "dd_key_3 it_2",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "move_key",
+            "match": ". st_key_0",
+            "replacement": "dd_key_3 it_2",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_corner",
+            "match": ". tr_0;tr_0 tl_1",
+            "replacement": ". bigC_1;. .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_bend",
+            "match": ". tr_0;st_1 tl_1",
+            "replacement": ". bigB_1;. .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_bend",
+            "match": "tr_0 st_1;tl_1 .",
+            "replacement": ". bigB_1;. .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_straight",
+            "match": "st_1 st_1",
+            "replacement": "bigS_3 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "initial_extension",
+            "match": "tr_3 tr_2;. .",
+            "replacement": "st_0 st_2;tr_3 tr_2",
+            "weight": 1.0,
+            "strictRotation": true,
+            "maximumApplications": -1
+        },
+        {
+            "name": "extend_bend",
+            "match": "tr_3 tr_2;. .",
+            "replacement": "st_0 st_2;tr_3 tr_2",
+            "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         }

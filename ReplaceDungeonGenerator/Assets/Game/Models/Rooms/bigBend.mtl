@@ -1,0 +1,47 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Stones (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.64 0.64 0.64 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Dark_Grey (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.612 0.612 0.612 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Dark_Grey (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.612 0.612 0.612 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Dark_Grey.001 (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.612 0.612 0.612 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBorder (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.373 0.204 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBorder (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.373 0.204 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Stones (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.64 0.64 0.64 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl _defaultMat (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+

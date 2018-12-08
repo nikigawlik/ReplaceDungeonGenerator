@@ -1,14 +1,10 @@
-def ext
-    extend_* 1
-    side_extension 1
-end
-
 start_symbol
-initial_extension 13 15
+initial_extension 11
 side_extension 5
 side_move 5
-side_* 15
-side_flatten 5
-feature_* 10
+side_* 5
+side_flatten 3
+feature_* 4
 ext 10
 extend_* 5
+post_* 15
