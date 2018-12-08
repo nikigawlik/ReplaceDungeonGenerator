@@ -109,11 +109,11 @@ namespace ReplaceDungeonGenerator
         [MenuItem("GameObject/AssetForgeTools/Add Mesh Colliders by Name", false, 0)]
         public static void AddMeshCollidersByName() {
             Transform[] transforms = Selection.GetTransforms(SelectionMode.Deep);
-            string matchPattern = @"struct_*";
+            string dontMatch = @"prop_*";
             
             foreach(Transform t in transforms) {
                 GameObject obj = t.gameObject;
-                if(Regex.IsMatch(obj.name, matchPattern)) {
+                if(!Regex.IsMatch(obj.name, dontMatch)) {
                     MeshFilter mf = obj.GetComponent<MeshFilter>();
                     if(mf != null) {
                         MeshCollider mc = obj.GetComponent<MeshCollider>();

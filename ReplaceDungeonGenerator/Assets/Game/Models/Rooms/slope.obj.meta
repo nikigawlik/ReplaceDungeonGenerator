@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 3083d9b8dab6c58438a0adfd6a77bfd7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: block_default_1
+    100002: block_default_4
+    100004: //RootNode
+    100006: slope_default_6
+    100008: struct_ceiling_14
+    100010: struct_door_2
+    100012: struct_door_5
+    100014: struct_wall_main_half_10
+    100016: struct_wall_main_half_11
+    100018: struct_wall_main_half_12
+    100020: struct_wall_main_half_13
+    100022: struct_wall_main_half_7
+    100024: struct_wall_main_half_8
+    100026: struct_wall_main_half_9
+    100028: open_block_0
+    100030: open_block_1
+    100032: open_block_6
+    100034: open_block_7
+    100036: open_block_8
+    100038: block_default_0
+    100040: block_default_2
+    100042: block_default_3
+    100044: slope_default_4
+    100046: slope_default_5
+    100048: struct_wall_main_half_6
+    400000: block_default_1
+    400002: block_default_4
+    400004: //RootNode
+    400006: slope_default_6
+    400008: struct_ceiling_14
+    400010: struct_door_2
+    400012: struct_door_5
+    400014: struct_wall_main_half_10
+    400016: struct_wall_main_half_11
+    400018: struct_wall_main_half_12
+    400020: struct_wall_main_half_13
+    400022: struct_wall_main_half_7
+    400024: struct_wall_main_half_8
+    400026: struct_wall_main_half_9
+    400028: open_block_0
+    400030: open_block_1
+    400032: open_block_6
+    400034: open_block_7
+    400036: open_block_8
+    400038: block_default_0
+    400040: block_default_2
+    400042: block_default_3
+    400044: slope_default_4
+    400046: slope_default_5
+    400048: struct_wall_main_half_6
+    2100000: _defaultMat
+    2100002: Dark_Grey.001
+    2100004: Stones
+    2100006: Dark_Grey
+    2100008: golfBorder
+    2300000: block_default_1
+    2300002: block_default_4
+    2300004: slope_default_6
+    2300006: struct_ceiling_14
+    2300008: struct_door_2
+    2300010: struct_door_5
+    2300012: struct_wall_main_half_10
+    2300014: struct_wall_main_half_11
+    2300016: struct_wall_main_half_12
+    2300018: struct_wall_main_half_13
+    2300020: struct_wall_main_half_7
+    2300022: struct_wall_main_half_8
+    2300024: struct_wall_main_half_9
+    2300026: open_block_0
+    2300028: open_block_1
+    2300030: open_block_6
+    2300032: open_block_7
+    2300034: open_block_8
+    2300036: block_default_0
+    2300038: block_default_2
+    2300040: block_default_3
+    2300042: slope_default_4
+    2300044: slope_default_5
+    2300046: struct_wall_main_half_6
+    3300000: block_default_1
+    3300002: block_default_4
+    3300004: slope_default_6
+    3300006: struct_ceiling_14
+    3300008: struct_door_2
+    3300010: struct_door_5
+    3300012: struct_wall_main_half_10
+    3300014: struct_wall_main_half_11
+    3300016: struct_wall_main_half_12
+    3300018: struct_wall_main_half_13
+    3300020: struct_wall_main_half_7
+    3300022: struct_wall_main_half_8
+    3300024: struct_wall_main_half_9
+    3300026: open_block_0
+    3300028: open_block_1
+    3300030: open_block_6
+    3300032: open_block_7
+    3300034: open_block_8
+    3300036: block_default_0
+    3300038: block_default_2
+    3300040: block_default_3
+    3300042: slope_default_4
+    3300044: slope_default_5
+    3300046: struct_wall_main_half_6
+    4300000: block_default_1
+    4300002: block_default_4
+    4300004: slope_default_6
+    4300006: struct_ceiling_14
+    4300008: struct_door_2
+    4300010: struct_door_5
+    4300012: struct_wall_main_half_10
+    4300014: struct_wall_main_half_11
+    4300016: struct_wall_main_half_12
+    4300018: struct_wall_main_half_13
+    4300020: struct_wall_main_half_7
+    4300022: struct_wall_main_half_8
+    4300024: struct_wall_main_half_9
+    4300026: open_block_0
+    4300028: open_block_1
+    4300030: open_block_6
+    4300032: open_block_7
+    4300034: open_block_8
+    4300036: block_default_0
+    4300038: block_default_2
+    4300040: block_default_3
+    4300042: slope_default_4
+    4300044: slope_default_5
+    4300046: struct_wall_main_half_6
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

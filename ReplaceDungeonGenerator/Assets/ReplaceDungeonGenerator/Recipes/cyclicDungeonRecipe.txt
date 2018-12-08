@@ -1,27 +1,13 @@
-def do_stairs
-    add_stairs
-    move_stairs 10
-    freeze_stairs
-end
-
-def do_key_door
-    key_door
-    move_key 10
-    freeze_key
-end 
-
-def do_kds
-    do_key_door
-    do_stairs
-end
-
-def do_floor
-    do_kds 0 1
-    extend_curve 1
-    extend_* 2
+def ext
+    extend_* 1
+    side_extension 1
 end
 
 start_symbol
-extend_curve
-extend_* 4
-do_floor 2
+initial_extension 13 15
+side_extension 5
+side_move 5
+side_* 15
+side_flatten 5
+feature_* 10
+ext 10

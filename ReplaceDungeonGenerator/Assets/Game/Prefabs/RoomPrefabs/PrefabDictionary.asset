@@ -12,37 +12,25 @@ MonoBehaviour:
   m_Name: PrefabDictionary
   m_EditorClassIdentifier: 
   prefabs:
-  - label: c
-    prefab: {fileID: 1371029268186814, guid: d760a66d8466cfe43b303a5942054e85, type: 2}
-  - label: re
-    prefab: {fileID: 1794607289459178, guid: ee001aab120724e4ab03a76290c8fc19, type: 2}
-  - label: rx
-    prefab: {fileID: 1001896892783298, guid: 8126f40e7f9d59c48a5e9c0ab661bee4, type: 2}
-  - label: t
-    prefab: {fileID: 1703882540817616, guid: bf437d086adaaa046be1be7cbc6adf63, type: 2}
-  - label: sb
-    prefab: {fileID: 1408659238902680, guid: 6260dc427a3729345a4de4ac9747ecdd, type: 2}
   - label: st
-    prefab: {fileID: 1175697117698754, guid: cfb0105b58f58e048b0d9dd08371f870, type: 2}
-  - label: s
-    prefab: {fileID: 1311358715806664, guid: 30f20364eea88054181d7cb6009d17a1, type: 2}
+    prefab: {fileID: 1051310207012056, guid: e0eef54845545094596ef89c5fc14ac6, type: 2}
   - label: tl
-    prefab: {fileID: 1081496001437396, guid: 691967116bf85df468738f6189a0832a, type: 2}
+    prefab: {fileID: 1252659441770544, guid: 0d3cdd891f1b2904395942c8f99319fe, type: 2}
   - label: tr
-    prefab: {fileID: 1371029268186814, guid: ffe7a9183cd80b34ba776f74988058d5, type: 2}
-  - label: cr
-    prefab: {fileID: 1503876191281704, guid: 08f205669bf825a4a88d0e16181999a1, type: 2}
-  - label: drop
-    prefab: {fileID: 1746887632591302, guid: c2c7b6296d4a2124bab82d2e9333bf74, type: 2}
-  - label: key
-    prefab: {fileID: 1937728563871160, guid: 7c24bf49d432fdb459f8d50019e79a1c, type: 2}
+    prefab: {fileID: 1854402754259906, guid: fa88932b8028f3a45b94b0c1e58d38e8, type: 2}
+  - label: it
+    prefab: {fileID: 1560683664970732, guid: 6e66528a349608848a9eb89b8035d2f1, type: 2}
+  - label: dd
+    prefab: {fileID: 1086419397081162, guid: 0fb2a589020868e47932042e43e422d5, type: 2}
+  - label: cross
+    prefab: {fileID: 1016173211017612, guid: 4bdd14e80c4ae354dbf703d00646218b, type: 2}
+  - label: secret
+    prefab: {fileID: 1500924743399110, guid: c7a0425a60804264696afee6a42210da, type: 2}
+  - label: slope
+    prefab: {fileID: 1125011398224054, guid: c279d508cf7baa348825a8f691b1d1df, type: 2}
+  - label: returnT
+    prefab: {fileID: 1025395180003620, guid: f7a6c02d73c4a2a43baac93b48dcd09e, type: 2}
   - label: door
-    prefab: {fileID: 1861831516343210, guid: 5c3e9fc97d27ed44b846b4a397e49840, type: 2}
-  - label: traps1
-    prefab: {fileID: 1856111886683576, guid: 088971e82905c5045bff02bddeab7117, type: 2}
-  - label: traps2
-    prefab: {fileID: 1343283886212324, guid: ebf0a0e5f7a8340428d8789b9887d4dc, type: 2}
-  - label: traps3
-    prefab: {fileID: 1957335766749384, guid: 1a21713bec46a1e44be088b6d6d7a83f, type: 2}
-  - label: traps4
-    prefab: {fileID: 1990904091518718, guid: 207b572bc1723f74197b0336b2b69fd7, type: 2}
+    prefab: {fileID: 1114583882722058, guid: d57d413d3a0519d4e989670d63f0ca83, type: 2}
+  - label: key
+    prefab: {fileID: 1327096675067198, guid: ad132db725fce344d98d9e523c298de7, type: 2}

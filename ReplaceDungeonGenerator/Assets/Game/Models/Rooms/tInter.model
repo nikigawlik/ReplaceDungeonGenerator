@@ -1,0 +1,33 @@
+# Made using Asset Forge (1.3)
+
+:models
+Primitives/block_default[(0, -0.1, 0);(0.0, 0.0, 0.0);(3.0, 0.1, 3.0);block_default_0;_defaultMat]
+#Dng2Ext/struct_ceiling[(0, 2, 0);(0.0, 90.0, 0.0);(3.0, 1.0, 3.0);struct_ceiling_1;Dark_Grey.001]
+#Dng2Ext/struct_wall_main_half[(1, 0, 1);(0.0, 270.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_4;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, 0, -1);(0.0, 270.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_5;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-1, 0, -1);(0.0, 90.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_6;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-1, 0, 1);(0.0, 90.0, 0.0);(1.0, 2.0, 1.0);struct_wall_main_half_7;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(0, 0, -1);(0.0, 0.0, 0.0);(3.0, 2.0, 1.0);struct_wall_main_half_9;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-1, 1, 0);(0.0, 90.0, 0.0);(1.0, 1.0, 1.0);struct_wall_main_half_11;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, 1, 0);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);struct_wall_main_half_12;Dark_Grey]
+Golf/open_block[(0, 0, -1);(0.0, 270.0, 0.0);(1.0, 1.0, 3.0);open_block_19;golfBorder]
+#Dng2Ext/struct_wall_main_half[(-1, 0, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_wall_main_half_25;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, 0, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_wall_main_half_26;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(0, 1, 1);(0.0, 180.0, 0.0);(3.0, 1.0, 1.0);struct_wall_main_half_27;Dark_Grey]
+Golf/open_block[(-1, 0, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);open_block_29;golfBorder]
+Golf/open_block[(1, 0, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);open_block_30;golfBorder]
+#Dng2Ext/struct_door[(0, 0, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_door_5;Stones+Dark_Grey]
+#Dng2Ext/struct_door[(1, 0, 0);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);struct_door_6;Stones+Dark_Grey]
+#Dng2Ext/struct_door[(-1, 0, 0);(0.0, 90.0, 0.0);(1.0, 1.0, 1.0);struct_door_7;Stones+Dark_Grey]
+
+:materials
+_defaultMat[RGBA(1.000, 1.000, 1.000, 1.000);]
+Dark_Grey.001[RGBA(0.612, 0.612, 0.612, 1.000);]
+Stones[RGBA(0.640, 0.640, 0.640, 1.000);]
+Dark_Grey[RGBA(0.612, 0.612, 0.612, 1.000);]
+golfBorder[RGBA(1.000, 0.373, 0.204, 1.000);]
+golfGreen[RGBA(0.192, 0.949, 0.686, 1.000);]
+
+:textures
+
+:extra
