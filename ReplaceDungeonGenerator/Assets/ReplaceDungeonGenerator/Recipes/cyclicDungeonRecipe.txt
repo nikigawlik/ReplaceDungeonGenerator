@@ -11,3 +11,4 @@ side_* 15
 side_flatten 5
 feature_* 10
 ext 10
+extend_* 5
