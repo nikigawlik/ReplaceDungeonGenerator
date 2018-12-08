@@ -32,5 +32,7 @@ MonoBehaviour:
     prefab: {fileID: 1025395180003620, guid: f7a6c02d73c4a2a43baac93b48dcd09e, type: 2}
   - label: door
     prefab: {fileID: 1114583882722058, guid: d57d413d3a0519d4e989670d63f0ca83, type: 2}
+  - label: obstacle
+    prefab: {fileID: 1141005102045162, guid: b34fa963038ee6b4495082ddb40905df, type: 2}
   - label: key
     prefab: {fileID: 1327096675067198, guid: ad132db725fce344d98d9e523c298de7, type: 2}

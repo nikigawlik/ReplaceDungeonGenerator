@@ -2,259 +2,83 @@
     "serializedRules": [
         {
             "name": "start_symbol",
-            "match": ". start .;. . .;. . .",
-            "replacement": ". s_0 .;tr_door_2 t_1 tr_3;tr_key_1 cr_1 tr_0",
+            "match": "start",
+            "replacement": "dd_0 .;it_0 tr_1;tr_3 tr_2",
             "weight": 1.0,
             "strictRotation": true,
             "maximumApplications": 1
         },
         {
-            "name": "extend_curve",
-            "match": "tr_1 tr_0;. .;. .",
-            "replacement": "cr_2 cr_0;cr_2 cr_0;tr_1 tr_0",
-            "weight": 2.0,
-            "strictRotation": false,
+            "name": "initial_extension",
+            "match": "tr_3 tr_2;. .",
+            "replacement": "st_0 st_2;tr_3 tr_2",
+            "weight": 1.0,
+            "strictRotation": true,
             "maximumApplications": -1
         },
         {
-            "name": "extend_curve_wide",
-            "match": "tr_1 cr_1 cr_1 tr_0;. . . .;. . . .",
-            "replacement": "cr_2 . . cr_0;cr_2 . . cr_0;tr_1 cr_1 cr_1 tr_0",
+            "name": "side_move",
+            "match": "tr_1 .;tl_2 st_1",
+            "replacement": "st_1 tr_1;. tl_2",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "extend_corner",
-            "match": "cr_1 tr_0;. .",
-            "replacement": "tl_2 cr_0;tr_1 tr_0",
+            "name": "side_move",
+            "match": ". tr_4;st_1 tl_1",
+            "replacement": "tr_0 st_1;tl_1 .",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "extend_corner",
-            "match": "tr_1 cr_1;. .",
-            "replacement": "cr_2 tl_1;tr_1 tr_0",
+            "name": "side_flatten",
+            "match": "tr_1 tr_4;tl_2 tl_1",
+            "replacement": "st_1 st_1;. .",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "extend_flip",
-            "match": "cr_0 .;tl_0 cr_3",
-            "replacement": "tl_0 tr_3;. tl_0",
-            "weight": 1.0,
+            "name": "side_extension",
+            "match": ". . . .;st_1 st_1 st_1 st_1",
+            "replacement": "tr_0 st_1 st_1 tr_1;tl_1 . . tl_2",
+            "weight": 0.10000000149011612,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "extend_flip",
-            "match": "cr_0 .;tl_0 tr_3",
-            "replacement": "tl_0 tr_3;. cr_0",
-            "weight": 1.0,
+            "name": "feature_alternative",
+            "match": ". . . .;st_1 st_1 st_1 st_1",
+            "replacement": "tr_0 st_1 st_1 tr_1;it_3 st_1 st_1 it_3",
+            "weight": 0.10000000149011612,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "extend_flip",
-            "match": "tr_3 .;tl_0 cr_3",
-            "replacement": "cr_3 tr_3;. tl_0",
-            "weight": 1.0,
+            "name": "feature_shortcut",
+            "match": ". .;st_1 st_1",
+            "replacement": "tr_0 tr_1;secret_3 it_3",
+            "weight": 0.10000000149011612,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "extend_flip",
-            "match": "tr_3 .;tl_0 tr_3",
-            "replacement": "cr_3 tr_3;. cr_0",
-            "weight": 1.0,
+            "name": "feature_door_return",
+            "match": ". .,. .;. .,. .;. .,. .;. .,. .;st_1 st_1,. .",
+            "replacement": "x slope_2,x x;. st_0,st_key_2 .;. st_0,st_2 .;. st_0,st_2 .;returnT_3 it_door_3,. .",
+            "weight": 0.10000000149011612,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "extend_curve_negative",
-            "match": "cr_0 cr_2;tl_0 tl_3",
-            "replacement": "tl_0 tl_3;. .",
-            "weight": 0.5,
+            "name": "extend_slope",
+            "match": ". .,. .;x slope_2,x x",
+            "replacement": "x slope_2,x x;. st_0,st_2 .",
+            "weight": 0.10000000149011612,
             "strictRotation": false,
             "maximumApplications": -1
-        },
-        {
-            "name": "move_stairs",
-            "match": "cr_0,.;sb_0,st_0",
-            "replacement": "sb_0,st_0;.,cr_0",
-            "weight": 0.5,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_stairs",
-            "match": "cr_0,.;sb_0,st_1",
-            "replacement": "sb_0,st_0;.,tr_0",
-            "weight": 0.5,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_stairs",
-            "match": "cr_0,.;sb_0,st_3",
-            "replacement": "sb_0,st_0;.,tl_0",
-            "weight": 0.5,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_stairs",
-            "match": "tl_1,.;sb_0,st_0",
-            "replacement": "sb_1,st_0;.,cr_0",
-            "weight": 0.5,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_stairs",
-            "match": "tr_3,.;sb_0,st_0",
-            "replacement": "sb_3,st_0;.,cr_0",
-            "weight": 0.5,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "add_room",
-            "match": "cr_0;cr_0",
-            "replacement": "re_0;rx_0",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "one_way",
-            "match": "sb_2;cr_0",
-            "replacement": "drop_0;cr_0",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": 3
-        },
-        {
-            "name": "one_way",
-            "match": "sb_2;tl_0",
-            "replacement": "drop_0;tl_0",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": 3
-        },
-        {
-            "name": "one_way",
-            "match": "sb_2;tr_0",
-            "replacement": "drop_0;tr_0",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": 3
-        },
-        {
-            "name": "key_door",
-            "match": "cr_1 cr_1",
-            "replacement": "cr_door_1 cr_key_1",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": 3
-        },
-        {
-            "name": "move_key",
-            "match": "cr_key_1 cr_1",
-            "replacement": "cr_1 cr_key_1",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "cr_key_1 tl_2",
-            "replacement": "cr_1 tl_key_2",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "cr_key_1 tr_0",
-            "replacement": "cr_1 tr_key_0",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "tr_key_1 tr_0",
-            "replacement": "tr_1 tr_key_0",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "tr_key_1 cr_1",
-            "replacement": "tr_1 cr_key_1",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "tr_key_1 tl_2",
-            "replacement": "tr_1 tl_key_2",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "tl_key_1 tr_0",
-            "replacement": "tl_1 tr_key_0",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "tl_key_1 tl_2",
-            "replacement": "tl_1 tl_key_2",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "move_key",
-            "match": "tl_key_1 cr_1",
-            "replacement": "tl_1 cr_key_1",
-            "weight": 11.0,
-            "strictRotation": false,
-            "maximumApplications": -1
-        },
-        {
-            "name": "add_stairs",
-            "match": "tr_1 tr_0,. .;* *,. .",
-            "replacement": "sb_0 sb_0,st_0 st_0;* *,tr_1 tr_0",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": 2
-        },
-        {
-            "name": "add_stairs_wide",
-            "match": "* tr_1 tr_0 *,. . . .;* * * *,. . . .",
-            "replacement": "* sb_0 sb_0 *,tr_2 st_1 st_3 tr_3;* * * *,tr_1 cr_1 cr_1 tr_0",
-            "weight": 0.20000000298023225,
-            "strictRotation": false,
-            "maximumApplications": 2
-        },
-        {
-            "name": "add_choice",
-            "match": ". . . .;cr_3 cr_3 cr_3 cr_3",
-            "replacement": "tr_2 re_traps1_3 rx_traps2_3 tr_3;t_1 re_traps3_3 rx_traps4_3 t_1",
-            "weight": 5.0,
-            "strictRotation": false,
-            "maximumApplications": 2
         }
     ]
 }
