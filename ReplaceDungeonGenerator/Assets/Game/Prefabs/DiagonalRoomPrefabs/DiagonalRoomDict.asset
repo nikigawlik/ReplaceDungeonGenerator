@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e5a76e62d2b994abf8458d6d7df8d0, type: 3}
+  m_Name: DiagonalRoomDict
+  m_EditorClassIdentifier: 
+  prefabs:
+  - label: d
+    prefab: {fileID: 1947547304772706, guid: ae3fdab28cc68724f9050854534f9e58, type: 2}
+  - label: w
+    prefab: {fileID: 1734609385111334, guid: 3f93587d186021d40a7114acb819ba3f, type: 2}
+  - label: f
+    prefab: {fileID: 1168564504119950, guid: 7bab222bda7037c478756f18ea6fa85e, type: 2}

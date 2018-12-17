@@ -28,7 +28,7 @@ namespace ReplaceDungeonGenerator
             {
                 for (int i = 0; i < maxGenerationSteps; i++)
                 {
-                    if (!re.ReplaceRandomMatch())
+                    if (!re.ReplaceMatch())
                     {
                         break;
                     }
@@ -52,7 +52,7 @@ namespace ReplaceDungeonGenerator
         public void GenerateStep()
         {
             ReplacementEngine re = GetComponent<ReplacementEngine>();
-            re.ReplaceRandomMatch();
+            re.ReplaceMatch();
             PatternView.UpdateView();
         }
 

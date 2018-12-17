@@ -21,7 +21,14 @@ namespace ReplaceDungeonGenerator
             }
         }
 
+        public enum ReplacementStrategy {
+            First,
+            Last,
+            Random
+        }
+
         [SerializeField] private bool showDebugInformation = false;
+        [SerializeField] private ReplacementStrategy replacementStrategy = ReplacementStrategy.Random;
         [SerializeField] [HideInInspector] private int currentStep;
 
         private List<Match> matches;
@@ -43,9 +50,9 @@ namespace ReplaceDungeonGenerator
             matches = null;
         }
 
-        public bool ReplaceRandomMatch(string filter = "", bool allowPartialMatch = true)
+        public bool ReplaceMatch(string filter = "", bool allowPartialMatch = true)
         {
-            Match match = FindRandomMatch(filter, allowPartialMatch);
+            Match match = FindMatch(replacementStrategy, filter, allowPartialMatch);
             
             if (match == null)
             {
@@ -99,7 +106,7 @@ namespace ReplaceDungeonGenerator
             mainPattern.TriggerChangeEvents();
         }
 
-        private Match FindRandomMatch(string filter = "", bool allowPartialMatch = true)
+        private Match FindMatch(ReplacementStrategy replacementStrategy, string filter = "", bool allowPartialMatch = true)
         {
             Pattern mainPattern = GetComponent<PatternView>().pattern;
             Vector3Int size = mainPattern.Size;
@@ -115,15 +122,28 @@ namespace ReplaceDungeonGenerator
             }
 
             // pick a random match from results
+            IEnumerable<Match> filteredMatches;
             if(filter == "") {
                 // unfiltered
-                return Utils.Choose<Match>(matches, WeightOfMatch);
+                filteredMatches = matches;
             } else if(allowPartialMatch) {
                 // filter start
-                return Utils.Choose<Match>(matches.Where(m => MatchFilterFunction(filter, m)), WeightOfMatch);
+                filteredMatches = matches.Where(m => MatchFilterFunction(filter, m));
             } else {
                 // filter strict
-                return Utils.Choose<Match>(matches.Where(m => filter == m.rule.shortName), WeightOfMatch);
+                filteredMatches = matches.Where(m => filter == m.rule.shortName);
+            }
+
+            switch(replacementStrategy) {
+                case ReplacementStrategy.First:
+                    return filteredMatches.FirstOrDefault();
+                case ReplacementStrategy.Last:
+                    return filteredMatches.LastOrDefault();
+                case ReplacementStrategy.Random:
+                    return Utils.Choose(filteredMatches, WeightOfMatch);
+                default:
+                    Debug.Log("Replacement strategy not supported. ");
+                    return null;
             }
         }
 
