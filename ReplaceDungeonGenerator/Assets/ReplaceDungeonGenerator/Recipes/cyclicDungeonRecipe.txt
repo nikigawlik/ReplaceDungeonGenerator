@@ -3,7 +3,6 @@ initial_extension 5
 side_extension 0 2
 side_move 0 2
 side_flatten 0 2
-feature_* 4
-ext 10
-extend_* 5
+feature_* 3
+extend_* 12
 post_* 15
