@@ -83,6 +83,8 @@ namespace ReplaceDungeonGenerator
                     writer.Write(json);
                 }
             }
+
+            AssetDatabase.Refresh();
         }
     }
 }
