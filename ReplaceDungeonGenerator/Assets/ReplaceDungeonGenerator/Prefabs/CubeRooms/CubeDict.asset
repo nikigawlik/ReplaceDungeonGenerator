@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e5a76e62d2b994abf8458d6d7df8d0, type: 3}
+  m_Name: CubeDict
+  m_EditorClassIdentifier: 
+  prefabs:
+  - label: f
+    prefab: {fileID: 4145249447861358073, guid: 123aaeca71ee5414397ab54bd45305c3,
+      type: 3}
+  - label: w
+    prefab: {fileID: 7378363423131929617, guid: e011572402355c64c986a70bd8018e20,
+      type: 3}
+  - label: stairs
+    prefab: {fileID: 5299451792417351505, guid: 60c37d471a32abb42bc0582baa673420,
+      type: 3}

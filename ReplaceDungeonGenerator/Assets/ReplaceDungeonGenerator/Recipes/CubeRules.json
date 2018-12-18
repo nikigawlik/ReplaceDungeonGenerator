@@ -1,0 +1,36 @@
+{
+    "serializedRules": [
+        {
+            "name": "start_symbol",
+            "match": "start",
+            "replacement": ". w_2 .;w_1 f_0 w_3;. w_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "extension",
+            "match": "w_1 * w_3;. w_0 .;* . *",
+            "replacement": "w_1 * w_3;w_1 f_0 w_3;* w_0 *",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "extension",
+            "match": "w_0 w_0 w_0;. . .",
+            "replacement": "w_1 f_0 w_3;. w_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "stairs",
+            "match": "* * *,. . .;* f_0 *,. . .;* w_0 *,. . .;* * *,. . .",
+            "replacement": "* * *,. w_2 .;* f_stairs_0 *,w_1 x w_3;* w_0 *,w_1 x w_3;* * *,. w_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": 2
+        }
+    ]
+}
