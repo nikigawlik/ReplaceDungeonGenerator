@@ -1,0 +1,1461 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &291952139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291952141}
+  - component: {fileID: 291952140}
+  - component: {fileID: 291952142}
+  m_Layer: 0
+  m_Name: Replacement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &291952141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291952139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.200005, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 709938589}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291952140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291952139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0c175c4fa274247af8c3161578a63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pattern:
+    serializedTiles:
+    - label: .
+    - label: bigB_1
+    - label: .
+    - label: .
+    serializedSize: {x: 2, y: 1, z: 2}
+  displayDelta: {x: 3, y: 2, z: 3}
+  alwaysShowLabel: 1
+  showBoundingBox: 1
+--- !u!114 &291952142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291952139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ccca0096bda5243870e41278f4fe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDictionary: {fileID: 11400000, guid: abfc535159e3a864d88e19aa040a55a2, type: 2}
+  logWarnings: 0
+--- !u!1 &709938587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 709938589}
+  m_Layer: 0
+  m_Name: RuleEditorView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &709938589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709938587}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -63.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1849525263}
+  - {fileID: 291952141}
+  m_Father: {fileID: 1647575981}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1647575974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647575981}
+  - component: {fileID: 1647575975}
+  - component: {fileID: 1647575979}
+  - component: {fileID: 1647575976}
+  - component: {fileID: 1647575980}
+  - component: {fileID: 1647575977}
+  - component: {fileID: 1647575978}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1647575981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647575974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 709938589}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1647575975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647575974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0c175c4fa274247af8c3161578a63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pattern:
+    serializedTiles:
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: w_2
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: w_1
+    - label: f_0
+    - label: w_3
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: w_0
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    - label: .
+    serializedSize: {x: 16, y: 4, z: 16}
+  displayDelta: {x: 3, y: 2, z: 3}
+  alwaysShowLabel: 0
+  showBoundingBox: 1
+--- !u!114 &1647575979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647575974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58dd1e9fe114dd42b5b44dfb69264e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeFile: {fileID: 4900000, guid: bdddf9a7826d6dd4993f52f95cbefa27, type: 3}
+  maxGenerationSteps: 32
+  patternView: {fileID: 1647575975}
+  increaseSeed: 1
+  seed: 401
+  printDebugInfo: 0
+--- !u!114 &1647575976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647575974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a4adee7156ad4fa20c01f294f2970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLabel: start
+  jsonFile: {fileID: 4900000, guid: b004116ea1db53343a3780183d9486a7, type: 3}
+  rules:
+  - leftSide:
+      serializedTiles:
+      - label: start
+      serializedSize: {x: 1, y: 1, z: 1}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: w_2
+      - label: .
+      - label: w_1
+      - label: f_0
+      - label: w_3
+      - label: .
+      - label: w_0
+      - label: .
+      serializedSize: {x: 3, y: 1, z: 3}
+    weight: 1
+    shortName: start_symbol
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: w_1
+      - label: '*'
+      - label: w_3
+      - label: .
+      - label: w_0
+      - label: .
+      - label: '*'
+      - label: .
+      - label: '*'
+      serializedSize: {x: 3, y: 1, z: 3}
+    rightSide:
+      serializedTiles:
+      - label: w_1
+      - label: '*'
+      - label: w_3
+      - label: w_1
+      - label: f_0
+      - label: w_3
+      - label: '*'
+      - label: w_0
+      - label: '*'
+      serializedSize: {x: 3, y: 1, z: 3}
+    weight: 1
+    shortName: extension
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: w_0
+      - label: w_0
+      - label: w_0
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 3}
+    rightSide:
+      serializedTiles:
+      - label: w_1
+      - label: f_0
+      - label: w_3
+      - label: .
+      - label: w_0
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 3}
+    weight: 1
+    shortName: extension
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: .
+      - label: .
+      - label: .
+      - label: '*'
+      - label: f_0
+      - label: '*'
+      - label: .
+      - label: .
+      - label: .
+      - label: '*'
+      - label: w_0
+      - label: '*'
+      - label: .
+      - label: .
+      - label: .
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 4, y: 2, z: 3}
+    rightSide:
+      serializedTiles:
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: .
+      - label: w_2
+      - label: .
+      - label: '*'
+      - label: f_stairs_0
+      - label: '*'
+      - label: w_1
+      - label: x
+      - label: w_3
+      - label: '*'
+      - label: w_0
+      - label: '*'
+      - label: w_1
+      - label: x
+      - label: w_3
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: .
+      - label: w_0
+      - label: .
+      serializedSize: {x: 4, y: 2, z: 3}
+    weight: 1
+    shortName: stairs
+    strictRotation: 0
+    maximumApplications: 2
+    waitSteps: 0
+    reverseApplication: 0
+--- !u!114 &1647575980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647575974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5751f0c6e5b9efe41b95b2927cab5c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchPatternView: {fileID: 1849525262}
+  replacementPatternView: {fileID: 291952140}
+--- !u!114 &1647575977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647575974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ccca0096bda5243870e41278f4fe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDictionary: {fileID: 11400000, guid: ce1e1a135c86f1049a531c01dba6ed26, type: 2}
+  logWarnings: 0
+--- !u!114 &1647575978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647575974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248d8b5f5395095469927c0175629fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebugInformation: 0
+  replacementStrategy: 2
+  currentStep: 1
+--- !u!1 &1849525261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849525263}
+  - component: {fileID: 1849525262}
+  - component: {fileID: 1849525264}
+  m_Layer: 0
+  m_Name: Match
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1849525263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849525261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 709938589}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849525262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849525261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0c175c4fa274247af8c3161578a63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pattern:
+    serializedTiles:
+    - label: tr_0
+    - label: st_1
+    - label: tl_1
+    - label: .
+    serializedSize: {x: 2, y: 1, z: 2}
+  displayDelta: {x: 3, y: 2, z: 3}
+  alwaysShowLabel: 1
+  showBoundingBox: 1
+--- !u!114 &1849525264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849525261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ccca0096bda5243870e41278f4fe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDictionary: {fileID: 11400000, guid: abfc535159e3a864d88e19aa040a55a2, type: 2}
+  logWarnings: 0
