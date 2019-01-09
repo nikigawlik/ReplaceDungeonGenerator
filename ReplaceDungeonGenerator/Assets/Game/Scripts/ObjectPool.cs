@@ -14,6 +14,7 @@ public class ObjectPool : MonoBehaviour {
 	}
 
 	public GameObject GetObject() {
+		if(objects == null) objects = new GameObject[numberOfObjects];
 		if(objects[pointer] == null) {
 			objects[pointer] = Instantiate(prefab, transform);
 		}
