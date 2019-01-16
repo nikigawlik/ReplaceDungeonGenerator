@@ -43,6 +43,8 @@ namespace ReplaceDungeonGenerator
             if(ruleSet.selectedRuleIndex >= 0 && ruleSet.selectedRuleIndex < ruleSet.rules.Count) {
                 Rule currentRule = rules[ruleSet.selectedRuleIndex];
 
+                EditorGUI.BeginChangeCheck();
+
                 // some extra fields
                 currentRule.shortName = EditorGUILayout.TextField("Rule name", currentRule.shortName);
                 currentRule.weight = EditorGUILayout.FloatField("Rule weight", currentRule.weight);
@@ -82,6 +84,7 @@ namespace ReplaceDungeonGenerator
                     // parsing failed, do nothing
                 }
 
+                Undo.RecordObject(ruleSet, "Edit Rule");
             } else {
                 EditorGUILayout.HelpBox("Please select a rule in the RuleSet component.", MessageType.Info);
             }
