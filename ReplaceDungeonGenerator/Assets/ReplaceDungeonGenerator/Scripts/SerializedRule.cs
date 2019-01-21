@@ -131,7 +131,7 @@ namespace ReplaceDungeonGenerator
             match = PatternToString(Rule.leftSide);
             replacement = PatternToString(Rule.rightSide);
             weight = Rule.weight;
-            name = Rule.shortName;
+            name = Rule.name;
             strictRotation = Rule.strictRotation;
             maximumApplications = Rule.maximumApplications;
         }

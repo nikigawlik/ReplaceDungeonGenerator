@@ -28,7 +28,7 @@ namespace ReplaceDungeonGenerator
 	
 		private void DrawListElement(Rect rect, int index, bool isActive, bool isFocused) {
 			SerializedProperty item = rules.GetArrayElementAtIndex(index);
-			EditorGUI.LabelField(rect, item.FindPropertyRelative("shortName").stringValue);
+			EditorGUI.LabelField(rect, item.FindPropertyRelative("name").stringValue);
 		}
 	
 		public override void OnInspectorGUI() {

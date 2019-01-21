@@ -12,7 +12,7 @@ namespace ReplaceDungeonGenerator
         // the replacement
         public Pattern rightSide;
         public float weight;
-        public string shortName = "";
+        public string name = "";
         public bool strictRotation = false;
         public int maximumApplications = -1;
     public int waitSteps = 0;
@@ -22,7 +22,7 @@ namespace ReplaceDungeonGenerator
             this.leftSide = rule.leftSide;
             this.rightSide = rule.rightSide;
             this.weight = rule.weight;
-            this.shortName = rule.shortName;
+            this.name = rule.name;
             this.strictRotation = rule.strictRotation;
             this.maximumApplications = rule.maximumApplications;
         }
@@ -32,7 +32,7 @@ namespace ReplaceDungeonGenerator
             this.leftSide = leftSide;
             this.rightSide = rightSide;
             this.weight = weight;
-            this.shortName = shortName;
+            this.name = shortName;
             this.strictRotation = strictRotation;
             this.maximumApplications = maximumApplications;
         }
@@ -47,7 +47,7 @@ namespace ReplaceDungeonGenerator
                 for(int i = 0; i < rotationPermutations.Length; i++) {
                     Rule r = rotationPermutations[i];
                     perms[i*2] = r;
-                    perms[i*2+1] = new Rule(r.rightSide, r.leftSide,r.weight, r.shortName, true, r.maximumApplications);
+                    perms[i*2+1] = new Rule(r.rightSide, r.leftSide,r.weight, r.name, true, r.maximumApplications);
                 }
                 return perms;
             }
@@ -70,7 +70,7 @@ namespace ReplaceDungeonGenerator
                 Rule r = this;
                 for (int i = 1; i < 4; i++)
                 {
-                    r = new Rule(Pattern.Rotate90Y(r.leftSide), Pattern.Rotate90Y(r.rightSide), r.weight, r.shortName, true, r.maximumApplications);
+                    r = new Rule(Pattern.Rotate90Y(r.leftSide), Pattern.Rotate90Y(r.rightSide), r.weight, r.name, true, r.maximumApplications);
                     permutiations[i] = r;
                 }
 

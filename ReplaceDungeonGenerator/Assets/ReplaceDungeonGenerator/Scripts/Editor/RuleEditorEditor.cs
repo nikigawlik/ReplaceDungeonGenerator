@@ -46,7 +46,7 @@ namespace ReplaceDungeonGenerator
                 EditorGUI.BeginChangeCheck();
 
                 // some extra fields
-                currentRule.shortName = EditorGUILayout.TextField("Rule name", currentRule.shortName);
+                currentRule.name = EditorGUILayout.TextField("Rule name", currentRule.name);
                 currentRule.weight = EditorGUILayout.FloatField("Rule weight", currentRule.weight);
                 currentRule.maximumApplications = EditorGUILayout.IntField("Maximum applications", currentRule.maximumApplications);
                 currentRule.waitSteps = EditorGUILayout.IntField("Wait steps", currentRule.waitSteps);

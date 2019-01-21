@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace ReplaceDungeonGenerator
 {
-    public class Utils {
+    public static class Utils {
         /// a delegate to use for normal events
         public delegate void StandardEventHandler();
 

@@ -39,7 +39,7 @@ namespace ReplaceDungeonGenerator
             currentStep = 0;
             RuleSet ruleSet = GetComponent<RuleSet>();
             foreach(Rule r in ruleSet.rules) {
-                useCounts[r.shortName] = 0;
+                useCounts[r.name] = 0;
             }
             Pattern mainPattern = GetComponent<PatternView>().pattern;
             Vector3Int mainPatternSize = mainPattern.Size;
@@ -63,13 +63,13 @@ namespace ReplaceDungeonGenerator
             Pattern replacement = match.rule.rightSide;
             Vector3Int position = match.position;
             SetPattern(position, replacement);
-            useCounts[match.rule.shortName]++;
+            useCounts[match.rule.name]++;
 
             // remove matches which are "dirty"
             for(int i = matches.Count-1; i >= 0; i--) {
                 Match m = matches[i];
 
-                if((m.rule.maximumApplications >= 0 && useCounts[m.rule.shortName] >= m.rule.maximumApplications)
+                if((m.rule.maximumApplications >= 0 && useCounts[m.rule.name] >= m.rule.maximumApplications)
                 || Utils.BoundsIntersect(m.position, m.rule.leftSide.Size, position, replacement.Size)) {
                     matches.RemoveAt(i);
                 }
@@ -131,7 +131,7 @@ namespace ReplaceDungeonGenerator
                 filteredMatches = matches.Where(m => MatchFilterFunction(filter, m));
             } else {
                 // filter strict
-                filteredMatches = matches.Where(m => filter == m.rule.shortName);
+                filteredMatches = matches.Where(m => filter == m.rule.name);
             }
 
             switch(replacementStrategy) {
@@ -148,7 +148,7 @@ namespace ReplaceDungeonGenerator
         }
 
         private bool MatchFilterFunction(string filter, Match match) {
-            return match.rule.shortName.StartsWith(filter);
+            return match.rule.name.StartsWith(filter);
         }
 
         private List<Match> FindAllMatches(Pattern mainPattern, List<Rule> rules) {
@@ -163,7 +163,7 @@ namespace ReplaceDungeonGenerator
             // iterate over grid, rules, left side pattern of rule
             foreach (Rule ruleGroup in rules)
             {
-                if (ruleGroup.maximumApplications >= 0 && useCounts[ruleGroup.shortName] >= ruleGroup.maximumApplications)
+                if (ruleGroup.maximumApplications >= 0 && useCounts[ruleGroup.name] >= ruleGroup.maximumApplications)
                 {
                     continue;
                 }
@@ -228,7 +228,7 @@ namespace ReplaceDungeonGenerator
                         Vector3 p1 = pv.GetPositionInWorldSpace(m.position, pv.displayDelta);
                         Vector3 p2 = pv.GetPositionInWorldSpace(m.position + m.rule.leftSide.Size - Vector3Int.one, pv.displayDelta);
                         Gizmos.DrawWireCube((p1 + p2) / 2, (p2 - p1) + pv.displayDelta);
-                        Utils.DrawLabel(m.rule.shortName, p1);
+                        Utils.DrawLabel(m.rule.name, p1);
                     }
                 }
             }
