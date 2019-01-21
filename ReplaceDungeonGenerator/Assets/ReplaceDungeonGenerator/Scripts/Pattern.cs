@@ -68,13 +68,13 @@ namespace ReplaceDungeonGenerator
             return newPattern;
 		}
 
-        public static Tile GetTileWithRotation(Pattern pattern, Vector3Int newSize, Vector3Int position)
+        private  static Tile GetTileWithRotation(Pattern pattern, Vector3Int newSize, Vector3Int position)
         {
             Tile tile = pattern.tiles[newSize.z - 1 - position.z, position.y, position.x];
 			return new Tile(RotateTileLabel(tile.Label));
         }
 
-        public static string RotateTileLabel(string label) {
+        private static string RotateTileLabel(string label) {
 			string[] tags = label.Split('_');
 			if(tags.Length < 2) {
 				return label;
