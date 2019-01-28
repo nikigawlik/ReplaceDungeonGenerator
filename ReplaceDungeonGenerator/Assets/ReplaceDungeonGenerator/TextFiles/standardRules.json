@@ -1,14 +1,6 @@
 {
     "serializedRules": [
         {
-            "name": "start_symbol",
-            "match": "start",
-            "replacement": "dd_0 .;it_obstacle_0 tr_1;tr_3 tr_2",
-            "weight": 1.0,
-            "strictRotation": true,
-            "maximumApplications": 1
-        },
-        {
             "name": "initial_extension",
             "match": "tr_3 tr_2;. .",
             "replacement": "st_0 st_2;tr_3 tr_2",
@@ -50,24 +42,24 @@
         },
         {
             "name": "feature_alternative",
-            "match": ". . . .;st_1 st_1 st_1 st_1;. . . .",
-            "replacement": "tr_0 st_1 st_1 tr_1;it_2 . . it_0;tl_2 st_1 st_1 tl_1",
+            "match": "tr_0 st_1;st_0 .",
+            "replacement": "tr_0 it_1;it_0 tl_1",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
             "name": "feature_shortcut",
-            "match": ". .;st_1 st_1",
-            "replacement": "tr_0 tr_1;secret_3 it_3",
+            "match": ". .;tr_0 tr_1",
+            "replacement": "tr_0 tr_1;secret_0 secret_rev_2",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
         {
-            "name": "feature_door_return",
-            "match": ". .,. .;. .,. .;. .,. .;. .,. .;st_1 st_1,. .",
-            "replacement": "x slope_2,x x;. st_0,st_key_2 .;. st_0,st_2 .;. st_0,st_2 .;returnT_3 it_door_3,. .",
+            "name": "feature_door_key",
+            "match": ". .;tr_0 tr_1",
+            "replacement": "tr_0 dd_key_1;it_0 tr_1",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": 3
@@ -167,6 +159,86 @@
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
+        },
+        {
+            "name": "collapse_corner",
+            "match": "tr_0 st_1;st_0 .",
+            "replacement": ". tr_0;tr_0 tl_1",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_tr",
+            "match": ". . .;. tr_0 .;. . .",
+            "replacement": ". . .;. tr_0 st_1;. st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_tl",
+            "match": ". . .;. tl_0 .;. . .",
+            "replacement": ". . .;st_3 tl_0 .;. st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_dd",
+            "match": ". . .;. dd_0 .;. . .",
+            "replacement": ". . .;. dd_0 .;. st_2 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_st",
+            "match": ". . .;. st_0 .;. . .",
+            "replacement": ". st_0 .;. st_0 .;. st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_it",
+            "match": ". . .;. it_0 .;. . .",
+            "replacement": ". st_2 .;. it_0 st_1;. st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_secret",
+            "match": ". . .;. secret_0 .;. . .",
+            "replacement": ". st_0 .;. secret_0 st_1;. st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_secret_rev",
+            "match": ". . .;. secret_rev_0 .;. . .",
+            "replacement": ". st_0 .;. secret_rev_0 st_3;. st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "start_symbol",
+            "match": ". .;start .;. .",
+            "replacement": "dd_0 .;it_obstacle_0 tr_1;tr_3 tr_2",
+            "weight": 1.0,
+            "strictRotation": true,
+            "maximumApplications": 1
+        },
+        {
+            "name": "start_symbol",
+            "match": ". . .,. . .;. . .,. start .;. . .,. . .",
+            "replacement": "dd_0 . tlStairs_0,. tl_3 x;it_0 stOpen_1 tl_1, stBridge_2 .;tlStairs_2 . .,x tr_2 .",
+            "weight": 1.0,
+            "strictRotation": true,
+            "maximumApplications": 1
         }
     ]
 }

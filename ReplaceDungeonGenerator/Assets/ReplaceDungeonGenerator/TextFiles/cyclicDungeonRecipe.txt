@@ -1,8 +1,21 @@
+def increase_size
+    subdivide 1 0 1
+    subdiv_* !
+end
+
 start_symbol
+extend 0 3
+feature_* 3
+hide_key 5
+increase_size
+collapse_corner 2 6
+feature_* 1 2
+hide_key 5
+increase_size
+collapse_corner 3 8
+
 initial_extension 5
-side_extension 0 2
 side_move 0 2
 side_flatten 0 2
-feature_* 3
 extend_* 12
 post_* 15

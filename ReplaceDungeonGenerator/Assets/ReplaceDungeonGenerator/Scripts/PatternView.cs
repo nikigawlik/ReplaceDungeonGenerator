@@ -55,6 +55,29 @@ namespace ReplaceDungeonGenerator
             }
 
         }
+        
+        public void Subdivide(Vector3Int delta, bool centered = true) {
+            if(delta.x < 0 || delta.y < 0 || delta.y < 0) {
+                return;
+            }
+
+            Vector3Int factor = delta + Vector3Int.one;
+
+            Pattern oldPattern = this.pattern;
+            Pattern newPattern = new Pattern(oldPattern.Size * factor, Tile.Empty);
+
+            Vector3Int offset = centered? new Vector3Int(
+                (factor.x - 1) / 2,
+                (factor.y - 1) / 2,
+                (factor.z - 1) / 2
+            ) : Vector3Int.zero;
+
+            foreach(Vector3Int p in Utils.IterateGrid3D(oldPattern.Size)) {
+                newPattern.SetTile(p * factor + offset, oldPattern.GetTile(p), false);
+            }
+
+            this.pattern = newPattern;
+        }
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

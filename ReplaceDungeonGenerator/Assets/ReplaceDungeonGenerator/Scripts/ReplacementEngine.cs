@@ -50,6 +50,26 @@ namespace ReplaceDungeonGenerator
             matches = null;
         }
 
+        public bool SweepReplace(string filter = "", bool allowPartialMatch = true) {
+            IEnumerable<Match> filteredMatches = GetMatches(filter, allowPartialMatch);
+            if(filteredMatches == null) 
+                return false;
+
+            foreach(Match match in filteredMatches) {
+                // replace
+                Pattern replacement = match.rule.rightSide;
+                Vector3Int position = match.position;
+                SetPattern(position, replacement);
+                useCounts[match.rule.name]++;
+            }
+
+            // assume enough was changed that it's worth recalculating all matches
+            matches = null;
+
+            currentStep++;
+            return true;
+        }
+
         public bool ReplaceMatch(string filter = "", bool allowPartialMatch = true)
         {
             Match match = FindMatch(replacementStrategy, filter, allowPartialMatch);
@@ -91,6 +111,15 @@ namespace ReplaceDungeonGenerator
             return true;
         }
 
+        public void DoSubdividision(Vector3Int delta) {
+            PatternView patternView = GetComponent<PatternView>();
+            Pattern mainPattern = patternView.pattern;
+            patternView.Subdivide(delta);
+
+            // erases matches and will trigger new search
+            matches = null;
+        }
+
         private void SetPattern(Vector3Int position, Pattern pattern)
         {
             Vector3Int pSize = pattern.Size;
@@ -108,6 +137,24 @@ namespace ReplaceDungeonGenerator
 
         private Match FindMatch(ReplacementStrategy replacementStrategy, string filter = "", bool allowPartialMatch = true)
         {
+            IEnumerable<Match> filteredMatches = GetMatches(filter, allowPartialMatch);
+            if(filteredMatches == null) 
+                return null;
+ 
+            switch(replacementStrategy) {
+                case ReplacementStrategy.First:
+                    return filteredMatches.FirstOrDefault();
+                case ReplacementStrategy.Last:
+                    return filteredMatches.LastOrDefault();
+                case ReplacementStrategy.Random:
+                    return Utils.Choose(filteredMatches, WeightOfMatch);
+                default:
+                    Debug.Log("Replacement strategy not supported. ");
+                    return null;
+            }
+        }
+
+        private IEnumerable<Match> GetMatches(string filter, bool allowPartialMatch) {
             Pattern mainPattern = GetComponent<PatternView>().pattern;
             Vector3Int size = mainPattern.Size;
             List<Rule> rules = GetComponent<RuleSet>().rules;
@@ -121,8 +168,9 @@ namespace ReplaceDungeonGenerator
                 return null;
             }
 
-            // pick a random match from results
             IEnumerable<Match> filteredMatches;
+
+            // pick a random match from results
             if(filter == "") {
                 // unfiltered
                 filteredMatches = matches;
@@ -134,17 +182,7 @@ namespace ReplaceDungeonGenerator
                 filteredMatches = matches.Where(m => filter == m.rule.name);
             }
 
-            switch(replacementStrategy) {
-                case ReplacementStrategy.First:
-                    return filteredMatches.FirstOrDefault();
-                case ReplacementStrategy.Last:
-                    return filteredMatches.LastOrDefault();
-                case ReplacementStrategy.Random:
-                    return Utils.Choose(filteredMatches, WeightOfMatch);
-                default:
-                    Debug.Log("Replacement strategy not supported. ");
-                    return null;
-            }
+            return filteredMatches;
         }
 
         private bool MatchFilterFunction(string filter, Match match) {

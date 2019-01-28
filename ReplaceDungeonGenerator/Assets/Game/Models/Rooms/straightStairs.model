@@ -1,0 +1,36 @@
+# Made using Asset Forge (1.3)
+
+:models
+Primitives/block_default[(0, -0.1, 0);(0.0, 0.0, 0.0);(3.0, 0.1, 3.0);block_default_0;_defaultMat]
+Primitives/block_default[(2.24E-08, 0, 0.8);(0.0, 180.0, 0.0);(1.0, 1.0, 1.4);block_default_4;_defaultMat]
+Primitives/slope_default[(2.24E-08, 1, 0.6);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);slope_default_6;_defaultMat]
+Primitives/slope_default[(0, 0, -0.4);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);slope_default_7;_defaultMat]
+Primitives/block_default[(-1, 0, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);block_default_8;_defaultMat]
+Primitives/block_default[(1, 0, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);block_default_9;_defaultMat]
+Golf/open_block[(-1, 0, 0);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);open_block_10;golfBorder]
+Golf/open_block[(1, 0, 0);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);open_block_11;golfBorder]
+Golf/open_block[(-1, 1, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);open_block_12;golfBorder]
+Golf/open_block[(1, 1, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);open_block_13;golfBorder]
+#Dng2Ext/struct_wall_main_half[(-1, 1, 1);(0.0, 180.0, 0.0);(1.0, 3.0, 1.0);struct_wall_main_half_14;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, 1, 1);(0.0, 180.0, 0.0);(1.0, 3.0, 1.0);struct_wall_main_half_15;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(0, 3, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_wall_main_half_16;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-1, 0, 0);(0.0, 90.0, 0.0);(3.0, 4.0, 1.0);struct_wall_main_half_17;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, 0, 0);(0.0, 270.0, 0.0);(3.0, 4.0, 1.0);struct_wall_main_half_18;Dark_Grey]
+#Dng2Ext/struct_door[(0, 2, 1);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);struct_door_19;Stones+Dark_Grey]
+Primitives/block_default[(0, 1, 1.3);(0.0, 180.0, 0.0);(1.0, 1.0, 0.4);block_default_20;_defaultMat]
+#Dng2Ext/struct_door[(0, 0, -1);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);struct_door_21;Stones+Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(1, 0, -1);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);struct_wall_main_half_22;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(-1, 0, -1);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);struct_wall_main_half_23;Dark_Grey]
+#Dng2Ext/struct_wall_main_half[(0, 1, -1);(0.0, 0.0, 0.0);(3.0, 3.0, 1.0);struct_wall_main_half_24;Dark_Grey]
+#Dng2Ext/struct_ceiling[(0, 4, 1);(0.0, 0.0, 0.0);(3.0, 1.0, 1.0);struct_ceiling_25;Dark_Grey.001]
+
+:materials
+_defaultMat[RGBA(1.000, 1.000, 1.000, 1.000);]
+golfBorder[RGBA(1.000, 0.373, 0.204, 1.000);]
+Dark_Grey[RGBA(0.612, 0.612, 0.612, 1.000);]
+Stones[RGBA(0.640, 0.640, 0.640, 1.000);]
+Dark_Grey.001[RGBA(0.612, 0.612, 0.612, 1.000);]
+
+:textures
+
+:extra
