@@ -9,12 +9,20 @@ namespace ReplaceDungeonGenerator
     {
         public PrefabDictionary prefabDictionary;
         public bool logWarnings = false;
+        public bool executeInEditorOnly = false;
+
         // method called from PatternView
         public void OnPatternChange()
         {
             PatternView patternView = GetComponent<PatternView>();
             Pattern pattern = patternView.pattern;
             GameObject container = Utils.CreateChildWithName(transform, "[GeneratedRooms]");
+
+#if !UNITY_EDITOR
+            if(executeInEditorOnly) {
+                return;
+            }
+#endif
             foreach (Vector3Int position in Utils.IterateGrid3D(pattern.Size))
             {
                 string[] tags = pattern.GetTile(position).Label.Split('_');

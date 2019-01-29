@@ -40,11 +40,10 @@ namespace ReplaceDungeonGenerator
         public void InitializeGeneration()
         {
             if(increaseSeed) seed++;
-            Random.InitState(seed);
 
 			patternView.pattern = new Pattern(patternView.pattern.Size, Tile.Empty);
             ReplacementEngine re = GetComponent<ReplacementEngine>();
-            re.SetStartSymbol();
+            re.ResetGeneration(seed);
             PatternView.UpdateView();
         }
 

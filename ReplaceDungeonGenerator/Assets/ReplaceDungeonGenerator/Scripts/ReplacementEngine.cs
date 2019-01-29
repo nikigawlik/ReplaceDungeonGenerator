@@ -27,6 +27,8 @@ namespace ReplaceDungeonGenerator
             Random
         }
 
+        public System.Random systemRandom = null;
+        
         [SerializeField] private bool showDebugInformation = false;
         [SerializeField] private ReplacementStrategy replacementStrategy = ReplacementStrategy.Random;
         [SerializeField] [HideInInspector] private int currentStep;
@@ -34,8 +36,12 @@ namespace ReplaceDungeonGenerator
         private List<Match> matches;
         private Dictionary<string, int> useCounts = new Dictionary<string, int>();
 
-        public void SetStartSymbol()
+        public void ResetGeneration(int seed = -1)
         {
+            if(seed != -1) {
+                systemRandom = new System.Random(seed);
+            }
+
             currentStep = 0;
             RuleSet ruleSet = GetComponent<RuleSet>();
             foreach(Rule r in ruleSet.rules) {
@@ -147,7 +153,7 @@ namespace ReplaceDungeonGenerator
                 case ReplacementStrategy.Last:
                     return filteredMatches.LastOrDefault();
                 case ReplacementStrategy.Random:
-                    return Utils.Choose(filteredMatches, WeightOfMatch);
+                    return Utils.Choose(filteredMatches, WeightOfMatch, systemRandom);
                 default:
                     Debug.Log("Replacement strategy not supported. ");
                     return null;
@@ -266,6 +272,8 @@ namespace ReplaceDungeonGenerator
                         Vector3 p1 = pv.GetPositionInWorldSpace(m.position, pv.displayDelta);
                         Vector3 p2 = pv.GetPositionInWorldSpace(m.position + m.rule.leftSide.Size - Vector3Int.one, pv.displayDelta);
                         Gizmos.DrawWireCube((p1 + p2) / 2, (p2 - p1) + pv.displayDelta);
+                        Gizmos.color = Preferences.RoomLabelColor;
+                        GUI.color = Preferences.RoomLabelColor;
                         Utils.DrawLabel(m.rule.name, p1);
                     }
                 }

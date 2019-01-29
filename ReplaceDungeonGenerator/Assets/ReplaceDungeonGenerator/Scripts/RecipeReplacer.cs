@@ -63,6 +63,7 @@ namespace ReplaceDungeonGenerator
 		private Stack<ProgramState> gotoStack;
 		private Instruction[] instructions;
 		private int applicationCounter;
+		private System.Random systemRandom;
 
         /// Do repeated replacement steps until no replacements are possible 
         /// or the maximum step number is reached
@@ -95,11 +96,10 @@ namespace ReplaceDungeonGenerator
 			UnityEditor.Undo.RecordObject(this.gameObject, "Intialize Generation");
 #endif
             if(increaseSeed) seed++;
-            Random.InitState(seed);
 
 			patternView.pattern = new Pattern(startSize, Tile.Empty);
             ReplacementEngine re = GetComponent<ReplacementEngine>();
-            re.SetStartSymbol();
+            re.ResetGeneration(seed);
             PatternView.UpdateView();
 
 			ParseInstructions();
@@ -162,7 +162,14 @@ namespace ReplaceDungeonGenerator
 				break;
 				case InstructionType.Repeat:
 					// we just set the counter, the execution is handled by the repeatable instructions
-					applicationCounter = Mathf.Max(1, Random.Range(instr.minRepeats, instr.maxRepeats));
+					System.Random sysRandom = GetComponent<ReplacementEngine>().systemRandom;
+					int repeats;
+					if(sysRandom != null) {
+						repeats = instr.minRepeats + Mathf.FloorToInt((float)sysRandom.NextDouble() * (instr.maxRepeats - instr.minRepeats));
+					} else {
+						repeats = Random.Range(instr.minRepeats, instr.maxRepeats);
+					}
+					applicationCounter = Mathf.Max(1, repeats);
 					currentInstruction++;
 				break;
 				// repeatable instructions
