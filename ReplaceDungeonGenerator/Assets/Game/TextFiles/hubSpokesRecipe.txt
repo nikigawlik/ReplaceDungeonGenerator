@@ -1,0 +1,13 @@
+basic_structure
+basic_transform_* 3 8
+add_floor_* 1
+basic_transform_* 3 7
+feature_* 3 6
+feature_lock
+
+subdivide 1 0 1
+subdiv_* !
+
+basic_transform_* 0 10
+
+move_key 0 10

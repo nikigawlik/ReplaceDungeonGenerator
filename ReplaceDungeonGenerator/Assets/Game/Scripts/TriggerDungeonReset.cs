@@ -14,7 +14,13 @@ public class TriggerDungeonReset : MonoBehaviour
     }
 
     private void Interact() {
-        if(recipeReplacer != null) recipeReplacer.Generate();
-        if(recipeReplacer != null) recipeReplacer.Generate();
+        if(recipeReplacer != null) {
+            recipeReplacer.seed = Random.Range(0, int.MaxValue);
+            recipeReplacer.Generate();
+        }
+        if(randReplacer != null) {
+            randReplacer.seed = Random.Range(0, int.MaxValue);
+            randReplacer.Generate();
+        }
     }
 }

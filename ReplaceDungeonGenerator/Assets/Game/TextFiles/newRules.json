@@ -1,0 +1,180 @@
+{
+    "serializedRules": [
+        {
+            "name": "basic_structure",
+            "match": ". .;. start;. .",
+            "replacement": "tr_0 st_1 tr_1;st_0 . st_spawnpoint_obstacle_2;tr_3 st_3 tr_2",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "basic_transform",
+            "match": ". .,tr_0 st_1;. .,st_0 .",
+            "replacement": "tr_0 stStairs_1,. x;stStairs_2 .,x .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "basic_transform",
+            "match": "tr_0 st_1,. .;st_0 .,. .",
+            "replacement": ". stStairs_3,tr_0 x;stStairs_0 .,x .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "feature_alternative",
+            "match": ". .;tr_0 st_1",
+            "replacement": "tr_0 tr_1;it_r_0 it_l_3",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "feature_outer_spoke",
+            "match": "st_2 .",
+            "replacement": "it_l_0 dd_1",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "feature_inner_spoke",
+            "match": "st_0 .",
+            "replacement": "it_r_0 dd_1",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_trStairs",
+            "match": "trStairs_0 .,x .;. .,. .",
+            "replacement": "trStairs_0 x,. st_1;st_0 .,. .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_returnT_door",
+            "match": ". . .,. . .;. returnT_door_0 .,. x .;. . .,. . .",
+            "replacement": ". st_0 .,. . .;st_1 returnT_door_0 .,. x st_3;. st_2 .,. . .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_it_r",
+            "match": ". .;it_r_0 .;. .",
+            "replacement": "st_0 .;it_r_0 st_1;st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_it_l",
+            "match": ". .;it_l_0 .;. .",
+            "replacement": "st_2 .;it_l_0 st_1;st_2 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "move_key",
+            "match": "tr_key_0 st_1",
+            "replacement": "tr_0 st_key_1",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "basic_transform",
+            "match": ". .;tr_0 st_1",
+            "replacement": "tr_0 tr_1;st_0 tl_2",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_tr",
+            "match": "tr_0 .;. .",
+            "replacement": "tr_0 st_1;st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_tl",
+            "match": "tl_3 .;. .",
+            "replacement": "tl_3 st_3;st_2 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "move_key",
+            "match": "tr_key_0;st_0",
+            "replacement": "tr_0;st_key_0",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "move_key",
+            "match": ".;tr_key_0",
+            "replacement": "dd_key_0;it_r_0",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "basic_transform_collapse",
+            "match": "tr_0 st_1;st_0 .",
+            "replacement": ". tr_0;tr_0 tl_1",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "basic_transform_collapse",
+            "match": "tr_0 tl_1;tl_1 .",
+            "replacement": ". st_0;st_1 tl_1",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "subdiv_st",
+            "match": ". st_1 .",
+            "replacement": "st_1 st_1 st_1",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "feature_lock",
+            "match": ". .,. .;. tr_0,. .",
+            "replacement": "trStairs_0 .,x tr_key_1;tr_3 returnT_door_3,. x",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": 3
+        },
+        {
+            "name": "add_floor_lock",
+            "match": "tr_0 * *,. . .;* * *,. . .;* * *,. . .",
+            "replacement": "doubleStairs_0 * *,x_obstacle_0 st_1 tr_1;* * *,st_0  st_2;* * *,tr_3 st_3 tr_2",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": 3
+        },
+        {
+            "name": "subdiv_doubleStairs_obstacle",
+            "match": "doubleStairs_0 .,x_obstacle_0 .;. .,. .",
+            "replacement": "doubleStairs_0 st_1,* st_1;st_0 .,st_0 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": 3
+        }
+    ]
+}

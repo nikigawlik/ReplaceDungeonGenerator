@@ -42,6 +42,7 @@ namespace ReplaceDungeonGenerator
 			EditorGUILayout.BeginHorizontal();
 
 			if(GUILayout.Button("Load rules")) {
+				Undo.RecordObject(target, "Load Rules");
 				ruleSet.LoadRules();
 			}
 			if(GUILayout.Button("Save rules")) {

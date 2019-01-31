@@ -64,7 +64,7 @@ PrefabInstance:
     - target: {fileID: 7432149587995592430, guid: 71bc7a2d10459fb4db58a14e28a3e47e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.191
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7432149587995592430, guid: 71bc7a2d10459fb4db58a14e28a3e47e,
         type: 3}
@@ -114,17 +114,22 @@ PrefabInstance:
     - target: {fileID: 7432149587995592430, guid: 71bc7a2d10459fb4db58a14e28a3e47e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.41522
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7432149587995592430, guid: 71bc7a2d10459fb4db58a14e28a3e47e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.41522
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7432149587995592430, guid: 71bc7a2d10459fb4db58a14e28a3e47e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.41522
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317849513793047229, guid: 71bc7a2d10459fb4db58a14e28a3e47e,
+        type: 3}
+      propertyPath: text
+      value: Randomize Dungeon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71bc7a2d10459fb4db58a14e28a3e47e, type: 3}

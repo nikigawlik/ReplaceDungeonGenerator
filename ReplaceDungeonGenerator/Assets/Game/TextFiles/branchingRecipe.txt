@@ -1,0 +1,7 @@
+def floor
+  stairs
+  extension 10 15
+end
+
+start_symbol
+floor 3

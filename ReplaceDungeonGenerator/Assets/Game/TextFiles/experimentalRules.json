@@ -1,0 +1,36 @@
+{
+    "serializedRules": [
+        {
+            "name": "start_symbol",
+            "match": "start",
+            "replacement": "w_2 w_3;w_1 w_0",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "initial_extension",
+            "match": "w_0 .;. .",
+            "replacement": "f_2 w_3;w_1 w_0",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "initial_extension",
+            "match": "w_0 .;. .",
+            "replacement": "d_2 w_3;w_1 w_0",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "initial_extension",
+            "match": ". w_1;. w_2",
+            "replacement": "w_2 f_1;w_1 f_2",
+            "weight": 0.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        }
+    ]
+}
