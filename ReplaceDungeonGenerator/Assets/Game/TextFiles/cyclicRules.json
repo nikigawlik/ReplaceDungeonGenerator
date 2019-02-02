@@ -2,8 +2,8 @@
     "serializedRules": [
         {
             "name": "basic_structure",
-            "match": ". .;. start;. .",
-            "replacement": "tr_0 st_1 tr_1;st_0 . st_spawnpoint_obstacle_2;tr_3 st_3 tr_2",
+            "match": ". . .;. start .;. . .",
+            "replacement": "tr_0 st_obstacle_spawnpoint_1 tr_1;st_0 . st_2;tr_3 st_3 tr_2",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
@@ -28,7 +28,7 @@
             "name": "feature_alternative",
             "match": ". .;tr_0 st_1",
             "replacement": "tr_0 tr_1;it_r_0 it_l_3",
-            "weight": 1.0,
+            "weight": 0.0,
             "strictRotation": false,
             "maximumApplications": -1
         },
@@ -47,6 +47,22 @@
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": -1
+        },
+        {
+            "name": "feature_lock",
+            "match": ". .,. .;. tr_0,. .",
+            "replacement": "trStairs_0 .,x tr_key_1;tr_3 returnT_door_3,. x",
+            "weight": 2.0,
+            "strictRotation": false,
+            "maximumApplications": 3
+        },
+        {
+            "name": "add_floor_lock",
+            "match": "tr_0 * *,. . .;* * *,. . .;* * *,. . .",
+            "replacement": "doubleStairs_0 * *,x_obstacle_0 st_1 tr_1;* * *,st_0  st_2;* * *,tr_3 st_3 tr_2",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": 3
         },
         {
             "name": "subdiv_trStairs",
@@ -153,28 +169,68 @@
             "maximumApplications": -1
         },
         {
-            "name": "feature_lock",
-            "match": ". .,. .;. tr_0,. .",
-            "replacement": "trStairs_0 .,x tr_key_1;tr_3 returnT_door_3,. x",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": 3
-        },
-        {
-            "name": "add_floor_lock",
-            "match": "tr_0 * *,. . .;* * *,. . .;* * *,. . .",
-            "replacement": "doubleStairs_0 * *,x_obstacle_0 st_1 tr_1;* * *,st_0  st_2;* * *,tr_3 st_3 tr_2",
-            "weight": 1.0,
-            "strictRotation": false,
-            "maximumApplications": 3
-        },
-        {
             "name": "subdiv_doubleStairs_obstacle",
             "match": "doubleStairs_0 .,x_obstacle_0 .;. .,. .",
             "replacement": "doubleStairs_0 st_1,* st_1;st_0 .,st_0 .",
             "weight": 1.0,
             "strictRotation": false,
             "maximumApplications": 3
+        },
+        {
+            "name": "post_corner",
+            "match": ". tr_0;tr_0 tl_1",
+            "replacement": ". bigC_1;. .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_bend",
+            "match": ". tr_0;st_1 tl_1",
+            "replacement": ". bigB_1;. .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_bend",
+            "match": "tr_0 st_1;tl_1 .",
+            "replacement": ". bigB_1;. .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_straight",
+            "match": "st_1 st_1",
+            "replacement": "bigS_3 .",
+            "weight": 0.5,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_double_straight",
+            "match": "st_1 st_1;st_1 st_1",
+            "replacement": "x x;bigDS_3 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_double_straight",
+            "match": "st_3 st_3;st_1 st_1",
+            "replacement": "x x;bigDS_3 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
+        },
+        {
+            "name": "post_double_straight",
+            "match": "st_1 st_1;st_3 st_3",
+            "replacement": "x x;bigDS_3 .",
+            "weight": 1.0,
+            "strictRotation": false,
+            "maximumApplications": -1
         }
     ]
 }

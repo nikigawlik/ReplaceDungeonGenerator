@@ -9,5 +9,5 @@ subdivide 1 0 1
 subdiv_* !
 
 basic_transform_* 0 10
-
 move_key 0 10
+post_* 10 20
