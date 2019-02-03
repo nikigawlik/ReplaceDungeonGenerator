@@ -1,0 +1,7 @@
+def grow
+    extension 6 12
+    stairs 0 1
+end
+
+start_symbol
+grow 1 3

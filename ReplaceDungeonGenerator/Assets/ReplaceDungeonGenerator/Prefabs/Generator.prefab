@@ -28,7 +28,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.200005, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 9004169999289727642}
   m_Father: {fileID: 709938589}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,10 +48,15 @@ MonoBehaviour:
   _pattern:
     serializedTiles:
     - label: .
-    - label: bigB_1
+    - label: w_2
     - label: .
+    - label: w_1
+    - label: f_0
+    - label: w_3
     - label: .
-    serializedSize: {x: 2, y: 1, z: 2}
+    - label: w_0
+    - label: .
+    serializedSize: {x: 3, y: 1, z: 3}
   displayDelta: {x: 3, y: 2, z: 3}
   alwaysShowLabel: 1
   showBoundingBox: 1
@@ -68,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabDictionary: {fileID: 11400000, guid: abfc535159e3a864d88e19aa040a55a2, type: 2}
   logWarnings: 0
+  executeInEditorOnly: 0
 --- !u!1 &709938587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1183,7 @@ MonoBehaviour:
     - label: .
     - label: .
     serializedSize: {x: 16, y: 4, z: 16}
-  displayDelta: {x: 3, y: 2, z: 3}
+  displayDelta: {x: 5, y: 3, z: 5}
   alwaysShowLabel: 0
   showBoundingBox: 1
 --- !u!114 &1647575979
@@ -1191,9 +1198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58dd1e9fe114dd42b5b44dfb69264e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeFile: {fileID: 4900000, guid: bdddf9a7826d6dd4993f52f95cbefa27, type: 3}
+  recipeFile: {fileID: 4900000, guid: 8435db69fe0369a409ec1d694d846d86, type: 3}
   maxGenerationSteps: 32
   patternView: {fileID: 1647575975}
+  startSize: {x: 8, y: 4, z: 8}
   increaseSeed: 1
   seed: 401
   printDebugInfo: 0
@@ -1229,7 +1237,7 @@ MonoBehaviour:
       - label: .
       serializedSize: {x: 3, y: 1, z: 3}
     weight: 1
-    shortName: start_symbol
+    name: start_symbol
     strictRotation: 0
     maximumApplications: -1
     waitSteps: 0
@@ -1259,7 +1267,7 @@ MonoBehaviour:
       - label: '*'
       serializedSize: {x: 3, y: 1, z: 3}
     weight: 1
-    shortName: extension
+    name: extension
     strictRotation: 0
     maximumApplications: -1
     waitSteps: 0
@@ -1283,7 +1291,7 @@ MonoBehaviour:
       - label: .
       serializedSize: {x: 2, y: 1, z: 3}
     weight: 1
-    shortName: extension
+    name: extension
     strictRotation: 0
     maximumApplications: -1
     waitSteps: 0
@@ -1343,7 +1351,7 @@ MonoBehaviour:
       - label: .
       serializedSize: {x: 4, y: 2, z: 3}
     weight: 1
-    shortName: stairs
+    name: stairs
     strictRotation: 0
     maximumApplications: 2
     waitSteps: 0
@@ -1376,6 +1384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabDictionary: {fileID: 11400000, guid: ce1e1a135c86f1049a531c01dba6ed26, type: 2}
   logWarnings: 0
+  executeInEditorOnly: 0
 --- !u!114 &1647575978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,7 +1428,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4369312072157967384}
   m_Father: {fileID: 709938589}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1437,11 +1447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pattern:
     serializedTiles:
-    - label: tr_0
-    - label: st_1
-    - label: tl_1
-    - label: .
-    serializedSize: {x: 2, y: 1, z: 2}
+    - label: start
+    serializedSize: {x: 1, y: 1, z: 1}
   displayDelta: {x: 3, y: 2, z: 3}
   alwaysShowLabel: 1
   showBoundingBox: 1
@@ -1459,3 +1466,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabDictionary: {fileID: 11400000, guid: abfc535159e3a864d88e19aa040a55a2, type: 2}
   logWarnings: 0
+  executeInEditorOnly: 0
+--- !u!1 &3061870441453165492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4369312072157967384}
+  m_Layer: 0
+  m_Name: '[GeneratedRooms]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4369312072157967384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061870441453165492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 53.9, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1849525263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5792374771541696425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9004169999289727642}
+  m_Layer: 0
+  m_Name: '[GeneratedRooms]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9004169999289727642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792374771541696425}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 36.099995, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 291952141}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
