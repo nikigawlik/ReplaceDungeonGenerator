@@ -263,6 +263,7 @@ namespace ReplaceDungeonGenerator
             return m.rule.weight;
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos() {
             if(showDebugInformation) {
                 PatternView pv = GetComponent<PatternView>();
@@ -279,6 +280,7 @@ namespace ReplaceDungeonGenerator
                 }
             }
         }
+#endif
 
         private void OnValidate() {
             Debug.Assert(Utils.BoundsIntersect(

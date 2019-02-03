@@ -111,6 +111,7 @@ namespace ReplaceDungeonGenerator
 #endif
         }
 
+#if UNITY_EDITOR
         [MenuItem("GameObject/AssetForgeTools/Add Mesh Colliders by Name", false, 0)]
         public static void AddMeshCollidersByName() {
             Transform[] transforms = Selection.GetTransforms(SelectionMode.Deep);
@@ -130,5 +131,6 @@ namespace ReplaceDungeonGenerator
                 }
             }
         }
+#endif
     }
 }

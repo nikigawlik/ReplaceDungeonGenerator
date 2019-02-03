@@ -43,6 +43,7 @@ namespace ReplaceDungeonGenerator
 
 			if(GUILayout.Button("Load rules")) {
 				Undo.RecordObject(target, "Load Rules");
+                PrefabUtility.RecordPrefabInstancePropertyModifications(target);
 				ruleSet.LoadRules();
 			}
 			if(GUILayout.Button("Save rules")) {

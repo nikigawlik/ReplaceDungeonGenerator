@@ -36,7 +36,7 @@
             "name": "feature_outer_spoke",
             "match": "st_2 .",
             "replacement": "it_l_0 dd_1",
-            "weight": 1.0,
+            "weight": 0.20000000298023225,
             "strictRotation": false,
             "maximumApplications": -1
         },

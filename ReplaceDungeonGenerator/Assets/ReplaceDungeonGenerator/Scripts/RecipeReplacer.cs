@@ -75,6 +75,7 @@ namespace ReplaceDungeonGenerator
 
 #if UNITY_EDITOR
 			UnityEditor.Undo.RecordObject(this.gameObject, "Generate Dungeon");
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
 #endif
 
             if (re != null)
@@ -94,6 +95,7 @@ namespace ReplaceDungeonGenerator
         {
 #if UNITY_EDITOR
 			UnityEditor.Undo.RecordObject(this.gameObject, "Intialize Generation");
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
 #endif
             if(increaseSeed) seed++;
 
@@ -113,6 +115,7 @@ namespace ReplaceDungeonGenerator
         {
 #if UNITY_EDITOR
 			UnityEditor.Undo.RecordObject(this.gameObject, "Generation Step");
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
 #endif
 			// we execute until we have visible change
 			for(int i = 0; i < 100; i++) {

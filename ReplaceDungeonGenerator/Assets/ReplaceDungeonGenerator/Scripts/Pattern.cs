@@ -129,10 +129,16 @@ namespace ReplaceDungeonGenerator
 		}
 
 		public void OnAfterDeserialize() {
-			Size = serializedSize;
+			tiles = new Tile[serializedSize.x, serializedSize.y, serializedSize.z];
+			// Size = serializedSize;
 
 			foreach (Vector3Int p in Utils.IterateGrid3D(serializedSize))
 			{
+				if(p.x * serializedSize.y * serializedSize.z + p.y * serializedSize.z + p.z >= serializedTiles.Length) {
+					Debug.LogWarning("Pattern Deserializtion: Array has wrong size. Filling with empty tile.");
+					tiles[p.x, p.y, p.z] = Tile.Empty;
+					continue;
+				}
 				tiles[p.x, p.y, p.z] = serializedTiles[p.x * serializedSize.y * serializedSize.z + p.y * serializedSize.z + p.z];
 			}
 		}

@@ -34,6 +34,7 @@ namespace ReplaceDungeonGenerator
 
             if(EditorGUI.EndChangeCheck()) {
                 Undo.RecordObject(target, "Changed Pattern");
+                PrefabUtility.RecordPrefabInstancePropertyModifications(target);
                 patternView.pattern.Size = new Vector3Int(x, y, z);
             }
 

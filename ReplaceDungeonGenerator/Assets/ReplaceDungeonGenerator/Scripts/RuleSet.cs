@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEditor;
 using EasyButtons;
 using System.Text.RegularExpressions;
 
@@ -42,18 +41,16 @@ namespace ReplaceDungeonGenerator
             }
         }
 
-        [EasyButtons.Button]
+#if UNITY_EDITOR
         public void LoadRules()
         {
-            RuleSetJsonObject rsjo = JsonUtility.FromJson<RuleSetJsonObject>(jsonFile.text);            
-
+            RuleSetJsonObject rsjo = JsonUtility.FromJson<RuleSetJsonObject>(jsonFile.text);
             rules = new List<Rule>();
             foreach(SerializedRule sr in rsjo.serializedRules) {
                 rules.Add(sr.Rule);
             }
         }
 
-        [EasyButtons.Button]
         public void SaveRules()
         {
             if (jsonFile == null)
@@ -73,7 +70,7 @@ namespace ReplaceDungeonGenerator
             rsjo.serializedRules = serializedRules.ToArray();
 
             string json = JsonUtility.ToJson(rsjo, true);
-            string path = AssetDatabase.GetAssetPath(jsonFile);
+            string path = UnityEditor.AssetDatabase.GetAssetPath(jsonFile);
 
             // write to file
             using (FileStream fs = new FileStream(path, FileMode.Create))
@@ -84,7 +81,8 @@ namespace ReplaceDungeonGenerator
                 }
             }
 
-            AssetDatabase.Refresh();
+            UnityEditor.AssetDatabase.Refresh();
         }
+#endif
     }
 }

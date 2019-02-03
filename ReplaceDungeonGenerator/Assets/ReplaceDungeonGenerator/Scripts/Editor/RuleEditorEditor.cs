@@ -43,6 +43,7 @@ namespace ReplaceDungeonGenerator
             if(ruleSet.selectedRuleIndex >= 0 && ruleSet.selectedRuleIndex < ruleSet.rules.Count) {
                 Rule currentRule = rules[ruleSet.selectedRuleIndex];
 
+                Undo.RecordObject(ruleSet, "Edit Rule");
                 EditorGUI.BeginChangeCheck();
 
                 // some extra fields
@@ -59,6 +60,8 @@ namespace ReplaceDungeonGenerator
                 // reverse
                 currentRule.reverseApplication = EditorGUILayout.Toggle("Reversible", currentRule.reverseApplication);
 
+                PatternView leftPatternView = ((PatternView)matchPatternView.objectReferenceValue);
+                Undo.RecordObject(leftPatternView, "Edit Rule");
                 // text areas for rule editing
                 try{
                     string leftSideText = SerializedRule.PatternToString(currentRule.leftSide);
@@ -66,25 +69,32 @@ namespace ReplaceDungeonGenerator
                     leftSideText = EditorGUILayout.TextField(leftSideText, GUILayout.ExpandHeight(true));
                     currentRule.leftSide = SerializedRule.StringToPattern(leftSideText);
                     if(doRotation) currentRule.leftSide = Pattern.Rotate90Y(currentRule.leftSide);
-                    ((PatternView) matchPatternView.objectReferenceValue).pattern = currentRule.leftSide;
+                    leftPatternView.pattern = currentRule.leftSide;
                 }
                 catch(System.ArgumentException) {
                     // parsing failed, do nothing
                 }
 
+                PatternView rightPatternView = ((PatternView)replacementPatternView.objectReferenceValue);
+                Undo.RecordObject(rightPatternView, "Edit Rule");
                 try{
                     string rightSideText = SerializedRule.PatternToString(currentRule.rightSide);
                     EditorGUILayout.PrefixLabel(new GUIContent("Replacement: ", "String representation of right side (replacement). \";\", \",\", \" \" are separators for x, y, z dimension"));
                     rightSideText = EditorGUILayout.TextField(rightSideText, GUILayout.ExpandHeight(true));
                     currentRule.rightSide = SerializedRule.StringToPattern(rightSideText);
                     if(doRotation) currentRule.rightSide = Pattern.Rotate90Y(currentRule.rightSide);
-                    ((PatternView) replacementPatternView.objectReferenceValue).pattern = currentRule.rightSide;
+                    rightPatternView.pattern = currentRule.rightSide;
                 }
                 catch(System.ArgumentException) {
                     // parsing failed, do nothing
                 }
 
-                Undo.RecordObject(ruleSet, "Edit Rule");
+                if(EditorGUI.EndChangeCheck()) {
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(ruleSet);
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(rightPatternView);
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(leftPatternView);
+                }
+
             } else {
                 EditorGUILayout.HelpBox("Please select a rule in the RuleSet component.", MessageType.Info);
             }
