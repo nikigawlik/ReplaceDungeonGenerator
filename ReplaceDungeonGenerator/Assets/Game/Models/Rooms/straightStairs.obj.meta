@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 87205a987b7bf8c47a84e28549ee5db5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: block_default_0
+    100002: block_default_20
+    100004: block_default_4
+    100006: block_default_8
+    100008: block_default_9
+    100010: open_block_10
+    100012: open_block_11
+    100014: open_block_12
+    100016: open_block_13
+    100018: slope_default_6
+    100020: slope_default_7
+    100022: //RootNode
+    100024: struct_ceiling_25
+    100026: struct_door_19
+    100028: struct_door_21
+    100030: struct_wall_main_half_14
+    100032: struct_wall_main_half_15
+    100034: struct_wall_main_half_16
+    100036: struct_wall_main_half_17
+    100038: struct_wall_main_half_18
+    100040: struct_wall_main_half_22
+    100042: struct_wall_main_half_23
+    100044: struct_wall_main_half_24
+    400000: block_default_0
+    400002: block_default_20
+    400004: block_default_4
+    400006: block_default_8
+    400008: block_default_9
+    400010: open_block_10
+    400012: open_block_11
+    400014: open_block_12
+    400016: open_block_13
+    400018: slope_default_6
+    400020: slope_default_7
+    400022: //RootNode
+    400024: struct_ceiling_25
+    400026: struct_door_19
+    400028: struct_door_21
+    400030: struct_wall_main_half_14
+    400032: struct_wall_main_half_15
+    400034: struct_wall_main_half_16
+    400036: struct_wall_main_half_17
+    400038: struct_wall_main_half_18
+    400040: struct_wall_main_half_22
+    400042: struct_wall_main_half_23
+    400044: struct_wall_main_half_24
+    2100000: _defaultMat
+    2100002: golfBorder
+    2100004: Dark_Grey.001
+    2100006: Stones
+    2100008: Dark_Grey
+    2300000: block_default_0
+    2300002: block_default_20
+    2300004: block_default_4
+    2300006: block_default_8
+    2300008: block_default_9
+    2300010: open_block_10
+    2300012: open_block_11
+    2300014: open_block_12
+    2300016: open_block_13
+    2300018: slope_default_6
+    2300020: slope_default_7
+    2300022: struct_ceiling_25
+    2300024: struct_door_19
+    2300026: struct_door_21
+    2300028: struct_wall_main_half_14
+    2300030: struct_wall_main_half_15
+    2300032: struct_wall_main_half_16
+    2300034: struct_wall_main_half_17
+    2300036: struct_wall_main_half_18
+    2300038: struct_wall_main_half_22
+    2300040: struct_wall_main_half_23
+    2300042: struct_wall_main_half_24
+    3300000: block_default_0
+    3300002: block_default_20
+    3300004: block_default_4
+    3300006: block_default_8
+    3300008: block_default_9
+    3300010: open_block_10
+    3300012: open_block_11
+    3300014: open_block_12
+    3300016: open_block_13
+    3300018: slope_default_6
+    3300020: slope_default_7
+    3300022: struct_ceiling_25
+    3300024: struct_door_19
+    3300026: struct_door_21
+    3300028: struct_wall_main_half_14
+    3300030: struct_wall_main_half_15
+    3300032: struct_wall_main_half_16
+    3300034: struct_wall_main_half_17
+    3300036: struct_wall_main_half_18
+    3300038: struct_wall_main_half_22
+    3300040: struct_wall_main_half_23
+    3300042: struct_wall_main_half_24
+    4300000: block_default_0
+    4300002: block_default_20
+    4300004: block_default_4
+    4300006: block_default_8
+    4300008: block_default_9
+    4300010: open_block_10
+    4300012: open_block_11
+    4300014: open_block_12
+    4300016: open_block_13
+    4300018: slope_default_6
+    4300020: slope_default_7
+    4300022: struct_ceiling_25
+    4300024: struct_door_19
+    4300026: struct_door_21
+    4300028: struct_wall_main_half_14
+    4300030: struct_wall_main_half_15
+    4300032: struct_wall_main_half_16
+    4300034: struct_wall_main_half_17
+    4300036: struct_wall_main_half_18
+    4300038: struct_wall_main_half_22
+    4300040: struct_wall_main_half_23
+    4300042: struct_wall_main_half_24
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

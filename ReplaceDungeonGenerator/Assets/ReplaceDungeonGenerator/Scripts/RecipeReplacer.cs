@@ -17,6 +17,7 @@ namespace ReplaceDungeonGenerator
 			Repeat, // repeats the next instruction n times
 			ApplyRule, // applies a rule
 			ApplyRuleRange, // applies a rule allowing for partial matches
+			Subdivide, // Subdivides the grid, doubling it's size
 			Error, // just an error, to keep track, will be ignored
 		}
 
@@ -26,6 +27,8 @@ namespace ReplaceDungeonGenerator
 			public string filter;
 			public int minRepeats;
 			public int maxRepeats;
+			public Vector3Int dimensions;
+			public bool isSweep;
 
 			public Instruction(InstructionType type) {
 				this.type = type;
@@ -51,6 +54,7 @@ namespace ReplaceDungeonGenerator
 		public TextAsset recipeFile;
 		public int maxGenerationSteps = 10;
 		public PatternView patternView;
+		public Vector3Int startSize = new Vector3Int(8, 4, 8);
         public bool increaseSeed = true;
         public int seed = 0;
 		public bool printDebugInfo = false;
@@ -59,6 +63,7 @@ namespace ReplaceDungeonGenerator
 		private Stack<ProgramState> gotoStack;
 		private Instruction[] instructions;
 		private int applicationCounter;
+		private System.Random systemRandom;
 
         /// Do repeated replacement steps until no replacements are possible 
         /// or the maximum step number is reached
@@ -67,6 +72,13 @@ namespace ReplaceDungeonGenerator
         {
             ReplacementEngine re = GetComponent<ReplacementEngine>();
             InitializeGeneration();
+
+// #if UNITY_EDITOR
+// 			UnityEditor.Undo.RecordObject(this.gameObject, "Generate Dungeon");
+// 			UnityEditor.Undo.RecordObject(patternView, "Generate Dungeon");
+// 			UnityEditor.Undo.RecordObject(this, "Generate Dungeon");
+// 			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
+// #endif
 
             if (re != null)
             {
@@ -83,12 +95,19 @@ namespace ReplaceDungeonGenerator
 		[Button]
         public void InitializeGeneration()
         {
+#if UNITY_EDITOR
+			UnityEditor.Undo.RecordObject(this.gameObject, "Intialize Generation");
+			UnityEditor.Undo.RecordObject(this, "Intialize Generation");
+			UnityEditor.Undo.RecordObject(patternView, "Intialize Generation");
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(patternView);
+#endif
             if(increaseSeed) seed++;
-            Random.InitState(seed);
 
-			patternView.pattern = new Pattern(patternView.pattern.Size, Tile.Empty);
+			patternView.pattern = new Pattern(startSize, Tile.Empty);
             ReplacementEngine re = GetComponent<ReplacementEngine>();
-            re.SetStartSymbol();
+            re.ResetGeneration(seed);
             PatternView.UpdateView();
 
 			ParseInstructions();
@@ -100,6 +119,14 @@ namespace ReplaceDungeonGenerator
 		[Button]
         public void GenerateStep()
         {
+#if UNITY_EDITOR
+			UnityEditor.Undo.RecordObject(this.gameObject, "Generation Step");
+			UnityEditor.Undo.RecordObject(this, "Generation Step");
+			UnityEditor.Undo.RecordObject(patternView, "Generation Step");
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(patternView);
+#endif
 			// we execute until we have visible change
 			for(int i = 0; i < 100; i++) {
 				GenerationStepResult result = GenerationStepInternal();
@@ -148,7 +175,14 @@ namespace ReplaceDungeonGenerator
 				break;
 				case InstructionType.Repeat:
 					// we just set the counter, the execution is handled by the repeatable instructions
-					applicationCounter = Mathf.Max(1, Random.Range(instr.minRepeats, instr.maxRepeats));
+					System.Random sysRandom = GetComponent<ReplacementEngine>().systemRandom;
+					int repeats;
+					if(sysRandom != null) {
+						repeats = instr.minRepeats + Mathf.FloorToInt((float)sysRandom.NextDouble() * (instr.maxRepeats - instr.minRepeats));
+					} else {
+						repeats = Random.Range(instr.minRepeats, instr.maxRepeats);
+					}
+					applicationCounter = Mathf.Max(1, repeats);
 					currentInstruction++;
 				break;
 				// repeatable instructions
@@ -164,11 +198,19 @@ namespace ReplaceDungeonGenerator
 				case InstructionType.ApplyRuleRange:
 					if(UseApplication()) {
 						// apply rule once and count down
-						visibleChange = re.ReplaceMatch(instr.filter, instr.type == InstructionType.ApplyRuleRange);
-
+						if(instr.isSweep) {
+							visibleChange = re.SweepReplace(instr.filter, instr.type == InstructionType.ApplyRuleRange);
+						} else {
+							visibleChange = re.ReplaceMatch(instr.filter, instr.type == InstructionType.ApplyRuleRange);
+						}
 					} else {
 						currentInstruction++;
 					}
+				break;
+				case InstructionType.Subdivide:
+					visibleChange = true;
+					re.DoSubdividision(instr.dimensions);
+					currentInstruction++;
 				break;
 				case InstructionType.Error:
 					currentInstruction++;
@@ -215,6 +257,39 @@ namespace ReplaceDungeonGenerator
 						// For end add a return intruction
 						instructionList.Add(new Instruction(InstructionType.Return));
 					break;
+					case "subdivide":
+						Instruction instr2; 
+
+						Vector3Int dimensions;
+						try {
+							if(tokens.Length == 1) {
+								dimensions = Vector3Int.one;
+							}
+							else if(tokens.Length == 2){
+								int n = int.Parse(tokens[1]);
+								dimensions = new Vector3Int(n, n, n);
+							}
+							else if(tokens.Length == 4){
+								dimensions = new Vector3Int(
+									int.Parse(tokens[1]), 
+									int.Parse(tokens[2]), 
+									int.Parse(tokens[3])
+								);
+							}
+							else {
+								instructionList.Add(new Instruction(InstructionType.Error));
+								continue;
+							} 
+						} catch {
+							// parse error
+							instructionList.Add(new Instruction(InstructionType.Error));
+							continue;
+						}
+
+						instr2 = new Instruction(InstructionType.Subdivide);
+						instr2.dimensions = dimensions;
+						instructionList.Add(instr2);
+					break;
 					default:
 						// default means any symbol type command, like a function or rule
 						Instruction instr;
@@ -244,8 +319,14 @@ namespace ReplaceDungeonGenerator
 								// single application
 								repeatInstruction.minRepeats = repeatInstruction.maxRepeats = 1;
 							} else if(tokens.Length == 2) {
-								// fixed number of applications
-								repeatInstruction.minRepeats = repeatInstruction.maxRepeats = int.Parse(tokens[1]);
+								// check for sweep symbol
+								if(tokens[1] == "!") {
+									repeatInstruction.minRepeats = repeatInstruction.maxRepeats = 1;
+									instr.isSweep = true;
+								} else {
+									// fixed number of applications
+									repeatInstruction.minRepeats = repeatInstruction.maxRepeats = int.Parse(tokens[1]);
+								}
 							} else {
 								// random number of applications
 								repeatInstruction.minRepeats = int.Parse(tokens[1]);

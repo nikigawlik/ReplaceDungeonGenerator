@@ -39,18 +39,34 @@ namespace ReplaceDungeonGenerator
 		[Button]
         public void InitializeGeneration()
         {
+#if UNITY_EDITOR
+			UnityEditor.Undo.RecordObject(this.gameObject, "Intialize Generation");
+			UnityEditor.Undo.RecordObject(this, "Intialize Generation");
+			UnityEditor.Undo.RecordObject(patternView, "Intialize Generation");
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(patternView);
+#endif
             if(increaseSeed) seed++;
-            Random.InitState(seed);
 
 			patternView.pattern = new Pattern(patternView.pattern.Size, Tile.Empty);
             ReplacementEngine re = GetComponent<ReplacementEngine>();
-            re.SetStartSymbol();
+            re.ResetGeneration(seed);
             PatternView.UpdateView();
         }
 
 		[Button]
         public void GenerateStep()
         {
+#if UNITY_EDITOR
+			UnityEditor.Undo.RecordObject(this.gameObject, "Generation Step");
+			UnityEditor.Undo.RecordObject(this, "Generation Step");
+			UnityEditor.Undo.RecordObject(patternView, "Generation Step");
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this.gameObject);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+			UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(patternView);
+#endif
+
             ReplacementEngine re = GetComponent<ReplacementEngine>();
             re.ReplaceMatch();
             PatternView.UpdateView();

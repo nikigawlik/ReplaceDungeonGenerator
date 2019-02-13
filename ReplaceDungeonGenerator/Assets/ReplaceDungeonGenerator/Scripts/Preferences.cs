@@ -14,6 +14,7 @@ namespace ReplaceDungeonGenerator
         private static Color roomLabelColor = Color.white;
         private static float roomBoxSize = .1f;
 
+#if UNITY_EDITOR
         public static Color RoomBoxColor
         {
             get
@@ -38,7 +39,6 @@ namespace ReplaceDungeonGenerator
             }
         }
 
-#if UNITY_EDITOR
         [PreferenceItem("ReDuGe")]
 
         public static void PreferencesGUI()

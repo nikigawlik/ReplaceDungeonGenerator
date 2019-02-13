@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,34 +14,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - label: st
-    prefab: {fileID: 1051310207012056, guid: e0eef54845545094596ef89c5fc14ac6, type: 2}
+    prefab: {fileID: 1051310207012056, guid: e0eef54845545094596ef89c5fc14ac6, type: 3}
   - label: tl
-    prefab: {fileID: 1252659441770544, guid: 0d3cdd891f1b2904395942c8f99319fe, type: 2}
+    prefab: {fileID: 1252659441770544, guid: 0d3cdd891f1b2904395942c8f99319fe, type: 3}
   - label: tr
-    prefab: {fileID: 1854402754259906, guid: fa88932b8028f3a45b94b0c1e58d38e8, type: 2}
+    prefab: {fileID: 1854402754259906, guid: fa88932b8028f3a45b94b0c1e58d38e8, type: 3}
   - label: it
-    prefab: {fileID: 1560683664970732, guid: 6e66528a349608848a9eb89b8035d2f1, type: 2}
+    prefab: {fileID: 1560683664970732, guid: 6e66528a349608848a9eb89b8035d2f1, type: 3}
   - label: dd
-    prefab: {fileID: 1086419397081162, guid: 0fb2a589020868e47932042e43e422d5, type: 2}
+    prefab: {fileID: 1086419397081162, guid: 0fb2a589020868e47932042e43e422d5, type: 3}
   - label: cross
-    prefab: {fileID: 1016173211017612, guid: 4bdd14e80c4ae354dbf703d00646218b, type: 2}
+    prefab: {fileID: 1016173211017612, guid: 4bdd14e80c4ae354dbf703d00646218b, type: 3}
   - label: secret
-    prefab: {fileID: 1500924743399110, guid: c7a0425a60804264696afee6a42210da, type: 2}
+    prefab: {fileID: 1500924743399110, guid: c7a0425a60804264696afee6a42210da, type: 3}
   - label: slope
-    prefab: {fileID: 1125011398224054, guid: c279d508cf7baa348825a8f691b1d1df, type: 2}
+    prefab: {fileID: 1125011398224054, guid: c279d508cf7baa348825a8f691b1d1df, type: 3}
+  - label: returnS
+    prefab: {fileID: 1025395180003620, guid: dc565ad7becb80743a3c635685acdd21, type: 3}
   - label: returnT
-    prefab: {fileID: 1025395180003620, guid: f7a6c02d73c4a2a43baac93b48dcd09e, type: 2}
+    prefab: {fileID: 1025395180003620, guid: f7a6c02d73c4a2a43baac93b48dcd09e, type: 3}
   - label: door
-    prefab: {fileID: 1114583882722058, guid: d57d413d3a0519d4e989670d63f0ca83, type: 2}
+    prefab: {fileID: 1114583882722058, guid: d57d413d3a0519d4e989670d63f0ca83, type: 3}
+  - label: doorR
+    prefab: {fileID: 1114583882722058, guid: 694ccff335a00d14c80b259f7073d77d, type: 3}
   - label: obstacle
-    prefab: {fileID: 1141005102045162, guid: b34fa963038ee6b4495082ddb40905df, type: 2}
+    prefab: {fileID: 1141005102045162, guid: b34fa963038ee6b4495082ddb40905df, type: 3}
   - label: key
-    prefab: {fileID: 1327096675067198, guid: ad132db725fce344d98d9e523c298de7, type: 2}
+    prefab: {fileID: 1327096675067198, guid: ad132db725fce344d98d9e523c298de7, type: 3}
   - label: bigC
-    prefab: {fileID: 1807528405504572, guid: f6e533d30d5902e4eb19a63d9cd2b80d, type: 2}
+    prefab: {fileID: 1807528405504572, guid: f6e533d30d5902e4eb19a63d9cd2b80d, type: 3}
   - label: bigB
-    prefab: {fileID: 1355575673657312, guid: eb85915ecf1e9554891d9eaab6cfcc74, type: 2}
+    prefab: {fileID: 1355575673657312, guid: eb85915ecf1e9554891d9eaab6cfcc74, type: 3}
   - label: bigS
-    prefab: {fileID: 1182690535380810, guid: d55095e45b8a64c4c9f255f4cd6c8948, type: 2}
+    prefab: {fileID: 1182690535380810, guid: d55095e45b8a64c4c9f255f4cd6c8948, type: 3}
   - label: bigDS
-    prefab: {fileID: 1182690535380810, guid: ffedfcb111848754fb1435c961dcff84, type: 2}
+    prefab: {fileID: 1182690535380810, guid: ffedfcb111848754fb1435c961dcff84, type: 3}
+  - label: stOpen
+    prefab: {fileID: 386167532963157531, guid: 0c0ef8d8591ff734c8cb47364256a330, type: 3}
+  - label: stBridge
+    prefab: {fileID: 7647883167530346788, guid: f5f937499ed477a4a85b65f9d70a9ab1,
+      type: 3}
+  - label: stStairs
+    prefab: {fileID: 7647883167530346788, guid: 763cf3074f5d7af4fbc453f2ee728b09,
+      type: 3}
+  - label: tlStairs
+    prefab: {fileID: 1252659441770544, guid: 3e7aed0301a3d6b45affc1e5ed3126a3, type: 3}
+  - label: doubleStairs
+    prefab: {fileID: 1252659441770544, guid: 06773cfbf0dca994d94e628512582e57, type: 3}
+  - label: trStairs
+    prefab: {fileID: 1252659441770544, guid: ead16b51b8741d845b5a80eea6b231f6, type: 3}
+  - label: spawnpoint
+    prefab: {fileID: 821898030403416493, guid: 655f16bbbd9020d43adb599a4762968c, type: 3}

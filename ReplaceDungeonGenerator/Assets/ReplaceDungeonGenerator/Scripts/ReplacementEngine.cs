@@ -27,6 +27,8 @@ namespace ReplaceDungeonGenerator
             Random
         }
 
+        public System.Random systemRandom = null;
+        
         [SerializeField] private bool showDebugInformation = false;
         [SerializeField] private ReplacementStrategy replacementStrategy = ReplacementStrategy.Random;
         [SerializeField] [HideInInspector] private int currentStep;
@@ -34,8 +36,12 @@ namespace ReplaceDungeonGenerator
         private List<Match> matches;
         private Dictionary<string, int> useCounts = new Dictionary<string, int>();
 
-        public void SetStartSymbol()
+        public void ResetGeneration(int seed = -1)
         {
+            if(seed != -1) {
+                systemRandom = new System.Random(seed);
+            }
+
             currentStep = 0;
             RuleSet ruleSet = GetComponent<RuleSet>();
             foreach(Rule r in ruleSet.rules) {
@@ -48,6 +54,26 @@ namespace ReplaceDungeonGenerator
             // Vector3Int position = Vector3Int.zero;
             SetPattern(position, ruleSet.startPattern);
             matches = null;
+        }
+
+        public bool SweepReplace(string filter = "", bool allowPartialMatch = true) {
+            IEnumerable<Match> filteredMatches = GetMatches(filter, allowPartialMatch);
+            if(filteredMatches == null) 
+                return false;
+
+            foreach(Match match in filteredMatches) {
+                // replace
+                Pattern replacement = match.rule.rightSide;
+                Vector3Int position = match.position;
+                SetPattern(position, replacement);
+                useCounts[match.rule.name]++;
+            }
+
+            // assume enough was changed that it's worth recalculating all matches
+            matches = null;
+
+            currentStep++;
+            return true;
         }
 
         public bool ReplaceMatch(string filter = "", bool allowPartialMatch = true)
@@ -91,6 +117,15 @@ namespace ReplaceDungeonGenerator
             return true;
         }
 
+        public void DoSubdividision(Vector3Int delta) {
+            PatternView patternView = GetComponent<PatternView>();
+            Pattern mainPattern = patternView.pattern;
+            patternView.Subdivide(delta);
+
+            // erases matches and will trigger new search
+            matches = null;
+        }
+
         private void SetPattern(Vector3Int position, Pattern pattern)
         {
             Vector3Int pSize = pattern.Size;
@@ -108,6 +143,24 @@ namespace ReplaceDungeonGenerator
 
         private Match FindMatch(ReplacementStrategy replacementStrategy, string filter = "", bool allowPartialMatch = true)
         {
+            IEnumerable<Match> filteredMatches = GetMatches(filter, allowPartialMatch);
+            if(filteredMatches == null) 
+                return null;
+ 
+            switch(replacementStrategy) {
+                case ReplacementStrategy.First:
+                    return filteredMatches.FirstOrDefault();
+                case ReplacementStrategy.Last:
+                    return filteredMatches.LastOrDefault();
+                case ReplacementStrategy.Random:
+                    return Utils.Choose(filteredMatches, WeightOfMatch, systemRandom);
+                default:
+                    Debug.Log("Replacement strategy not supported. ");
+                    return null;
+            }
+        }
+
+        private IEnumerable<Match> GetMatches(string filter, bool allowPartialMatch) {
             Pattern mainPattern = GetComponent<PatternView>().pattern;
             Vector3Int size = mainPattern.Size;
             List<Rule> rules = GetComponent<RuleSet>().rules;
@@ -121,8 +174,9 @@ namespace ReplaceDungeonGenerator
                 return null;
             }
 
-            // pick a random match from results
             IEnumerable<Match> filteredMatches;
+
+            // pick a random match from results
             if(filter == "") {
                 // unfiltered
                 filteredMatches = matches;
@@ -134,17 +188,7 @@ namespace ReplaceDungeonGenerator
                 filteredMatches = matches.Where(m => filter == m.rule.name);
             }
 
-            switch(replacementStrategy) {
-                case ReplacementStrategy.First:
-                    return filteredMatches.FirstOrDefault();
-                case ReplacementStrategy.Last:
-                    return filteredMatches.LastOrDefault();
-                case ReplacementStrategy.Random:
-                    return Utils.Choose(filteredMatches, WeightOfMatch);
-                default:
-                    Debug.Log("Replacement strategy not supported. ");
-                    return null;
-            }
+            return filteredMatches;
         }
 
         private bool MatchFilterFunction(string filter, Match match) {
@@ -219,6 +263,7 @@ namespace ReplaceDungeonGenerator
             return m.rule.weight;
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos() {
             if(showDebugInformation) {
                 PatternView pv = GetComponent<PatternView>();
@@ -228,11 +273,14 @@ namespace ReplaceDungeonGenerator
                         Vector3 p1 = pv.GetPositionInWorldSpace(m.position, pv.displayDelta);
                         Vector3 p2 = pv.GetPositionInWorldSpace(m.position + m.rule.leftSide.Size - Vector3Int.one, pv.displayDelta);
                         Gizmos.DrawWireCube((p1 + p2) / 2, (p2 - p1) + pv.displayDelta);
+                        Gizmos.color = Preferences.RoomLabelColor;
+                        GUI.color = Preferences.RoomLabelColor;
                         Utils.DrawLabel(m.rule.name, p1);
                     }
                 }
             }
         }
+#endif
 
         private void OnValidate() {
             Debug.Assert(Utils.BoundsIntersect(

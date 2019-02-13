@@ -45,7 +45,7 @@ namespace ReplaceDungeonGenerator
         public delegate float WeightFunction<T>(T obj); 
 
         /// Chooses a thing from an IEnumerable (Array, List) using weighted randomness
-        public static T Choose<T>(IEnumerable<T> spawnOptions, WeightFunction<T> WeightOf) {
+        public static T Choose<T>(IEnumerable<T> spawnOptions, WeightFunction<T> WeightOf, System.Random systemRandom = null) {
             float weightSum = 0;
             foreach (T t in spawnOptions)
             {
@@ -56,7 +56,12 @@ namespace ReplaceDungeonGenerator
                 return default(T);
             }
 
-            float choice = UnityEngine.Random.Range(0f, weightSum);
+            float choice;
+            if(systemRandom != null) {
+                choice = (float)systemRandom.NextDouble() * weightSum;
+            } else {
+                choice = Random.Range(0f, weightSum);
+            }
             foreach (T t in spawnOptions)
             {
                 choice -= WeightOf(t);
@@ -106,6 +111,7 @@ namespace ReplaceDungeonGenerator
 #endif
         }
 
+#if UNITY_EDITOR
         [MenuItem("GameObject/AssetForgeTools/Add Mesh Colliders by Name", false, 0)]
         public static void AddMeshCollidersByName() {
             Transform[] transforms = Selection.GetTransforms(SelectionMode.Deep);
@@ -125,5 +131,6 @@ namespace ReplaceDungeonGenerator
                 }
             }
         }
+#endif
     }
 }

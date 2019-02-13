@@ -1,0 +1,1012 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1614514132310378014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614514132310378008}
+  - component: {fileID: 7649855264426453202}
+  m_Layer: 0
+  m_Name: RuleEditorView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614514132310378008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514132310378014}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -64, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1614514133319290762}
+  - {fileID: 1614514132458102152}
+  m_Father: {fileID: 1614514133251754024}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7649855264426453202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514132310378014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69918a7aeb769d42a5cf9c2206c9048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1614514132458102158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614514132458102152}
+  - component: {fileID: 1614514132458102153}
+  - component: {fileID: 1614514132458102155}
+  m_Layer: 0
+  m_Name: Replacement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614514132458102152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514132458102158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.41, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1614514132310378008}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1614514132458102153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514132458102158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0c175c4fa274247af8c3161578a63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pattern:
+    serializedTiles:
+    - label: tr_0
+    - label: stStairs_1
+    - label: .
+    - label: x
+    - label: stStairs_2
+    - label: .
+    - label: x
+    - label: .
+    serializedSize: {x: 2, y: 2, z: 2}
+  displayDelta: {x: 3, y: 2, z: 3}
+  alwaysShowLabel: 1
+  showBoundingBox: 1
+--- !u!114 &1614514132458102155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514132458102158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ccca0096bda5243870e41278f4fe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDictionary: {fileID: 11400000, guid: abfc535159e3a864d88e19aa040a55a2, type: 2}
+  logWarnings: 0
+  executeInEditorOnly: 1
+--- !u!1 &1614514133251754019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614514133251754024}
+  - component: {fileID: 1614514133251754018}
+  - component: {fileID: 1614514133251754030}
+  - component: {fileID: 1614514133251754029}
+  - component: {fileID: 1614514133251754025}
+  - component: {fileID: 1614514133251754028}
+  - component: {fileID: 1614514133251754031}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614514133251754024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133251754019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1614514132310378008}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1614514133251754018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133251754019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0c175c4fa274247af8c3161578a63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pattern:
+    serializedTiles:
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    - label: 
+    serializedSize: {x: 3, y: 2, z: 3}
+  displayDelta: {x: 5, y: 3, z: 5}
+  alwaysShowLabel: 0
+  showBoundingBox: 1
+--- !u!114 &1614514133251754030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133251754019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58dd1e9fe114dd42b5b44dfb69264e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeFile: {fileID: 4900000, guid: b02b4e10250c97744862d6817124458c, type: 3}
+  maxGenerationSteps: 100
+  patternView: {fileID: 1614514133251754018}
+  startSize: {x: 7, y: 3, z: 7}
+  increaseSeed: 1
+  seed: 697
+  printDebugInfo: 0
+--- !u!114 &1614514133251754029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133251754019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a4adee7156ad4fa20c01f294f2970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLabel: start
+  jsonFile: {fileID: 4900000, guid: 4f30791bb80ce6549afef79c8cc6052f, type: 3}
+  rules:
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: start
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 3, y: 1, z: 3}
+    rightSide:
+      serializedTiles:
+      - label: tr_0
+      - label: st_obstacle_spawnpoint_1
+      - label: tr_1
+      - label: st_0
+      - label: .
+      - label: st_2
+      - label: tr_3
+      - label: st_3
+      - label: tr_2
+      serializedSize: {x: 3, y: 1, z: 3}
+    weight: 1
+    name: basic_structure
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: tr_0
+      - label: st_1
+      - label: .
+      - label: .
+      - label: st_0
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: tr_0
+      - label: stStairs_1
+      - label: .
+      - label: x
+      - label: stStairs_2
+      - label: .
+      - label: x
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    weight: 1
+    name: basic_transform
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_0
+      - label: st_1
+      - label: .
+      - label: .
+      - label: st_0
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: stStairs_3
+      - label: tr_0
+      - label: x
+      - label: stStairs_0
+      - label: .
+      - label: x
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    weight: 1
+    name: basic_transform
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: tr_0
+      - label: st_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: tr_0
+      - label: tr_1
+      - label: it_r_0
+      - label: it_l_3
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 0
+    name: feature_alternative
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: st_2
+      - label: .
+      serializedSize: {x: 1, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: it_l_0
+      - label: dd_1
+      serializedSize: {x: 1, y: 1, z: 2}
+    weight: 0.2
+    name: feature_outer_spoke
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: st_0
+      - label: .
+      serializedSize: {x: 1, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: it_r_0
+      - label: dd_1
+      serializedSize: {x: 1, y: 1, z: 2}
+    weight: 1
+    name: feature_inner_spoke
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: tr_0
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: trStairs_0
+      - label: .
+      - label: x
+      - label: tr_key_1
+      - label: tr_3
+      - label: returnT_door_3
+      - label: .
+      - label: x
+      serializedSize: {x: 2, y: 2, z: 2}
+    weight: 2
+    name: feature_lock
+    strictRotation: 0
+    maximumApplications: 3
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_0
+      - label: '*'
+      - label: '*'
+      - label: .
+      - label: .
+      - label: .
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: .
+      - label: .
+      - label: .
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 3, y: 2, z: 3}
+    rightSide:
+      serializedTiles:
+      - label: doubleStairs_0
+      - label: '*'
+      - label: '*'
+      - label: x_obstacle_0
+      - label: st_1
+      - label: tr_1
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: st_0
+      - label: 
+      - label: st_2
+      - label: '*'
+      - label: '*'
+      - label: '*'
+      - label: tr_3
+      - label: st_3
+      - label: tr_2
+      serializedSize: {x: 3, y: 2, z: 3}
+    weight: 1
+    name: add_floor_lock
+    strictRotation: 0
+    maximumApplications: 3
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: trStairs_0
+      - label: .
+      - label: x
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: trStairs_0
+      - label: x
+      - label: .
+      - label: st_1
+      - label: st_0
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    weight: 1
+    name: subdiv_trStairs
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: returnT_door_0
+      - label: .
+      - label: .
+      - label: x
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 3, y: 2, z: 3}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: st_0
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: st_1
+      - label: returnT_door_0
+      - label: .
+      - label: .
+      - label: x
+      - label: st_3
+      - label: .
+      - label: st_2
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 3, y: 2, z: 3}
+    weight: 1
+    name: subdiv_returnT_door
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: it_r_0
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 3, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: st_0
+      - label: .
+      - label: it_r_0
+      - label: st_1
+      - label: st_0
+      - label: .
+      serializedSize: {x: 3, y: 1, z: 2}
+    weight: 1
+    name: subdiv_it_r
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: it_l_0
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 3, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: st_2
+      - label: .
+      - label: it_l_0
+      - label: st_1
+      - label: st_2
+      - label: .
+      serializedSize: {x: 3, y: 1, z: 2}
+    weight: 1
+    name: subdiv_it_l
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_key_0
+      - label: st_1
+      serializedSize: {x: 1, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: tr_0
+      - label: st_key_1
+      serializedSize: {x: 1, y: 1, z: 2}
+    weight: 1
+    name: move_key
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: .
+      - label: tr_0
+      - label: st_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: tr_0
+      - label: tr_1
+      - label: st_0
+      - label: tl_2
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: basic_transform
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_0
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: tr_0
+      - label: st_1
+      - label: st_0
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: subdiv_tr
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tl_3
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: tl_3
+      - label: st_3
+      - label: st_2
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: subdiv_tl
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_key_0
+      - label: st_0
+      serializedSize: {x: 2, y: 1, z: 1}
+    rightSide:
+      serializedTiles:
+      - label: tr_0
+      - label: st_key_0
+      serializedSize: {x: 2, y: 1, z: 1}
+    weight: 1
+    name: move_key
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: tr_key_0
+      serializedSize: {x: 2, y: 1, z: 1}
+    rightSide:
+      serializedTiles:
+      - label: dd_key_0
+      - label: it_r_0
+      serializedSize: {x: 2, y: 1, z: 1}
+    weight: 1
+    name: move_key
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_0
+      - label: st_1
+      - label: st_0
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: tr_0
+      - label: tr_0
+      - label: tl_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: basic_transform_collapse
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_0
+      - label: tl_1
+      - label: tl_1
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: st_0
+      - label: st_1
+      - label: tl_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: basic_transform_collapse
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: st_1
+      - label: .
+      serializedSize: {x: 1, y: 1, z: 3}
+    rightSide:
+      serializedTiles:
+      - label: st_1
+      - label: st_1
+      - label: st_1
+      serializedSize: {x: 1, y: 1, z: 3}
+    weight: 1
+    name: subdiv_st
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: doubleStairs_0
+      - label: .
+      - label: x_obstacle_0
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: doubleStairs_0
+      - label: st_1
+      - label: '*'
+      - label: st_1
+      - label: st_0
+      - label: .
+      - label: st_0
+      - label: .
+      serializedSize: {x: 2, y: 2, z: 2}
+    weight: 1
+    name: subdiv_doubleStairs_obstacle
+    strictRotation: 0
+    maximumApplications: 3
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: tr_0
+      - label: tr_0
+      - label: tl_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: bigC_1
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: post_corner
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: .
+      - label: tr_0
+      - label: st_1
+      - label: tl_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: bigB_1
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: post_bend
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: tr_0
+      - label: st_1
+      - label: tl_1
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: .
+      - label: bigB_1
+      - label: .
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: post_bend
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: st_1
+      - label: st_1
+      serializedSize: {x: 1, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: bigS_3
+      - label: .
+      serializedSize: {x: 1, y: 1, z: 2}
+    weight: 0.5
+    name: post_straight
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: st_1
+      - label: st_1
+      - label: st_1
+      - label: st_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: x
+      - label: x
+      - label: bigDS_3
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: post_double_straight
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: st_3
+      - label: st_3
+      - label: st_1
+      - label: st_1
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: x
+      - label: x
+      - label: bigDS_3
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: post_double_straight
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+  - leftSide:
+      serializedTiles:
+      - label: st_1
+      - label: st_1
+      - label: st_3
+      - label: st_3
+      serializedSize: {x: 2, y: 1, z: 2}
+    rightSide:
+      serializedTiles:
+      - label: x
+      - label: x
+      - label: bigDS_3
+      - label: .
+      serializedSize: {x: 2, y: 1, z: 2}
+    weight: 1
+    name: post_double_straight
+    strictRotation: 0
+    maximumApplications: -1
+    waitSteps: 0
+    reverseApplication: 0
+--- !u!114 &1614514133251754025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133251754019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5751f0c6e5b9efe41b95b2927cab5c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchPatternView: {fileID: 1614514133319290763}
+  replacementPatternView: {fileID: 1614514132458102153}
+--- !u!114 &1614514133251754028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133251754019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ccca0096bda5243870e41278f4fe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDictionary: {fileID: 11400000, guid: abfc535159e3a864d88e19aa040a55a2, type: 2}
+  logWarnings: 0
+  executeInEditorOnly: 0
+--- !u!114 &1614514133251754031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133251754019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248d8b5f5395095469927c0175629fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebugInformation: 0
+  replacementStrategy: 2
+  currentStep: 24
+--- !u!1 &1614514133319290760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614514133319290762}
+  - component: {fileID: 1614514133319290763}
+  - component: {fileID: 1614514133319290773}
+  m_Layer: 0
+  m_Name: Match
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614514133319290762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133319290760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.390005, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1614514132310378008}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1614514133319290763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133319290760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0c175c4fa274247af8c3161578a63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pattern:
+    serializedTiles:
+    - label: .
+    - label: .
+    - label: tr_0
+    - label: st_1
+    - label: .
+    - label: .
+    - label: st_0
+    - label: .
+    serializedSize: {x: 2, y: 2, z: 2}
+  displayDelta: {x: 3, y: 2, z: 3}
+  alwaysShowLabel: 1
+  showBoundingBox: 1
+--- !u!114 &1614514133319290773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614514133319290760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ccca0096bda5243870e41278f4fe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDictionary: {fileID: 11400000, guid: abfc535159e3a864d88e19aa040a55a2, type: 2}
+  logWarnings: 0
+  executeInEditorOnly: 1

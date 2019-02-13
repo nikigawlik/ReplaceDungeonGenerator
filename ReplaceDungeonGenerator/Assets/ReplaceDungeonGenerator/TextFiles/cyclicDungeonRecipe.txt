@@ -1,8 +1,0 @@
-start_symbol
-initial_extension 5
-side_extension 0 2
-side_move 0 2
-side_flatten 0 2
-feature_* 3
-extend_* 12
-post_* 15
